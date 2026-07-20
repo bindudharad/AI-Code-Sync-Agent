@@ -1,0 +1,87 @@
+
+
+llm
+:
+
+  
+provider
+:
+ 
+"anthropic"
+  
+# or "openai", "local"
+
+  
+model
+:
+ 
+"claude-3-opus-20240229"
+
+
+
+agents
+:
+
+  
+enabled
+:
+
+    
+-
+ manager
+    
+-
+ architect
+    
+-
+ frontend
+    
+-
+ backend
+    
+-
+ database
+    
+-
+ qa
+    
+-
+ security
+    
+-
+ reviewer
+
+
+memory
+:
+
+  
+vector_store
+:
+ 
+"chroma"
+  
+# or "faiss"
+
+  
+embedding_model
+:
+ 
+"sentence-transformers/all-MiniLM-L6-v2"
+
+
+
+cost_limits
+:
+
+  
+daily
+:
+ 
+50.0
+
+  
+monthly
+:
+ 
+500.0

@@ -1,0 +1,155 @@
+
+
+apiVersion
+:
+ apps/v1
+
+kind
+:
+ Deployment
+
+metadata
+:
+
+  
+name
+:
+ autonomous
+-
+ai
+
+spec
+:
+
+  
+replicas
+:
+ 
+1
+
+  
+selector
+:
+
+    
+matchLabels
+:
+
+      
+app
+:
+ autonomous
+-
+ai
+  
+template
+:
+
+    
+metadata
+:
+
+      
+labels
+:
+
+        
+app
+:
+ autonomous
+-
+ai
+    
+spec
+:
+
+      
+containers
+:
+
+      
+-
+ 
+name
+:
+ ai
+-
+developer
+        
+image
+:
+ autonomous
+-
+ai
+:
+latest
+        
+env
+:
+
+        
+-
+ 
+name
+:
+ OPENAI_API_KEY
+          
+valueFrom
+:
+
+            
+secretKeyRef
+:
+
+              
+name
+:
+ ai
+-
+secrets
+              
+key
+:
+ openai
+-
+key
+        
+volumes
+:
+
+        
+-
+ 
+name
+:
+ projects
+          
+persistentVolumeClaim
+:
+
+            
+claimName
+:
+ ai
+-
+projects
+-
+pvc
+        
+-
+ 
+name
+:
+ memory
+          
+persistentVolumeClaim
+:
+
+            
+claimName
+:
+ ai
+-
+memory
+-
+pvc
