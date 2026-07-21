@@ -1,0 +1,13 @@
+playwright>=1.53.0
+beautifulsoup4>=4.13.0
+lxml>=6.0.0
+watchdog>=6.0.0
+pyperclip>=1.9.0
+requests>=2.32.0
+rich>=14.0.0
+colorama>=0.4.6
+tqdm>=4.67.0
+psutil>=7.0.0
+GitPython>=3.1.45
+pydantic>=2.11.0
+python-dotenv>=1.1.0

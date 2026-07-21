@@ -1,0 +1,7 @@
+{
+    "name": "Node",
+    "install": "npm install",
+    "run": "npm start",
+    "build": "",
+    "test": "npm test"
+}
