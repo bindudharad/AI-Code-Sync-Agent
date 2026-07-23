@@ -1,0 +1,24058 @@
+show metrics
+http://localhost:8080
+GET /api/v1/metrics
+# Run test suite
+
+pytest tests/
+
+
+# Run with coverage
+
+pytest 
+--cov
+=
+core 
+--cov
+=
+agents 
+--cov
+=
+tools tests/
+
+
+# Run specific test
+
+pytest tests/test_core.py::TestAIBrain::test_think_and_act
+### requirements.txt
+```txt
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# LLM Integration
+openai==1.3.5
+anthropic==0.7.8
+tiktoken==0.5.2
+transformers==4.35.2
+torch==2.1.1
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.12.1
+psycopg2-binary==2.9.9
+pymongo==4.6.0
+redis==5.0.1
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+playwright==1.40.0
+
+# Code Quality
+pylint==3.0.2
+bandit==1.7.5
+black==23.11.0
+isort==5.12.0
+mypy==1.7.1
+
+# Security
+cryptography==41.0.7
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+security==1.2.1
+
+# Memory & Vector Storage
+chromadb==0.4.18
+sentence-transformers==2.2.2
+numpy==1.24.4
+pandas==2.1.3
+
+# DevOps & Monitoring
+docker==6.1.3
+kubernetes==28.1.0
+prometheus-client==0.19.0
+grafana-api==1.0.3
+
+# Utilities
+pyyaml==6.0.1
+python-dotenv==1.0.0
+click==8.1.7
+rich==13.7.0
+jinja2==3.1.2
+aiofiles==23.2.1
+asyncio-mqtt==0.13.0
+
+# Development
+pre-commit==3.5.0
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+
+# Optional: GPU Acceleration
+# torch[cuda]==2.1.1
+# tensorflow[and-cuda]==2.15.0
+[
+build-system
+]
+
+
+requires
+ 
+=
+ 
+[
+"setuptools>=68.0"
+,
+ 
+"wheel"
+]
+
+
+build-backend
+ 
+=
+ 
+"setuptools.build_meta"
+
+
+
+[
+project
+]
+
+
+name
+ 
+=
+ 
+"autonomous-ai-web-developer"
+
+
+version
+ 
+=
+ 
+"1.0.0"
+
+
+description
+ 
+=
+ 
+"Autonomous AI system for full-stack web development"
+
+
+readme
+ 
+=
+ 
+"README.md"
+
+
+license
+ 
+=
+ 
+{
+text
+ 
+=
+ 
+"MIT"
+}
+
+
+authors
+ 
+=
+ 
+[
+
+    
+{
+name
+ 
+=
+ 
+"Autonomous AI Team"
+,
+ 
+email
+ 
+=
+ 
+"team@autonomous-ai.dev"
+}
+
+
+]
+
+
+classifiers
+ 
+=
+ 
+[
+
+    
+"Development Status :: 4 - Beta"
+,
+
+    
+"Intended Audience :: Developers"
+,
+
+    
+"License :: OSI Approved :: MIT License"
+,
+
+    
+"Operating System :: OS Independent"
+,
+
+    
+"Programming Language :: Python :: 3"
+,
+
+    
+"Programming Language :: Python :: 3.11"
+,
+
+    
+"Programming Language :: Python :: 3.12"
+,
+
+    
+"Topic :: Software Development :: Code Generators"
+,
+
+    
+"Topic :: Scientific/Engineering :: Artificial Intelligence"
+
+
+]
+
+
+requires-python
+ 
+=
+ 
+">=3.11"
+
+
+dependencies
+ 
+=
+ 
+[
+
+    
+"fastapi[all]>=0.104.0"
+,
+
+    
+"uvicorn[standard]>=0.24.0"
+,
+
+    
+"pydantic>=2.5.0"
+,
+
+    
+"openai>=1.3.0"
+,
+
+    
+"anthropic>=0.7.0"
+,
+
+    
+"sqlalchemy>=2.0.0"
+,
+
+    
+"pytest>=7.4.0"
+,
+
+    
+"chromadb>=0.4.0"
+,
+
+    
+"docker>=6.0.0"
+,
+
+    
+"pyyaml>=6.0"
+,
+
+    
+"python-dotenv>=1.0.0"
+,
+
+    
+"click>=8.1.0"
+,
+
+    
+"rich>=13.0.0"
+,
+
+    
+"pylint>=3.0.0"
+,
+
+    
+"bandit>=1.7.0"
+,
+
+    
+"playwright>=1.40.0"
+
+
+]
+
+
+
+[
+project.optional-dependencies
+]
+
+
+dev
+ 
+=
+ 
+[
+
+    
+"pytest-asyncio>=0.21.0"
+,
+
+    
+"pytest-cov>=4.1.0"
+,
+
+    
+"black>=23.0.0"
+,
+
+    
+"isort>=5.12.0"
+,
+
+    
+"mypy>=1.7.0"
+,
+
+    
+"pre-commit>=3.5.0"
+,
+
+    
+"sphinx>=7.0.0"
+
+
+]
+
+
+gpu
+ 
+=
+ 
+[
+
+    
+"torch[cuda]>=2.1.0"
+,
+
+    
+"tensorflow[and-cuda]>=2.15.0"
+
+
+]
+
+
+kubernetes
+ 
+=
+ 
+[
+
+    
+"kubernetes>=28.0.0"
+,
+
+    
+"prometheus-client>=0.19.0"
+
+
+]
+
+
+
+[
+project.scripts
+]
+
+
+autonomous-ai
+ 
+=
+ 
+"main:main"
+
+
+ai-dev
+ 
+=
+ 
+"interface.cli:main"
+
+
+
+[
+project.urls
+]
+
+
+Homepage
+ 
+=
+ 
+"https://github.com/your-org/autonomous-ai"
+
+
+Documentation
+ 
+=
+ 
+"https://autonomous-ai.readthedocs.io"
+
+
+Repository
+ 
+=
+ 
+"https://github.com/your-org/autonomous-ai.git"
+
+
+Issues
+ 
+=
+ 
+"https://github.com/your-org/autonomous-ai/issues"
+
+
+
+[
+tool.setuptools.packages.find
+]
+
+
+where
+ 
+=
+ 
+[
+"."
+]
+
+
+include
+ 
+=
+ 
+[
+"core*"
+,
+ 
+"agents*"
+,
+ 
+"memory*"
+,
+ 
+"tools*"
+,
+ 
+"web_intelligence*"
+,
+ 
+"execution*"
+,
+ 
+"versioning*"
+,
+ 
+"interface*"
+]
+
+
+
+[
+tool.black
+]
+
+
+line-length
+ 
+=
+ 
+88
+
+
+target-version
+ 
+=
+ 
+[
+'py311'
+]
+
+
+include
+ 
+=
+ 
+'\.pyi?$'
+
+
+
+[
+tool.isort
+]
+
+
+profile
+ 
+=
+ 
+"black"
+
+
+multi_line_output
+ 
+=
+ 
+3
+
+
+line_length
+ 
+=
+ 
+88
+
+
+
+[
+tool.mypy
+]
+
+
+python_version
+ 
+=
+ 
+"3.11"
+
+
+warn_return_any
+ 
+=
+ 
+true
+
+
+warn_unused_configs
+ 
+=
+ 
+true
+
+
+disallow_untyped_defs
+ 
+=
+ 
+true
+
+
+
+[
+tool.pytest.ini_options
+]
+
+
+minversion
+ 
+=
+ 
+"7.4"
+
+
+addopts
+ 
+=
+ 
+"-ra -q --strict-markers --strict-config"
+
+
+testpaths
+ 
+=
+ 
+[
+"tests"
+]
+
+
+python_files
+ 
+=
+ 
+"test_*.py"
+
+
+python_classes
+ 
+=
+ 
+"Test*"
+
+
+python_functions
+ 
+=
+ 
+"test_*"
+
+
+
+[
+tool.bandit
+]
+
+
+exclude_dirs
+ 
+=
+ 
+[
+"tests"
+,
+ 
+"docs"
+]
+
+
+skips
+ 
+=
+ 
+[
+"B101"
+,
+ 
+"B601"
+]
+# LLM Providers (Set at least one)
+OPENAI_API_KEY="sk-your-openai-key-here"
+ANTHROPIC_API_KEY="sk-ant-your-anthropic-key-here"
+LOCAL_MODEL_PATH="/path/to/local/model"
+
+# Database
+DATABASE_URL="postgresql://user:pass@localhost:5432/autonomous_ai"
+MONGODB_URL="mongodb://localhost:27017/"
+REDIS_URL="redis://localhost:6379/0"
+
+# Vector Store
+CHROMA_PERSIST_DIR="./memory/vector_store"
+EMBEDDING_MODEL="sentence-transformers/all-mpnet-base-v2"
+
+# Security
+JWT_SECRET_KEY="your-super-secret-jwt-key-change-this-in-production"
+ENCRYPTION_KEY="your-32-byte-encryption-key-here"
+
+# Monitoring
+PROMETHEUS_PORT=8000
+GRAFANA_URL="http://localhost:3000"
+
+# Cost Management
+MAX_TOKENS_PER_GOAL=1000000
+COST_ALERT_THRESHOLD=10.00
+
+# Paths
+PROJECTS_ROOT="./projects"
+LOGS_DIR="./logs"
+TEMP_DIR="./temp"
+
+# System
+ENVIRONMENT="development"  # development, staging, production
+LOG_LEVEL="INFO"
+DEBUG_MODE=false
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.staging
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+*.out
+*.err
+
+# Database
+*.sqlite
+*.db
+*.sqlite3
+*.postgres
+*.mongodb
+
+# Vector store
+memory/vector_store/
+memory/chroma/
+
+# Projects
+projects/*/node_modules/
+projects/*/.next/
+projects/*/dist/
+projects/*/build/
+projects/*/.env
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Black
+.black_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pyre
+.pyre/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+
+# Temporary files
+temp/
+*.tmp
+*.temp
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Kubernetes
+kubeconfig
+*.kube
+
+# Security keys
+*.key
+*.pem
+*.crt
+secrets/
+#!/usr/bin/env python3
+
+
+"""
+Setup script for Autonomous AI Web Developer
+"""
+
+
+
+import
+ os
+
+import
+ sys
+
+from
+ pathlib 
+import
+ Path
+
+from
+ setuptools 
+import
+ setup
+,
+ find_packages
+
+import
+ subprocess
+
+
+
+def
+ 
+run_command
+(
+cmd
+,
+ cwd
+=
+None
+)
+:
+
+    
+"""Run a shell command."""
+
+    
+try
+:
+
+        result 
+=
+ subprocess
+.
+run
+(
+
+            cmd
+,
+
+            cwd
+=
+cwd
+,
+
+            shell
+=
+True
+,
+
+            check
+=
+True
+,
+
+            capture_output
+=
+True
+,
+
+            text
+=
+True
+
+        
+)
+
+        
+return
+ result
+.
+stdout
+    
+except
+ subprocess
+.
+CalledProcessError 
+as
+ e
+:
+
+        
+print
+(
+f"Command failed: 
+{
+e
+}
+"
+)
+
+        
+return
+ 
+None
+
+
+
+
+def
+ 
+initialize_system
+(
+)
+:
+
+    
+"""Initialize the autonomous AI system."""
+
+    
+print
+(
+"🚀 Initializing Autonomous AI Web Developer..."
+)
+
+    
+    
+# Create necessary directories
+
+    dirs 
+=
+ 
+[
+"projects"
+,
+ 
+"logs"
+,
+ 
+"temp"
+,
+ 
+"memory/vector_store"
+,
+ 
+"memory/chroma"
+]
+
+    
+for
+ dir_path 
+in
+ dirs
+:
+
+        Path
+(
+dir_path
+)
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        
+print
+(
+f"✅ Created directory: 
+{
+dir_path
+}
+"
+)
+
+    
+    
+# Create default config if not exists
+
+    
+if
+ 
+not
+ Path
+(
+"config/config.yaml"
+)
+.
+exists
+(
+)
+:
+
+        
+from
+ config
+.
+config_loader 
+import
+ ConfigLoader
+        default_config 
+=
+ 
+{
+
+            
+"system"
+:
+ 
+{
+
+                
+"name"
+:
+ 
+"AutonomousAIWebDeveloper"
+,
+
+                
+"version"
+:
+ 
+"1.0.0"
+,
+
+                
+"mode"
+:
+ 
+"safe"
+
+            
+}
+,
+
+            
+"llm"
+:
+ 
+{
+
+                
+"provider"
+:
+ 
+"openai"
+,
+
+                
+"model"
+:
+ 
+"gpt-4-turbo-preview"
+,
+
+                
+"temperature"
+:
+ 
+0.1
+
+            
+}
+
+        
+}
+
+        Path
+(
+"config/config.yaml"
+)
+.
+write_text
+(
+json
+.
+dumps
+(
+default_config
+,
+ indent
+=
+2
+)
+)
+
+        
+print
+(
+"✅ Created default config.yaml"
+)
+
+    
+    
+# Install Playwright browsers
+
+    
+print
+(
+"📦 Installing Playwright browsers..."
+)
+
+    run_command
+(
+"playwright install"
+)
+
+    
+    
+# Create initial memory files
+
+    memory_files 
+=
+ 
+[
+"memory_store.json"
+,
+ 
+"experience.json"
+,
+ 
+"user_preferences.json"
+]
+
+    
+for
+ file_name 
+in
+ memory_files
+:
+
+        file_path 
+=
+ Path
+(
+"memory"
+)
+ 
+/
+ file_name
+        
+if
+ 
+not
+ file_path
+.
+exists
+(
+)
+:
+
+            file_path
+.
+write_text
+(
+"{}"
+)
+
+            
+print
+(
+f"✅ Created memory file: 
+{
+file_name
+}
+"
+)
+
+    
+    
+print
+(
+"\n🎉 Initialization complete!"
+)
+
+    
+print
+(
+"\nNext steps:"
+)
+
+    
+print
+(
+"1. Copy .env.example to .env and add your API keys"
+)
+
+    
+print
+(
+"2. Run: python main.py --mode cli"
+)
+
+    
+print
+(
+"3. Try: create goal 'Build a todo app' 'Simple React + FastAPI todo application'"
+)
+
+
+
+
+if
+ __name__ 
+==
+ 
+"__main__"
+:
+
+    
+if
+ 
+len
+(
+sys
+.
+argv
+)
+ 
+>
+ 
+1
+ 
+and
+ sys
+.
+argv
+[
+1
+]
+ 
+==
+ 
+"initialize"
+:
+
+        initialize_system
+(
+)
+
+        sys
+.
+exit
+(
+0
+)
+
+    
+    setup
+(
+
+        name
+=
+"autonomous-ai-web-developer"
+,
+
+        version
+=
+"1.0.0"
+,
+
+        description
+=
+"Autonomous AI system for full-stack web development"
+,
+
+        long_description
+=
+Path
+(
+"README.md"
+)
+.
+read_text
+(
+)
+,
+
+        long_description_content_type
+=
+"text/markdown"
+,
+
+        author
+=
+"Autonomous AI Team"
+,
+
+        author_email
+=
+"team@autonomous-ai.dev"
+,
+
+        url
+=
+"https://github.com/your-org/autonomous-ai"
+,
+
+        packages
+=
+find_packages
+(
+)
+,
+
+        classifiers
+=
+[
+
+            
+"Development Status :: 4 - Beta"
+,
+
+            
+"Intended Audience :: Developers"
+,
+
+            
+"License :: OSI Approved :: MIT License"
+,
+
+            
+"Programming Language :: Python :: 3"
+,
+
+            
+"Programming Language :: Python :: 3.11"
+,
+
+            
+"Programming Language :: Python :: 3.12"
+,
+
+        
+]
+,
+
+        python_requires
+=
+">=3.11"
+,
+
+        install_requires
+=
+[
+
+            
+"fastapi>=0.104.0"
+,
+
+            
+"uvicorn>=0.24.0"
+,
+
+            
+"pydantic>=2.5.0"
+,
+
+            
+"openai>=1.3.0"
+,
+
+            
+"anthropic>=0.7.0"
+,
+
+            
+"sqlalchemy>=2.0.0"
+,
+
+            
+"pytest>=7.4.0"
+,
+
+            
+"chromadb>=0.4.0"
+,
+
+            
+"docker>=6.0.0"
+,
+
+            
+"pyyaml>=6.0"
+,
+
+            
+"python-dotenv>=1.0.0"
+,
+
+            
+"click>=8.1.0"
+,
+
+            
+"rich>=13.0.0"
+,
+
+            
+"pylint>=3.0.0"
+,
+
+            
+"bandit>=1.7.0"
+,
+
+            
+"playwright>=1.40.0"
+
+        
+]
+,
+
+        extras_require
+=
+{
+
+            
+"dev"
+:
+ 
+[
+
+                
+"pytest-asyncio>=0.21.0"
+,
+
+                
+"pytest-cov>=4.1.0"
+,
+
+                
+"black>=23.0.0"
+,
+
+                
+"isort>=5.12.0"
+,
+
+                
+"mypy>=1.7.0"
+,
+
+                
+"pre-commit>=3.5.0"
+,
+
+                
+"sphinx>=7.0.0"
+
+            
+]
+,
+
+            
+"gpu"
+:
+ 
+[
+
+                
+"torch[cuda]>=2.1.0"
+,
+
+                
+"tensorflow[and-cuda]>=2.15.0"
+
+            
+]
+
+        
+}
+,
+
+        entry_points
+=
+{
+
+            
+"console_scripts"
+:
+ 
+[
+
+                
+"autonomous-ai=main:main"
+,
+
+                
+"ai-dev=interface.cli:main"
+
+            
+]
+
+        
+}
+,
+
+        include_package_data
+=
+True
+,
+
+        zip_safe
+=
+False
+,
+
+        cmdclass
+=
+{
+
+            
+"initialize"
+:
+ 
+type
+(
+"InitializeCommand"
+,
+ 
+(
+)
+,
+ 
+{
+"run"
+:
+ 
+lambda
+ self
+:
+ initialize_system
+(
+)
+}
+)
+(
+)
+
+        
+}
+
+    
+)
+MIT License
+
+Copyright (c) 2024 Autonomous AI Web Developer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+version
+:
+ 
+1
+
+
+disable_existing_loggers
+:
+ 
+false
+
+
+
+formatters
+:
+
+  
+default
+:
+
+    
+format
+:
+ 
+'%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+  
+detailed
+:
+
+    
+format
+:
+ 
+'%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
+
+  
+json
+:
+
+    
+class
+:
+ pythonjsonlogger.jsonlogger.JsonFormatter
+    
+format
+:
+ 
+'%(asctime) %(name) %(levelname) %(filename) %(lineno) %(message)'
+
+
+
+handlers
+:
+
+  
+console
+:
+
+    
+class
+:
+ logging.StreamHandler
+    
+level
+:
+ INFO
+    
+formatter
+:
+ default
+    
+stream
+:
+ ext
+:
+//sys.stdout
+  
+  
+file
+:
+
+    
+class
+:
+ logging.handlers.RotatingFileHandler
+    
+level
+:
+ DEBUG
+    
+formatter
+:
+ detailed
+    
+filename
+:
+ logs/autonomous_ai.log
+    
+maxBytes
+:
+ 
+10485760
+  
+# 10MB
+
+    
+backupCount
+:
+ 
+5
+
+    
+encoding
+:
+ utf8
+  
+  
+metrics
+:
+
+    
+class
+:
+ logging.handlers.RotatingFileHandler
+    
+level
+:
+ INFO
+    
+formatter
+:
+ json
+    
+filename
+:
+ logs/metrics.json
+    
+maxBytes
+:
+ 
+5242880
+   
+# 5MB
+
+    
+backupCount
+:
+ 
+3
+
+    
+encoding
+:
+ utf8
+
+
+loggers
+:
+
+  
+core
+:
+
+    
+level
+:
+ DEBUG
+    
+handlers
+:
+ 
+[
+console
+,
+ file
+]
+
+    
+propagate
+:
+ 
+false
+
+  
+  
+agents
+:
+
+    
+level
+:
+ DEBUG
+    
+handlers
+:
+ 
+[
+console
+,
+ file
+]
+
+    
+propagate
+:
+ 
+false
+
+  
+  
+memory
+:
+
+    
+level
+:
+ INFO
+    
+handlers
+:
+ 
+[
+console
+,
+ file
+]
+
+    
+propagate
+:
+ 
+false
+
+  
+  
+tools
+:
+
+    
+level
+:
+ DEBUG
+    
+handlers
+:
+ 
+[
+console
+,
+ file
+]
+
+    
+propagate
+:
+ 
+false
+
+  
+  
+metrics
+:
+
+    
+level
+:
+ INFO
+    
+handlers
+:
+ 
+[
+metrics
+]
+
+    
+propagate
+:
+ 
+false
+
+
+
+root
+:
+
+  
+level
+:
+ INFO
+  
+handlers
+:
+ 
+[
+console
+,
+ file
+]
+llm_providers
+:
+
+  
+openai
+:
+
+    
+name
+:
+ 
+"OpenAI"
+
+    
+api_base
+:
+ 
+"https://api.openai.com/v1"
+
+    
+models
+:
+
+      
+gpt-4-turbo-preview
+:
+
+        
+max_tokens
+:
+ 
+128000
+
+        
+context_window
+:
+ 
+128000
+
+        
+cost_per_1k_input
+:
+ 
+0.01
+
+        
+cost_per_1k_output
+:
+ 
+0.03
+
+      
+gpt-4
+:
+
+        
+max_tokens
+:
+ 
+8192
+
+        
+context_window
+:
+ 
+8192
+
+        
+cost_per_1k_input
+:
+ 
+0.03
+
+        
+cost_per_1k_output
+:
+ 
+0.06
+
+      
+gpt-3.5-turbo
+:
+
+        
+max_tokens
+:
+ 
+16385
+
+        
+context_window
+:
+ 
+16385
+
+        
+cost_per_1k_input
+:
+ 
+0.001
+
+        
+cost_per_1k_output
+:
+ 
+0.002
+
+  
+  
+anthropic
+:
+
+    
+name
+:
+ 
+"Anthropic"
+
+    
+api_base
+:
+ 
+"https://api.anthropic.com"
+
+    
+models
+:
+
+      
+claude-3-opus-20240229
+:
+
+        
+max_tokens
+:
+ 
+200000
+
+        
+context_window
+:
+ 
+200000
+
+        
+cost_per_1k_input
+:
+ 
+0.015
+
+        
+cost_per_1k_output
+:
+ 
+0.075
+
+      
+claude-3-sonnet-20240229
+:
+
+        
+max_tokens
+:
+ 
+200000
+
+        
+context_window
+:
+ 
+200000
+
+        
+cost_per_1k_input
+:
+ 
+0.003
+
+        
+cost_per_1k_output
+:
+ 
+0.015
+
+  
+  
+local
+:
+
+    
+name
+:
+ 
+"Local Model"
+
+    
+api_base
+:
+ 
+"http://localhost:8000/v1"
+
+    
+models
+:
+
+      
+llama-2-70b
+:
+
+        
+max_tokens
+:
+ 
+4096
+
+        
+context_window
+:
+ 
+4096
+
+        
+cost_per_1k_input
+:
+ 
+0.0
+
+        
+cost_per_1k_output
+:
+ 
+0.0
+
+
+
+model_selection
+:
+
+  
+default_provider
+:
+ 
+"openai"
+
+  
+default_model
+:
+ 
+"gpt-4-turbo-preview"
+
+  
+  
+# Model selection strategy
+
+  
+strategy
+:
+ 
+"adaptive"
+  
+# adaptive, fixed, cost_optimized
+
+  
+  
+# Complexity thresholds for model selection
+
+  
+thresholds
+:
+
+    
+simple
+:
+
+      
+max_tokens
+:
+ 
+1000
+
+      
+model
+:
+ 
+"gpt-3.5-turbo"
+
+    
+moderate
+:
+
+      
+max_tokens
+:
+ 
+8000
+
+      
+model
+:
+ 
+"gpt-4-turbo-preview"
+
+    
+complex
+:
+
+      
+min_tokens
+:
+ 
+8001
+
+      
+model
+:
+ 
+"gpt-4-turbo-preview"
+
+
+
+# Token management
+
+
+token_limits
+:
+
+  
+max_tokens_per_goal
+:
+ 
+1000000
+
+  
+max_tokens_per_task
+:
+ 
+100000
+
+  
+token_alert_threshold
+:
+ 
+0.9
+
+
+
+# Caching
+
+
+caching
+:
+
+  
+enabled
+:
+ 
+true
+
+  
+cache_dir
+:
+ 
+"./memory/llm_cache"
+
+  
+ttl
+:
+ 
+3600
+  
+# 1 hour
+
+  
+similarity_threshold
+:
+ 
+0.95
+
+
+
+# Rate limiting
+
+
+rate_limiting
+:
+
+  
+enabled
+:
+ 
+true
+
+  
+requests_per_minute
+:
+ 
+60
+
+  
+tokens_per_minute
+:
+ 
+100000
+
+  
+retry_attempts
+:
+ 
+3
+
+  
+retry_delay
+:
+ 
+1.0
+
+
+
+# Response parsing
+
+
+response_parsing
+:
+
+  
+fail_on_partial_json
+:
+ 
+false
+
+  
+retry_with_validation
+:
+ 
+true
+
+  
+max_parse_attempts
+:
+ 
+3
+# Root directories
+
+
+root_dir
+:
+ 
+"."
+
+
+projects_root
+:
+ 
+"./projects"
+
+
+logs_dir
+:
+ 
+"./logs"
+
+
+temp_dir
+:
+ 
+"./temp"
+
+
+memory_dir
+:
+ 
+"./memory"
+
+
+
+# Subdirectories
+
+
+projects
+:
+
+  
+templates
+:
+ 
+"./projects/templates"
+
+  
+archive
+:
+ 
+"./projects/archive"
+
+
+
+logs
+:
+
+  
+system
+:
+ 
+"./logs/system"
+
+  
+metrics
+:
+ 
+"./logs/metrics"
+
+  
+audits
+:
+ 
+"./logs/audits"
+
+
+
+temp
+:
+
+  
+code_gen
+:
+ 
+"./temp/code_gen"
+
+  
+test_results
+:
+ 
+"./temp/test_results"
+
+  
+uploads
+:
+ 
+"./temp/uploads"
+
+
+
+memory
+:
+
+  
+vector_store
+:
+ 
+"./memory/vector_store"
+
+  
+chroma_db
+:
+ 
+"./memory/chroma"
+
+  
+short_term
+:
+ 
+"./memory/short_term.json"
+
+  
+long_term
+:
+ 
+"./memory/long_term.json"
+
+  
+experience
+:
+ 
+"./memory/experience.json"
+
+  
+preferences
+:
+ 
+"./memory/user_preferences.json"
+
+  
+embeddings
+:
+ 
+"./memory/embeddings"
+
+
+
+# File patterns
+
+
+patterns
+:
+
+  
+source_code
+:
+
+    
+-
+ 
+"**/*.py"
+
+    
+-
+ 
+"**/*.js"
+
+    
+-
+ 
+"**/*.ts"
+
+    
+-
+ 
+"**/*.jsx"
+
+    
+-
+ 
+"**/*.tsx"
+
+    
+-
+ 
+"**/*.html"
+
+    
+-
+ 
+"**/*.css"
+
+    
+-
+ 
+"**/*.scss"
+
+  
+  
+test_files
+:
+
+    
+-
+ 
+"**/test_*.py"
+
+    
+-
+ 
+"**/*_test.py"
+
+    
+-
+ 
+"**/*.spec.js"
+
+    
+-
+ 
+"**/*.spec.ts"
+
+  
+  
+config_files
+:
+
+    
+-
+ 
+"**/*.yaml"
+
+    
+-
+ 
+"**/*.yml"
+
+    
+-
+ 
+"**/*.json"
+
+    
+-
+ 
+"**/*.toml"
+
+
+
+# Size limits
+
+
+file_size_limits
+:
+
+  
+max_source_file_mb
+:
+ 
+2
+
+  
+max_upload_mb
+:
+ 
+10
+
+  
+max_log_file_mb
+:
+ 
+10
+
+
+
+# Cleanup policies
+
+
+cleanup
+:
+
+  
+temp_files_max_age_days
+:
+ 
+7
+
+  
+log_files_max_age_days
+:
+ 
+30
+
+  
+archive_projects_max_age_days
+:
+ 
+90
+import
+ json
+
+from
+ datetime 
+import
+ datetime
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+,
+ Set
+
+from
+ pathlib 
+import
+ Path
+
+
+from
+ memory
+.
+short_term 
+import
+ ShortTermMemory
+
+from
+ memory
+.
+vector_store 
+import
+ VectorStore
+
+
+
+class
+ 
+ContextManager
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+short_term 
+=
+ ShortTermMemory
+(
+config
+)
+
+        self
+.
+vector_store 
+=
+ VectorStore
+(
+config
+)
+
+        
+        
+# Context window for current session
+
+        self
+.
+session_context
+:
+ Dict
+[
+str
+,
+ Any
+]
+ 
+=
+ 
+{
+
+            
+"session_id"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"goals"
+:
+ 
+[
+]
+,
+
+            
+"active_agents"
+:
+ 
+[
+]
+,
+
+            
+"system_state"
+:
+ 
+"idle"
+,
+
+            
+"last_error"
+:
+ 
+None
+,
+
+            
+"performance_metrics"
+:
+ 
+{
+}
+
+        
+}
+
+        
+        
+# Relevant context cache
+
+        self
+.
+context_cache
+:
+ Dict
+[
+str
+,
+ Any
+]
+ 
+=
+ 
+{
+}
+
+        self
+.
+cache_expiry
+:
+ Dict
+[
+str
+,
+ datetime
+]
+ 
+=
+ 
+{
+}
+
+    
+    
+async
+ 
+def
+ 
+build_goal_context
+(
+self
+,
+ goal_id
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Build comprehensive context for a goal."""
+
+        context 
+=
+ 
+{
+
+            
+"goal_id"
+:
+ goal_id
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"session_data"
+:
+ self
+.
+session_context
+.
+copy
+(
+)
+,
+
+            
+"relevant_memories"
+:
+ 
+[
+]
+,
+
+            
+"user_preferences"
+:
+ 
+{
+}
+,
+
+            
+"system_state"
+:
+ 
+{
+}
+,
+
+            
+"constraints"
+:
+ 
+{
+}
+
+        
+}
+
+        
+        
+# Get relevant long-term memories
+
+        goal 
+=
+ 
+await
+ self
+.
+_get_goal
+(
+goal_id
+)
+
+        
+if
+ goal
+:
+
+            relevant_memories 
+=
+ 
+await
+ self
+.
+vector_store
+.
+search_similar
+(
+
+                query
+=
+f"
+{
+goal
+.
+title
+}
+ 
+{
+goal
+.
+description
+}
+"
+,
+
+                limit
+=
+10
+
+            
+)
+
+            context
+[
+"relevant_memories"
+]
+ 
+=
+ relevant_memories
+        
+        
+# Get user preferences
+
+        
+from
+ memory
+.
+user_preferences 
+import
+ UserPreferences
+        prefs 
+=
+ UserPreferences
+(
+self
+.
+config
+)
+
+        context
+[
+"user_preferences"
+]
+ 
+=
+ prefs
+.
+get_preferences
+(
+)
+
+        
+        
+# Get system state
+
+        context
+[
+"system_state"
+]
+ 
+=
+ 
+await
+ self
+.
+_get_system_state
+(
+)
+
+        
+        
+# Get constraints
+
+        context
+[
+"constraints"
+]
+ 
+=
+ self
+.
+_get_constraints
+(
+)
+
+        
+        
+# Cache with expiry
+
+        cache_key 
+=
+ 
+f"goal_context:
+{
+goal_id
+}
+"
+
+        self
+.
+context_cache
+[
+cache_key
+]
+ 
+=
+ context
+        self
+.
+cache_expiry
+[
+cache_key
+]
+ 
+=
+ datetime
+.
+now
+(
+)
+ 
++
+ timedelta
+(
+minutes
+=
+10
+)
+
+        
+        
+return
+ context
+    
+    
+async
+ 
+def
+ 
+build_agent_context
+(
+self
+,
+ agent_type
+:
+ 
+str
+,
+ goal_id
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Build context for a specific agent."""
+
+        base_context 
+=
+ 
+await
+ self
+.
+build_goal_context
+(
+goal_id
+)
+
+        
+        
+# Add agent-specific context
+
+        agent_context 
+=
+ 
+{
+
+            
+**
+base_context
+,
+
+            
+"agent_type"
+:
+ agent_type
+,
+
+            
+"available_tools"
+:
+ self
+.
+_get_agent_tools
+(
+agent_type
+)
+,
+
+            
+"best_practices"
+:
+ 
+await
+ self
+.
+_get_best_practices
+(
+agent_type
+)
+,
+
+            
+"common_patterns"
+:
+ 
+await
+ self
+.
+_get_common_patterns
+(
+agent_type
+)
+,
+
+            
+"previous_similar_tasks"
+:
+ 
+await
+ self
+.
+_get_similar_tasks
+(
+agent_type
+,
+ goal_id
+)
+
+        
+}
+
+        
+        
+return
+ agent_context
+    
+    
+async
+ 
+def
+ 
+update_session_context
+(
+self
+,
+ updates
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Update session-level context."""
+
+        self
+.
+session_context
+.
+update
+(
+updates
+)
+
+        self
+.
+session_context
+[
+"last_updated"
+]
+ 
+=
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+        
+# Persist important session data
+
+        
+if
+ 
+"goal_completed"
+ 
+in
+ updates
+:
+
+            
+await
+ self
+.
+_persist_session_event
+(
+"goal_completed"
+,
+ updates
+[
+"goal_completed"
+]
+)
+
+    
+    
+def
+ 
+get_cached_context
+(
+self
+,
+ key
+:
+ 
+str
+)
+ 
+-
+>
+ Optional
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Get cached context if not expired."""
+
+        
+if
+ key 
+in
+ self
+.
+context_cache
+:
+
+            
+if
+ datetime
+.
+now
+(
+)
+ 
+<
+ self
+.
+cache_expiry
+.
+get
+(
+key
+,
+ datetime
+.
+now
+(
+)
+)
+:
+
+                
+return
+ self
+.
+context_cache
+[
+key
+]
+
+            
+else
+:
+
+                
+# Clean up expired cache
+
+                
+del
+ self
+.
+context_cache
+[
+key
+]
+
+                
+del
+ self
+.
+cache_expiry
+[
+key
+]
+
+        
+        
+return
+ 
+None
+
+    
+    
+async
+ 
+def
+ 
+get_relevant_context
+(
+self
+,
+ query
+:
+ 
+str
+,
+ limit
+:
+ 
+int
+ 
+=
+ 
+5
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Get context relevant to a query."""
+
+        
+# Search vector store
+
+        vector_results 
+=
+ 
+await
+ self
+.
+vector_store
+.
+search_similar
+(
+query
+,
+ limit
+)
+
+        
+        
+# Search short-term memory
+
+        short_term_results 
+=
+ 
+await
+ self
+.
+short_term
+.
+search
+(
+query
+)
+
+        
+        
+# Combine and rank
+
+        combined 
+=
+ 
+[
+]
+
+        
+        
+for
+ result 
+in
+ vector_results
+:
+
+            combined
+.
+append
+(
+{
+
+                
+"source"
+:
+ 
+"long_term_memory"
+,
+
+                
+"relevance"
+:
+ result
+[
+"score"
+]
+,
+
+                
+"data"
+:
+ result
+[
+"payload"
+]
+
+            
+}
+)
+
+        
+        
+for
+ result 
+in
+ short_term_results
+:
+
+            combined
+.
+append
+(
+{
+
+                
+"source"
+:
+ 
+"short_term_memory"
+,
+
+                
+"relevance"
+:
+ 
+0.5
+,
+  
+# Short-term has fixed weight
+
+                
+"data"
+:
+ result
+            
+}
+)
+
+        
+        
+# Sort by relevance
+
+        combined
+.
+sort
+(
+key
+=
+lambda
+ x
+:
+ x
+[
+"relevance"
+]
+,
+ reverse
+=
+True
+)
+
+        
+        
+return
+ combined
+[
+:
+limit
+]
+
+    
+    
+async
+ 
+def
+ 
+add_contextual_memory
+(
+self
+,
+ goal_id
+:
+ 
+str
+,
+ key
+:
+ 
+str
+,
+ value
+:
+ Any
+)
+:
+
+        
+"""Add contextual memory for a goal."""
+
+        memory_entry 
+=
+ 
+{
+
+            
+"goal_id"
+:
+ goal_id
+,
+
+            
+"key"
+:
+ key
+,
+
+            
+"value"
+:
+ value
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        
+# Store in vector store for similarity search
+
+        
+await
+ self
+.
+vector_store
+.
+add
+(
+
+            documents
+=
+[
+f"
+{
+key
+}
+: 
+{
+str
+(
+value
+)
+}
+"
+]
+,
+
+            metadatas
+=
+[
+memory_entry
+]
+,
+
+            ids
+=
+[
+f"context:
+{
+goal_id
+}
+:
+{
+key
+}
+"
+]
+
+        
+)
+
+        
+        
+# Also store in short-term
+
+        
+await
+ self
+.
+short_term
+.
+store
+(
+
+            event
+=
+f"Contextual memory: 
+{
+key
+}
+"
+,
+
+            context
+=
+memory_entry
+        
+)
+
+    
+    
+def
+ 
+clear_cache
+(
+self
+)
+:
+
+        
+"""Clear all cached context."""
+
+        self
+.
+context_cache
+.
+clear
+(
+)
+
+        self
+.
+cache_expiry
+.
+clear
+(
+)
+
+    
+    
+async
+ 
+def
+ 
+_get_goal
+(
+self
+,
+ goal_id
+:
+ 
+str
+)
+ 
+-
+>
+ Optional
+[
+Any
+]
+:
+
+        
+"""Get goal from goal manager."""
+
+        
+from
+ core
+.
+goal_manager 
+import
+ GoalManager
+        goal_manager 
+=
+ GoalManager
+(
+self
+.
+config
+)
+
+        
+return
+ goal_manager
+.
+get_goal
+(
+goal_id
+)
+
+    
+    
+async
+ 
+def
+ 
+_get_system_state
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Get current system state."""
+
+        
+import
+ psutil
+        
+import
+ torch
+        
+        state 
+=
+ 
+{
+
+            
+"cpu_percent"
+:
+ psutil
+.
+cpu_percent
+(
+)
+,
+
+            
+"memory_percent"
+:
+ psutil
+.
+virtual_memory
+(
+)
+.
+percent
+,
+
+            
+"disk_percent"
+:
+ psutil
+.
+disk_usage
+(
+'/'
+)
+.
+percent
+,
+
+            
+"gpu_available"
+:
+ torch
+.
+cuda
+.
+is_available
+(
+)
+,
+
+            
+"active_goals"
+:
+ 
+len
+(
+self
+.
+session_context
+.
+get
+(
+"goals"
+,
+ 
+[
+]
+)
+)
+,
+
+            
+"active_agents"
+:
+ 
+len
+(
+self
+.
+session_context
+.
+get
+(
+"active_agents"
+,
+ 
+[
+]
+)
+)
+
+        
+}
+
+        
+        
+if
+ state
+[
+"gpu_available"
+]
+:
+
+            state
+[
+"gpu_memory"
+]
+ 
+=
+ torch
+.
+cuda
+.
+memory_allocated
+(
+)
+
+        
+        
+return
+ state
+    
+    
+def
+ 
+_get_constraints
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Get system constraints."""
+
+        
+return
+ 
+{
+
+            
+"max_tokens_per_goal"
+:
+ self
+.
+config
+.
+get
+(
+"token_limits"
+,
+ 
+{
+}
+)
+.
+get
+(
+"max_tokens_per_goal"
+,
+ 
+1000000
+)
+,
+
+            
+"max_concurrent_goals"
+:
+ self
+.
+config
+.
+get
+(
+"limits"
+,
+ 
+{
+}
+)
+.
+get
+(
+"max_concurrent_goals"
+,
+ 
+3
+)
+,
+
+            
+"execution_timeout"
+:
+ self
+.
+config
+.
+get
+(
+"limits"
+,
+ 
+{
+}
+)
+.
+get
+(
+"execution_timeout"
+,
+ 
+300
+)
+,
+
+            
+"allowed_commands"
+:
+ self
+.
+config
+.
+get
+(
+"tools"
+,
+ 
+{
+}
+)
+.
+get
+(
+"command_runner"
+,
+ 
+{
+}
+)
+.
+get
+(
+"allowed_commands"
+,
+ 
+[
+]
+)
+
+        
+}
+
+    
+    
+def
+ 
+_get_agent_tools
+(
+self
+,
+ agent_type
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""Get available tools for an agent."""
+
+        tool_mapping 
+=
+ 
+{
+
+            
+"architect"
+:
+ 
+[
+"file_tool"
+,
+ 
+"code_generator"
+]
+,
+
+            
+"frontend"
+:
+ 
+[
+"file_tool"
+,
+ 
+"code_generator"
+,
+ 
+"code_editor"
+]
+,
+
+            
+"backend"
+:
+ 
+[
+"file_tool"
+,
+ 
+"code_generator"
+,
+ 
+"command_runner"
+]
+,
+
+            
+"database"
+:
+ 
+[
+"file_tool"
+,
+ 
+"command_runner"
+]
+,
+
+            
+"qa"
+:
+ 
+[
+"test_runner"
+,
+ 
+"command_runner"
+,
+ 
+"browser_tool"
+]
+,
+
+            
+"devops"
+:
+ 
+[
+"command_runner"
+,
+ 
+"file_tool"
+]
+,
+
+            
+"security"
+:
+ 
+[
+"code_quality_engine"
+,
+ 
+"command_runner"
+]
+,
+
+            
+"product_owner"
+:
+ 
+[
+"prompt_builder"
+,
+ 
+"template_manager"
+]
+
+        
+}
+
+        
+        
+return
+ tool_mapping
+.
+get
+(
+agent_type
+,
+ 
+[
+]
+)
+
+    
+    
+async
+ 
+def
+ 
+_get_best_practices
+(
+self
+,
+ agent_type
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""Get best practices for agent type."""
+
+        search_query 
+=
+ 
+f"
+{
+agent_type
+}
+ best practices"
+
+        results 
+=
+ 
+await
+ self
+.
+vector_store
+.
+search_similar
+(
+search_query
+,
+ limit
+=
+5
+)
+
+        
+        
+return
+ 
+[
+result
+[
+"payload"
+]
+.
+get
+(
+"strategy"
+,
+ 
+""
+)
+ 
+for
+ result 
+in
+ results
+]
+
+    
+    
+async
+ 
+def
+ 
+_get_common_patterns
+(
+self
+,
+ agent_type
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""Get common patterns for agent type."""
+
+        search_query 
+=
+ 
+f"
+{
+agent_type
+}
+ patterns"
+
+        results 
+=
+ 
+await
+ self
+.
+vector_store
+.
+search_similar
+(
+search_query
+,
+ limit
+=
+3
+)
+
+        
+        
+return
+ 
+[
+result
+[
+"payload"
+]
+.
+get
+(
+"pattern"
+,
+ 
+""
+)
+ 
+for
+ result 
+in
+ results
+]
+
+    
+    
+async
+ 
+def
+ 
+_get_similar_tasks
+(
+self
+,
+ agent_type
+:
+ 
+str
+,
+ goal_id
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Get previously successful similar tasks."""
+
+        results 
+=
+ 
+await
+ self
+.
+vector_store
+.
+search_similar
+(
+
+            
+f"
+{
+agent_type
+}
+ task"
+,
+
+            
+filter
+=
+{
+"type"
+:
+ 
+"task_success"
+}
+,
+
+            limit
+=
+3
+
+        
+)
+
+        
+        
+return
+ results
+    
+    
+async
+ 
+def
+ 
+_persist_session_event
+(
+self
+,
+ event_type
+:
+ 
+str
+,
+ data
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Persist session event to long-term memory."""
+
+        event 
+=
+ 
+{
+
+            
+"type"
+:
+ event_type
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"data"
+:
+ data
+        
+}
+
+        
+        
+await
+ self
+.
+vector_store
+.
+add
+(
+
+            documents
+=
+[
+f"Session event: 
+{
+event_type
+}
+"
+]
+,
+
+            metadatas
+=
+[
+event
+]
+,
+
+            ids
+=
+[
+f"session:
+{
+datetime
+.
+now
+(
+)
+.
+timestamp
+(
+)
+}
+"
+]
+
+        
+)
+import
+ asyncio
+
+from
+ datetime 
+import
+ datetime
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+
+from
+ enum 
+import
+ Enum
+
+from
+ dataclasses 
+import
+ dataclass
+,
+ asdict
+
+
+
+class
+ 
+SystemState
+(
+Enum
+)
+:
+
+    INITIALIZING 
+=
+ 
+"initializing"
+
+    IDLE 
+=
+ 
+"idle"
+
+    ANALYZING 
+=
+ 
+"analyzing"
+
+    PLANNING 
+=
+ 
+"planning"
+
+    EXECUTING 
+=
+ 
+"executing"
+
+    REVIEWING 
+=
+ 
+"reviewing"
+
+    REFLECTING 
+=
+ 
+"reflecting"
+
+    ERROR 
+=
+ 
+"error"
+
+    SHUTDOWN 
+=
+ 
+"shutdown"
+
+
+
+
+class
+ 
+AgentState
+(
+Enum
+)
+:
+
+    IDLE 
+=
+ 
+"idle"
+
+    WORKING 
+=
+ 
+"working"
+
+    WAITING 
+=
+ 
+"waiting"
+
+    BLOCKED 
+=
+ 
+"blocked"
+
+    COMPLETED 
+=
+ 
+"completed"
+
+    FAILED 
+=
+ 
+"failed"
+
+
+
+
+@dataclass
+
+
+class
+ 
+AgentStatus
+:
+
+    agent_id
+:
+ 
+str
+
+    agent_type
+:
+ 
+str
+
+    state
+:
+ AgentState
+    current_task
+:
+ Optional
+[
+str
+]
+
+    tasks_completed
+:
+ 
+int
+
+    tasks_failed
+:
+ 
+int
+
+    start_time
+:
+ datetime
+    last_activity
+:
+ datetime
+    performance_score
+:
+ 
+float
+
+
+
+
+class
+ 
+StateManager
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+system_state 
+=
+ SystemState
+.
+INITIALIZING
+        self
+.
+agent_states
+:
+ Dict
+[
+str
+,
+ AgentStatus
+]
+ 
+=
+ 
+{
+}
+
+        self
+.
+state_history
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+[
+]
+
+        self
+.
+state_lock 
+=
+ asyncio
+.
+Lock
+(
+)
+
+        
+        
+# State change listeners
+
+        self
+.
+listeners
+:
+ List
+[
+callable
+]
+ 
+=
+ 
+[
+]
+
+        
+        
+# Performance metrics
+
+        self
+.
+metrics 
+=
+ 
+{
+
+            
+"total_goals"
+:
+ 
+0
+,
+
+            
+"successful_goals"
+:
+ 
+0
+,
+
+            
+"failed_goals"
+:
+ 
+0
+,
+
+            
+"average_goal_duration"
+:
+ 
+0.0
+,
+
+            
+"system_uptime"
+:
+ datetime
+.
+now
+(
+)
+,
+
+            
+"token_usage"
+:
+ 
+0
+
+        
+}
+
+    
+    
+async
+ 
+def
+ 
+initialize
+(
+self
+)
+:
+
+        
+"""Initialize state manager."""
+
+        
+async
+ 
+with
+ self
+.
+state_lock
+:
+
+            self
+.
+system_state 
+=
+ SystemState
+.
+IDLE
+            
+await
+ self
+.
+_log_state_change
+(
+"system"
+,
+ SystemState
+.
+INITIALIZING
+,
+ SystemState
+.
+IDLE
+)
+
+    
+    
+async
+ 
+def
+ 
+set_system_state
+(
+self
+,
+ new_state
+:
+ SystemState
+)
+:
+
+        
+"""Set overall system state."""
+
+        
+async
+ 
+with
+ self
+.
+state_lock
+:
+
+            old_state 
+=
+ self
+.
+system_state
+            self
+.
+system_state 
+=
+ new_state
+            
+            
+await
+ self
+.
+_log_state_change
+(
+"system"
+,
+ old_state
+,
+ new_state
+)
+
+            
+            
+# Notify listeners
+
+            
+await
+ self
+.
+_notify_listeners
+(
+{
+
+                
+"type"
+:
+ 
+"system_state_change"
+,
+
+                
+"old_state"
+:
+ old_state
+.
+value
+,
+
+                
+"new_state"
+:
+ new_state
+.
+value
+,
+
+                
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+            
+}
+)
+
+    
+    
+async
+ 
+def
+ 
+register_agent
+(
+self
+,
+ agent_id
+:
+ 
+str
+,
+ agent_type
+:
+ 
+str
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Register a new agent."""
+
+        
+async
+ 
+with
+ self
+.
+state_lock
+:
+
+            
+if
+ agent_id 
+in
+ self
+.
+agent_states
+:
+
+                
+return
+ agent_id
+            
+            status 
+=
+ AgentStatus
+(
+
+                agent_id
+=
+agent_id
+,
+
+                agent_type
+=
+agent_type
+,
+
+                state
+=
+AgentState
+.
+IDLE
+,
+
+                current_task
+=
+None
+,
+
+                tasks_completed
+=
+0
+,
+
+                tasks_failed
+=
+0
+,
+
+                start_time
+=
+datetime
+.
+now
+(
+)
+,
+
+                last_activity
+=
+datetime
+.
+now
+(
+)
+,
+
+                performance_score
+=
+1.0
+
+            
+)
+
+            
+            self
+.
+agent_states
+[
+agent_id
+]
+ 
+=
+ status
+            
+            
+await
+ self
+.
+_log_state_change
+(
+f"agent:
+{
+agent_id
+}
+"
+,
+ 
+None
+,
+ AgentState
+.
+IDLE
+)
+
+            
+            
+return
+ agent_id
+    
+    
+async
+ 
+def
+ 
+update_agent_state
+(
+
+        self
+,
+
+        agent_id
+:
+ 
+str
+,
+
+        new_state
+:
+ AgentState
+,
+
+        task_id
+:
+ Optional
+[
+str
+]
+ 
+=
+ 
+None
+,
+
+        error
+:
+ Optional
+[
+str
+]
+ 
+=
+ 
+None
+
+    
+)
+:
+
+        
+"""Update agent state."""
+
+        
+async
+ 
+with
+ self
+.
+state_lock
+:
+
+            
+if
+ agent_id 
+not
+ 
+in
+ self
+.
+agent_states
+:
+
+                
+raise
+ ValueError
+(
+f"Agent 
+{
+agent_id
+}
+ not registered"
+)
+
+            
+            status 
+=
+ self
+.
+agent_states
+[
+agent_id
+]
+
+            old_state 
+=
+ status
+.
+state
+            
+            
+# Update state
+
+            status
+.
+state 
+=
+ new_state
+            status
+.
+last_activity 
+=
+ datetime
+.
+now
+(
+)
+
+            
+            
+if
+ task_id
+:
+
+                status
+.
+current_task 
+=
+ task_id
+            
+            
+# Update metrics based on state
+
+            
+if
+ new_state 
+==
+ AgentState
+.
+COMPLETED
+:
+
+                status
+.
+tasks_completed 
++=
+ 
+1
+
+            
+elif
+ new_state 
+==
+ AgentState
+.
+FAILED
+:
+
+                status
+.
+tasks_failed 
++=
+ 
+1
+
+                
+if
+ error
+:
+
+                    
+await
+ self
+.
+_log_agent_error
+(
+agent_id
+,
+ error
+)
+
+            
+            
+# Recalculate performance score
+
+            total 
+=
+ status
+.
+tasks_completed 
++
+ status
+.
+tasks_failed
+            
+if
+ total 
+>
+ 
+0
+:
+
+                status
+.
+performance_score 
+=
+ status
+.
+tasks_completed 
+/
+ total
+            
+            
+await
+ self
+.
+_log_state_change
+(
+f"agent:
+{
+agent_id
+}
+"
+,
+ old_state
+,
+ new_state
+)
+
+            
+            
+# Notify listeners
+
+            
+await
+ self
+.
+_notify_listeners
+(
+{
+
+                
+"type"
+:
+ 
+"agent_state_change"
+,
+
+                
+"agent_id"
+:
+ agent_id
+,
+
+                
+"agent_type"
+:
+ status
+.
+agent_type
+,
+
+                
+"old_state"
+:
+ old_state
+.
+value
+,
+
+                
+"new_state"
+:
+ new_state
+.
+value
+,
+
+                
+"task_id"
+:
+ task_id
+,
+
+                
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+            
+}
+)
+
+    
+    
+def
+ 
+get_system_state
+(
+self
+)
+ 
+-
+>
+ SystemState
+:
+
+        
+"""Get current system state."""
+
+        
+return
+ self
+.
+system_state
+    
+    
+def
+ 
+get_agent_state
+(
+self
+,
+ agent_id
+:
+ 
+str
+)
+ 
+-
+>
+ Optional
+[
+AgentStatus
+]
+:
+
+        
+"""Get agent state."""
+
+        
+return
+ self
+.
+agent_states
+.
+get
+(
+agent_id
+)
+
+    
+    
+def
+ 
+get_all_agent_states
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ AgentStatus
+]
+:
+
+        
+"""Get all agent states."""
+
+        
+return
+ self
+.
+agent_states
+.
+copy
+(
+)
+
+    
+    
+def
+ 
+get_active_agents
+(
+self
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""Get IDs of active agents."""
+
+        
+return
+ 
+[
+
+            agent_id 
+for
+ agent_id
+,
+ status 
+in
+ self
+.
+agent_states
+.
+items
+(
+)
+
+            
+if
+ status
+.
+state 
+in
+ 
+[
+AgentState
+.
+WORKING
+,
+ AgentState
+.
+WAITING
+]
+
+        
+]
+
+    
+    
+async
+ 
+def
+ 
+get_system_health
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Get overall system health."""
+
+        
+async
+ 
+with
+ self
+.
+state_lock
+:
+
+            
+# Calculate agent health
+
+            total_agents 
+=
+ 
+len
+(
+self
+.
+agent_states
+)
+
+            
+if
+ total_agents 
+==
+ 
+0
+:
+
+                agent_health 
+=
+ 
+1.0
+
+            
+else
+:
+
+                healthy_agents 
+=
+ 
+sum
+(
+
+                    
+1
+ 
+for
+ status 
+in
+ self
+.
+agent_states
+.
+values
+(
+)
+
+                    
+if
+ status
+.
+performance_score 
+>
+ 
+0.5
+
+                
+)
+
+                agent_health 
+=
+ healthy_agents 
+/
+ total_agents
+            
+            
+# Determine system health
+
+            
+if
+ self
+.
+system_state 
+==
+ SystemState
+.
+ERROR
+:
+
+                system_health 
+=
+ 
+"critical"
+
+            
+elif
+ agent_health 
+<
+ 
+0.5
+:
+
+                system_health 
+=
+ 
+"degraded"
+
+            
+elif
+ self
+.
+system_state 
+in
+ 
+[
+SystemState
+.
+EXECUTING
+,
+ SystemState
+.
+REVIEWING
+]
+:
+
+                system_health 
+=
+ 
+"active"
+
+            
+else
+:
+
+                system_health 
+=
+ 
+"healthy"
+
+            
+            
+return
+ 
+{
+
+                
+"system_state"
+:
+ self
+.
+system_state
+.
+value
+,
+
+                
+"agent_health"
+:
+ agent_health
+,
+
+                
+"system_health"
+:
+ system_health
+,
+
+                
+"active_agents"
+:
+ 
+len
+(
+self
+.
+get_active_agents
+(
+)
+)
+,
+
+                
+"total_agents"
+:
+ total_agents
+,
+
+                
+"metrics"
+:
+ self
+.
+metrics
+,
+
+                
+"uptime"
+:
+ 
+(
+datetime
+.
+now
+(
+)
+ 
+-
+ self
+.
+metrics
+[
+"system_uptime"
+]
+)
+.
+total_seconds
+(
+)
+
+            
+}
+
+    
+    
+def
+ 
+add_state_listener
+(
+self
+,
+ callback
+:
+ 
+callable
+)
+:
+
+        
+"""Add a state change listener."""
+
+        self
+.
+listeners
+.
+append
+(
+callback
+)
+
+    
+    
+def
+ 
+remove_state_listener
+(
+self
+,
+ callback
+:
+ 
+callable
+)
+:
+
+        
+"""Remove a state change listener."""
+
+        
+if
+ callback 
+in
+ self
+.
+listeners
+:
+
+            self
+.
+listeners
+.
+remove
+(
+callback
+)
+
+    
+    
+async
+ 
+def
+ 
+_log_state_change
+(
+self
+,
+ entity
+:
+ 
+str
+,
+ old_state
+:
+ Any
+,
+ new_state
+:
+ Any
+)
+:
+
+        
+"""Log state change to history."""
+
+        log_entry 
+=
+ 
+{
+
+            
+"entity"
+:
+ entity
+,
+
+            
+"old_state"
+:
+ old_state
+.
+value 
+if
+ 
+hasattr
+(
+old_state
+,
+ 
+"value"
+)
+ 
+else
+ 
+str
+(
+old_state
+)
+,
+
+            
+"new_state"
+:
+ new_state
+.
+value 
+if
+ 
+hasattr
+(
+new_state
+,
+ 
+"value"
+)
+ 
+else
+ 
+str
+(
+new_state
+)
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        self
+.
+state_history
+.
+append
+(
+log_entry
+)
+
+        
+        
+# Keep only last 1000 entries
+
+        
+if
+ 
+len
+(
+self
+.
+state_history
+)
+ 
+>
+ 
+1000
+:
+
+            self
+.
+state_history 
+=
+ self
+.
+state_history
+[
+-
+1000
+:
+]
+
+    
+    
+async
+ 
+def
+ 
+_log_agent_error
+(
+self
+,
+ agent_id
+:
+ 
+str
+,
+ error
+:
+ 
+str
+)
+:
+
+        
+"""Log agent error."""
+
+        error_entry 
+=
+ 
+{
+
+            
+"agent_id"
+:
+ agent_id
+,
+
+            
+"error"
+:
+ error
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        
+# Add to state history with error marker
+
+        self
+.
+state_history
+.
+append
+(
+{
+
+            
+"entity"
+:
+ 
+f"error:
+{
+agent_id
+}
+"
+,
+
+            
+"error"
+:
+ error_entry
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+)
+
+    
+    
+async
+ 
+def
+ 
+_notify_listeners
+(
+self
+,
+ event
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Notify all state change listeners."""
+
+        
+if
+ 
+not
+ self
+.
+listeners
+:
+
+            
+return
+
+        
+        
+# Create notification tasks
+
+        tasks 
+=
+ 
+[
+
+            listener
+(
+event
+)
+ 
+for
+ listener 
+in
+ self
+.
+listeners
+            
+if
+ asyncio
+.
+iscoroutinefunction
+(
+listener
+)
+
+        
+]
+
+        
+        
+# Run async listeners concurrently
+
+        
+if
+ tasks
+:
+
+            
+await
+ asyncio
+.
+gather
+(
+*
+tasks
+,
+ return_exceptions
+=
+True
+)
+
+        
+        
+# Call sync listeners
+
+        
+for
+ listener 
+in
+ self
+.
+listeners
+:
+
+            
+if
+ 
+not
+ asyncio
+.
+iscoroutinefunction
+(
+listener
+)
+:
+
+                
+try
+:
+
+                    listener
+(
+event
+)
+
+                
+except
+ Exception 
+as
+ e
+:
+
+                    
+print
+(
+f"Error in state listener: 
+{
+e
+}
+"
+)
+
+    
+    
+def
+ 
+update_metrics
+(
+self
+,
+ updates
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Update system metrics."""
+
+        self
+.
+metrics
+.
+update
+(
+updates
+)
+
+    
+    
+async
+ 
+def
+ 
+get_state_report
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Get comprehensive state report."""
+
+        
+return
+ 
+{
+
+            
+"system_state"
+:
+ self
+.
+system_state
+.
+value
+,
+
+            
+"agent_states"
+:
+ 
+{
+
+                agent_id
+:
+ asdict
+(
+state
+)
+
+                
+for
+ agent_id
+,
+ state 
+in
+ self
+.
+agent_states
+.
+items
+(
+)
+
+            
+}
+,
+
+            
+"metrics"
+:
+ self
+.
+metrics
+,
+
+            
+"state_history_count"
+:
+ 
+len
+(
+self
+.
+state_history
+)
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+import
+ asyncio
+
+import
+ random
+
+from
+ datetime 
+import
+ datetime
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+,
+ Tuple
+
+from
+ dataclasses 
+import
+ dataclass
+
+from
+ enum 
+import
+ Enum
+
+
+from
+ core
+.
+state_manager 
+import
+ SystemState
+,
+ AgentState
+
+from
+ memory
+.
+long_term 
+import
+ LongTermMemory
+
+from
+ memory
+.
+experience_memory 
+import
+ ExperienceMemory
+
+
+
+class
+ 
+DecisionType
+(
+Enum
+)
+:
+
+    SELECT_AGENT 
+=
+ 
+"select_agent"
+
+    SELECT_TOOL 
+=
+ 
+"select_tool"
+
+    SELECT_MODEL 
+=
+ 
+"select_model"
+
+    PRIORITIZE_TASK 
+=
+ 
+"prioritize_task"
+
+    ESCALATE_ERROR 
+=
+ 
+"escalate_error"
+
+    REPLAN 
+=
+ 
+"replan"
+
+
+
+
+@dataclass
+
+
+class
+ 
+Decision
+:
+
+    decision_type
+:
+ DecisionType
+    choice
+:
+ 
+str
+
+    confidence
+:
+ 
+float
+
+    reasoning
+:
+ 
+str
+
+    alternatives
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+
+    timestamp
+:
+ datetime
+
+
+
+class
+ 
+DecisionEngine
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+long_term_memory 
+=
+ LongTermMemory
+(
+config
+)
+
+        self
+.
+experience_memory 
+=
+ ExperienceMemory
+(
+config
+)
+
+        
+        
+# Decision thresholds
+
+        self
+.
+confidence_threshold 
+=
+ 
+0.7
+
+        self
+.
+exploration_rate 
+=
+ 
+0.1
+
+        
+        
+# Decision history
+
+        self
+.
+decision_history
+:
+ List
+[
+Decision
+]
+ 
+=
+ 
+[
+]
+
+        
+        
+# Performance tracking
+
+        self
+.
+decision_outcomes
+:
+ Dict
+[
+str
+,
+ 
+bool
+]
+ 
+=
+ 
+{
+}
+
+    
+    
+async
+ 
+def
+ 
+decide_agent_for_task
+(
+self
+,
+ task
+:
+ Any
+,
+ available_agents
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ Tuple
+[
+str
+,
+ Decision
+]
+:
+
+        
+"""Decide which agent should execute a task."""
+
+        
+# Build decision context
+
+        context 
+=
+ 
+{
+
+            
+"task_type"
+:
+ task
+.
+agent_type
+,
+
+            
+"task_description"
+:
+ task
+.
+description
+,
+
+            
+"available_agents"
+:
+ available_agents
+,
+
+            
+"task_priority"
+:
+ task
+.
+priority
+        
+}
+
+        
+        
+# Query experience memory for similar decisions
+
+        similar_decisions 
+=
+ 
+await
+ self
+.
+_get_similar_decisions
+(
+"agent_selection"
+,
+ context
+)
+
+        
+        
+# Calculate scores for each agent
+
+        agent_scores 
+=
+ 
+{
+}
+
+        
+for
+ agent 
+in
+ available_agents
+:
+
+            score 
+=
+ 
+await
+ self
+.
+_calculate_agent_score
+(
+agent
+,
+ task
+,
+ similar_decisions
+)
+
+            agent_scores
+[
+agent
+]
+ 
+=
+ score
+        
+        
+# Apply exploration-exploitation
+
+        
+if
+ random
+.
+random
+(
+)
+ 
+<
+ self
+.
+exploration_rate
+:
+
+            chosen_agent 
+=
+ random
+.
+choice
+(
+available_agents
+)
+
+            confidence 
+=
+ 
+0.5
+
+            reasoning 
+=
+ 
+"Exploration: Random agent selection"
+
+        
+else
+:
+
+            
+# Exploitation: Choose best scoring agent
+
+            chosen_agent 
+=
+ 
+max
+(
+agent_scores
+,
+ key
+=
+agent_scores
+.
+get
+)
+
+            confidence 
+=
+ agent_scores
+[
+chosen_agent
+]
+
+            reasoning 
+=
+ 
+f"Selected based on historical performance: 
+{
+agent_scores
+}
+"
+
+        
+        
+# Record decision
+
+        decision 
+=
+ Decision
+(
+
+            decision_type
+=
+DecisionType
+.
+SELECT_AGENT
+,
+
+            choice
+=
+chosen_agent
+,
+
+            confidence
+=
+confidence
+,
+
+            reasoning
+=
+reasoning
+,
+
+            alternatives
+=
+[
+
+                
+{
+"agent"
+:
+ agent
+,
+ 
+"score"
+:
+ score
+}
+
+                
+for
+ agent
+,
+ score 
+in
+ agent_scores
+.
+items
+(
+)
+
+            
+]
+,
+
+            timestamp
+=
+datetime
+.
+now
+(
+)
+
+        
+)
+
+        
+        
+await
+ self
+.
+_record_decision
+(
+decision
+)
+
+        
+        
+return
+ chosen_agent
+,
+ decision
+    
+    
+async
+ 
+def
+ 
+decide_tool_for_action
+(
+self
+,
+ action_type
+:
+ 
+str
+,
+ tools
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ Tuple
+[
+str
+,
+ Decision
+]
+:
+
+        
+"""Decide which tool to use for an action."""
+
+        context 
+=
+ 
+{
+
+            
+"action_type"
+:
+ action_type
+,
+
+            
+"available_tools"
+:
+ tools
+        
+}
+
+        
+        
+# Check long-term memory for tool effectiveness
+
+        tool_scores 
+=
+ 
+{
+}
+
+        
+for
+ tool 
+in
+ tools
+:
+
+            effectiveness 
+=
+ 
+await
+ self
+.
+_get_tool_effectiveness
+(
+tool
+,
+ action_type
+)
+
+            tool_scores
+[
+tool
+]
+ 
+=
+ effectiveness
+        
+        
+# Choose best tool
+
+        
+if
+ random
+.
+random
+(
+)
+ 
+<
+ self
+.
+exploration_rate
+:
+
+            chosen_tool 
+=
+ random
+.
+choice
+(
+tools
+)
+
+            confidence 
+=
+ 
+0.5
+
+            reasoning 
+=
+ 
+"Exploration: Random tool selection"
+
+        
+else
+:
+
+            chosen_tool 
+=
+ 
+max
+(
+tool_scores
+,
+ key
+=
+tool_scores
+.
+get
+)
+
+            confidence 
+=
+ tool_scores
+[
+chosen_tool
+]
+
+            reasoning 
+=
+ 
+f"Selected based on effectiveness: 
+{
+tool_scores
+}
+"
+
+        
+        decision 
+=
+ Decision
+(
+
+            decision_type
+=
+DecisionType
+.
+SELECT_TOOL
+,
+
+            choice
+=
+chosen_tool
+,
+
+            confidence
+=
+confidence
+,
+
+            reasoning
+=
+reasoning
+,
+
+            alternatives
+=
+[
+
+                
+{
+"tool"
+:
+ tool
+,
+ 
+"score"
+:
+ score
+}
+
+                
+for
+ tool
+,
+ score 
+in
+ tool_scores
+.
+items
+(
+)
+
+            
+]
+,
+
+            timestamp
+=
+datetime
+.
+now
+(
+)
+
+        
+)
+
+        
+        
+await
+ self
+.
+_record_decision
+(
+decision
+)
+
+        
+        
+return
+ chosen_tool
+,
+ decision
+    
+    
+async
+ 
+def
+ 
+decide_llm_model
+(
+self
+,
+ task_complexity
+:
+ 
+str
+,
+ tokens_needed
+:
+ 
+int
+)
+ 
+-
+>
+ Tuple
+[
+str
+,
+ Decision
+]
+:
+
+        
+"""Decide which LLM model to use."""
+
+        models 
+=
+ self
+.
+config
+.
+get
+(
+"llm_providers"
+,
+ 
+{
+}
+)
+
+        
+        model_scores 
+=
+ 
+{
+}
+
+        
+for
+ provider
+,
+ config 
+in
+ models
+.
+items
+(
+)
+:
+
+            
+for
+ model_name
+,
+ model_config 
+in
+ config
+.
+get
+(
+"models"
+,
+ 
+{
+}
+)
+.
+items
+(
+)
+:
+
+                score 
+=
+ 
+await
+ self
+.
+_calculate_model_score
+(
+
+                    model_config
+,
+
+                    task_complexity
+,
+
+                    tokens_needed
+                
+)
+
+                model_scores
+[
+f"
+{
+provider
+}
+/
+{
+model_name
+}
+"
+]
+ 
+=
+ score
+        
+        
+# Choose best model
+
+        
+if
+ random
+.
+random
+(
+)
+ 
+<
+ self
+.
+exploration_rate
+:
+
+            chosen_model 
+=
+ random
+.
+choice
+(
+list
+(
+model_scores
+.
+keys
+(
+)
+)
+)
+
+            confidence 
+=
+ 
+0.5
+
+            reasoning 
+=
+ 
+"Exploration: Random model selection"
+
+        
+else
+:
+
+            chosen_model 
+=
+ 
+max
+(
+model_scores
+,
+ key
+=
+model_scores
+.
+get
+)
+
+            confidence 
+=
+ model_scores
+[
+chosen_model
+]
+
+            reasoning 
+=
+ 
+f"Selected based on suitability: 
+{
+model_scores
+}
+"
+
+        
+        decision 
+=
+ Decision
+(
+
+            decision_type
+=
+DecisionType
+.
+SELECT_MODEL
+,
+
+            choice
+=
+chosen_model
+,
+
+            confidence
+=
+confidence
+,
+
+            reasoning
+=
+reasoning
+,
+
+            alternatives
+=
+[
+
+                
+{
+"model"
+:
+ model
+,
+ 
+"score"
+:
+ score
+}
+
+                
+for
+ model
+,
+ score 
+in
+ model_scores
+.
+items
+(
+)
+
+            
+]
+,
+
+            timestamp
+=
+datetime
+.
+now
+(
+)
+
+        
+)
+
+        
+        
+await
+ self
+.
+_record_decision
+(
+decision
+)
+
+        
+        
+return
+ chosen_model
+,
+ decision
+    
+    
+async
+ 
+def
+ 
+decide_task_priority
+(
+self
+,
+ tasks
+:
+ List
+[
+Any
+]
+)
+ 
+-
+>
+ List
+[
+Tuple
+[
+Any
+,
+ 
+int
+]
+]
+:
+
+        
+"""Decide priority order for tasks."""
+
+        prioritized 
+=
+ 
+[
+]
+
+        
+        
+for
+ task 
+in
+ tasks
+:
+
+            priority_score 
+=
+ 
+await
+ self
+.
+_calculate_priority_score
+(
+task
+)
+
+            prioritized
+.
+append
+(
+(
+task
+,
+ priority_score
+)
+)
+
+        
+        
+# Sort by priority score (descending)
+
+        prioritized
+.
+sort
+(
+key
+=
+lambda
+ x
+:
+ x
+[
+1
+]
+,
+ reverse
+=
+True
+)
+
+        
+        
+# Record decision
+
+        decision 
+=
+ Decision
+(
+
+            decision_type
+=
+DecisionType
+.
+PRIORITIZE_TASK
+,
+
+            choice
+=
+"priority_order"
+,
+
+            confidence
+=
+0.8
+,
+
+            reasoning
+=
+f"Prioritized 
+{
+len
+(
+tasks
+)
+}
+ tasks based on dependencies and impact"
+,
+
+            alternatives
+=
+[
+
+                
+{
+"task_id"
+:
+ task
+.
+task_id
+,
+ 
+"priority"
+:
+ score
+}
+
+                
+for
+ task
+,
+ score 
+in
+ prioritized
+            
+]
+,
+
+            timestamp
+=
+datetime
+.
+now
+(
+)
+
+        
+)
+
+        
+        
+await
+ self
+.
+_record_decision
+(
+decision
+)
+
+        
+        
+return
+ prioritized
+    
+    
+async
+ 
+def
+ 
+should_replan
+(
+self
+,
+ goal
+:
+ Any
+,
+ failures
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ Tuple
+[
+bool
+,
+ Decision
+]
+:
+
+        
+"""Decide if replanning is needed."""
+
+        failure_rate 
+=
+ 
+len
+(
+failures
+)
+ 
+/
+ 
+max
+(
+len
+(
+goal
+.
+plan
+.
+tasks
+)
+,
+ 
+1
+)
+
+        
+        
+# Check if failures are critical
+
+        critical_failures 
+=
+ 
+[
+f 
+for
+ f 
+in
+ failures 
+if
+ 
+"critical"
+ 
+in
+ f
+.
+lower
+(
+)
+]
+
+        
+        should_replan 
+=
+ 
+(
+
+            failure_rate 
+>
+ 
+0.3
+ 
+or
+
+            
+len
+(
+critical_failures
+)
+ 
+>
+ 
+0
+ 
+or
+
+            
+len
+(
+failures
+)
+ 
+>
+ 
+3
+
+        
+)
+
+        
+        confidence 
+=
+ 
+0.9
+ 
+if
+ should_replan 
+else
+ 
+0.6
+
+        
+        decision 
+=
+ Decision
+(
+
+            decision_type
+=
+DecisionType
+.
+REPLAN
+,
+
+            choice
+=
+str
+(
+should_replan
+)
+,
+
+            confidence
+=
+confidence
+,
+
+            reasoning
+=
+f"Failure rate: 
+{
+failure_rate
+:
+.2f
+}
+, Critical failures: 
+{
+len
+(
+critical_failures
+)
+}
+"
+,
+
+            alternatives
+=
+[
+
+                
+{
+"replan"
+:
+ 
+True
+,
+ 
+"reason"
+:
+ 
+"High failure rate"
+}
+,
+
+                
+{
+"replan"
+:
+ 
+False
+,
+ 
+"reason"
+:
+ 
+"Failures are recoverable"
+}
+
+            
+]
+,
+
+            timestamp
+=
+datetime
+.
+now
+(
+)
+
+        
+)
+
+        
+        
+await
+ self
+.
+_record_decision
+(
+decision
+)
+
+        
+        
+return
+ should_replan
+,
+ decision
+    
+    
+async
+ 
+def
+ 
+evaluate_outcome
+(
+self
+,
+ decision_id
+:
+ 
+str
+,
+ success
+:
+ 
+bool
+)
+:
+
+        
+"""Evaluate outcome of a decision."""
+
+        
+for
+ decision 
+in
+ self
+.
+decision_history
+:
+
+            
+if
+ decision
+.
+choice 
+==
+ decision_id
+:
+
+                self
+.
+decision_outcomes
+[
+decision_id
+]
+ 
+=
+ success
+                
+                
+# Update confidence for future decisions
+
+                
+if
+ 
+not
+ success
+:
+
+                    decision
+.
+confidence 
+*=
+ 
+0.9
+  
+# Reduce confidence
+
+                
+else
+:
+
+                    decision
+.
+confidence 
+=
+ 
+min
+(
+decision
+.
+confidence 
+*
+ 
+1.05
+,
+ 
+1.0
+)
+
+                
+                
+# Store in experience memory
+
+                
+await
+ self
+.
+experience_memory
+.
+store_decision_outcome
+(
+
+                    decision
+,
+
+                    success
+                
+)
+
+                
+                
+break
+
+    
+    
+async
+ 
+def
+ 
+_calculate_agent_score
+(
+self
+,
+ agent
+:
+ 
+str
+,
+ task
+:
+ Any
+,
+ experiences
+:
+ List
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Calculate suitability score for an agent."""
+
+        base_score 
+=
+ 
+1.0
+
+        
+        
+# Task type match
+
+        
+if
+ task
+.
+agent_type 
+==
+ agent
+:
+
+            base_score 
++=
+ 
+2.0
+
+        
+        
+# Historical performance
+
+        
+for
+ exp 
+in
+ experiences
+:
+
+            
+if
+ exp
+.
+get
+(
+"agent"
+)
+ 
+==
+ agent
+:
+
+                base_score 
++=
+ exp
+.
+get
+(
+"success_rate"
+,
+ 
+0.5
+)
+
+        
+        
+# Availability (if we can check)
+
+        
+if
+ 
+hasattr
+(
+self
+,
+ 
+'state_manager'
+)
+:
+
+            agent_state 
+=
+ self
+.
+state_manager
+.
+get_agent_state
+(
+f"
+{
+agent
+}
+_agent"
+)
+
+            
+if
+ agent_state 
+and
+ agent_state
+.
+state 
+==
+ AgentState
+.
+WORKING
+:
+
+                base_score 
+*=
+ 
+0.8
+  
+# Slight penalty for busy agent
+
+        
+        
+return
+ base_score
+    
+    
+async
+ 
+def
+ 
+_calculate_model_score
+(
+
+        self
+,
+
+        model_config
+:
+ Dict
+[
+str
+,
+ Any
+]
+,
+
+        complexity
+:
+ 
+str
+,
+
+        tokens_needed
+:
+ 
+int
+
+    
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Calculate suitability score for a model."""
+
+        score 
+=
+ 
+1.0
+
+        
+        
+# Complexity match
+
+        complexity_scores 
+=
+ 
+{
+
+            
+"simple"
+:
+ 
+"gpt-3.5-turbo"
+,
+
+            
+"moderate"
+:
+ 
+"gpt-4-turbo-preview"
+,
+
+            
+"complex"
+:
+ 
+"gpt-4-turbo-preview"
+
+        
+}
+
+        
+        
+if
+ model_config
+.
+get
+(
+"name"
+)
+ 
+==
+ complexity_scores
+.
+get
+(
+complexity
+)
+:
+
+            score 
++=
+ 
+2.0
+
+        
+        
+# Token capacity
+
+        
+if
+ tokens_needed 
+>
+ model_config
+.
+get
+(
+"max_tokens"
+,
+ 
+0
+)
+:
+
+            score 
+=
+ 
+0.0
+  
+# Can't use if insufficient capacity
+
+        
+else
+:
+
+            token_ratio 
+=
+ tokens_needed 
+/
+ model_config
+.
+get
+(
+"max_tokens"
+,
+ 
+1
+)
+
+            score 
++=
+ 
+(
+1
+ 
+-
+ token_ratio
+)
+  
+# Prefer models with more headroom
+
+        
+        
+# Cost efficiency (lower is better)
+
+        cost 
+=
+ model_config
+.
+get
+(
+"cost_per_1k_input"
+,
+ 
+0
+)
+ 
++
+ model_config
+.
+get
+(
+"cost_per_1k_output"
+,
+ 
+0
+)
+
+        
+if
+ cost 
+>
+ 
+0
+:
+
+            score 
++=
+ 
+1.0
+ 
+/
+ cost
+        
+        
+return
+ score
+    
+    
+async
+ 
+def
+ 
+_calculate_priority_score
+(
+self
+,
+ task
+:
+ Any
+)
+ 
+-
+>
+ 
+int
+:
+
+        
+"""Calculate priority score for a task."""
+
+        base_priority 
+=
+ 
+getattr
+(
+task
+,
+ 
+'priority'
+,
+ 
+50
+)
+
+        
+        
+# Dependency impact
+
+        dep_count 
+=
+ 
+len
+(
+getattr
+(
+task
+,
+ 
+'dependencies'
+,
+ 
+[
+]
+)
+)
+
+        impact_bonus 
+=
+ dep_count 
+*
+ 
+10
+
+        
+        
+# Complexity (estimated)
+
+        desc_length 
+=
+ 
+len
+(
+getattr
+(
+task
+,
+ 
+'description'
+,
+ 
+''
+)
+)
+
+        complexity_bonus 
+=
+ 
+min
+(
+desc_length 
+//
+ 
+50
+,
+ 
+20
+)
+
+        
+        
+return
+ base_priority 
++
+ impact_bonus 
++
+ complexity_bonus
+    
+    
+async
+ 
+def
+ 
+_get_similar_decisions
+(
+self
+,
+ decision_type
+:
+ 
+str
+,
+ context
+:
+ Dict
+)
+ 
+-
+>
+ List
+[
+Dict
+]
+:
+
+        
+"""Get similar past decisions."""
+
+        query 
+=
+ 
+f"
+{
+decision_type
+}
+ 
+{
+json
+.
+dumps
+(
+context
+)
+}
+"
+
+        results 
+=
+ 
+await
+ self
+.
+long_term_memory
+.
+find_similar
+(
+query
+,
+ limit
+=
+5
+)
+
+        
+        
+# Only return successful decisions
+
+        
+return
+ 
+[
+r 
+for
+ r 
+in
+ results 
+if
+ r
+.
+get
+(
+"success_rate"
+,
+ 
+0
+)
+ 
+>
+ 
+0.5
+]
+
+    
+    
+async
+ 
+def
+ 
+_get_tool_effectiveness
+(
+self
+,
+ tool
+:
+ 
+str
+,
+ action_type
+:
+ 
+str
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Get historical effectiveness of a tool for an action."""
+
+        experiences 
+=
+ 
+await
+ self
+.
+experience_memory
+.
+find_similar
+(
+
+            
+f"
+{
+tool
+}
+ effectiveness 
+{
+action_type
+}
+"
+,
+
+            limit
+=
+3
+
+        
+)
+
+        
+        
+if
+ 
+not
+ experiences
+:
+
+            
+return
+ 
+0.5
+  
+# Default
+
+        
+        success_rates 
+=
+ 
+[
+exp
+.
+get
+(
+"success_rate"
+,
+ 
+0
+)
+ 
+for
+ exp 
+in
+ experiences
+]
+
+        
+return
+ 
+sum
+(
+success_rates
+)
+ 
+/
+ 
+len
+(
+success_rates
+)
+
+    
+    
+async
+ 
+def
+ 
+_record_decision
+(
+self
+,
+ decision
+:
+ Decision
+)
+:
+
+        
+"""Record decision in history."""
+
+        self
+.
+decision_history
+.
+append
+(
+decision
+)
+
+        
+        
+# Keep only last 1000 decisions
+
+        
+if
+ 
+len
+(
+self
+.
+decision_history
+)
+ 
+>
+ 
+1000
+:
+
+            self
+.
+decision_history 
+=
+ self
+.
+decision_history
+[
+-
+1000
+:
+]
+
+    
+    
+def
+ 
+get_decision_stats
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Get decision statistics."""
+
+        total 
+=
+ 
+len
+(
+self
+.
+decision_outcomes
+)
+
+        successful 
+=
+ 
+sum
+(
+1
+ 
+for
+ success 
+in
+ self
+.
+decision_outcomes
+.
+values
+(
+)
+ 
+if
+ success
+)
+
+        
+        
+return
+ 
+{
+
+            
+"total_decisions"
+:
+ 
+len
+(
+self
+.
+decision_history
+)
+,
+
+            
+"evaluated_decisions"
+:
+ total
+,
+
+            
+"success_rate"
+:
+ successful 
+/
+ total 
+if
+ total 
+>
+ 
+0
+ 
+else
+ 
+0.0
+,
+
+            
+"avg_confidence"
+:
+ 
+sum
+(
+d
+.
+confidence 
+for
+ d 
+in
+ self
+.
+decision_history
+)
+ 
+/
+ 
+len
+(
+self
+.
+decision_history
+)
+ 
+if
+ self
+.
+decision_history 
+else
+ 
+0.0
+
+        
+}
+import
+ json
+
+from
+ datetime 
+import
+ datetime
+,
+ timedelta
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+
+from
+ dataclasses 
+import
+ dataclass
+
+
+from
+ memory
+.
+long_term 
+import
+ LongTermMemory
+
+from
+ memory
+.
+experience_memory 
+import
+ ExperienceMemory
+
+from
+ core
+.
+metrics_engine 
+import
+ MetricsEngine
+
+
+
+@dataclass
+
+
+class
+ 
+ImprovementOpportunity
+:
+
+    area
+:
+ 
+str
+  
+# planning, coding, testing, architecture
+
+    issue
+:
+ 
+str
+
+    suggestion
+:
+ 
+str
+
+    impact
+:
+ 
+str
+  
+# high, medium, low
+
+    effort
+:
+ 
+str
+  
+# high, medium, low
+
+    confidence
+:
+ 
+float
+
+
+
+
+class
+ 
+SelfImprovementEngine
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+long_term_memory 
+=
+ LongTermMemory
+(
+config
+)
+
+        self
+.
+experience_memory 
+=
+ ExperienceMemory
+(
+config
+)
+
+        self
+.
+metrics_engine 
+=
+ MetricsEngine
+(
+config
+)
+
+        
+        
+# Improvement history
+
+        self
+.
+improvements_applied
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+[
+]
+
+        
+        
+# Performance baseline
+
+        self
+.
+baseline_metrics
+:
+ Optional
+[
+Dict
+[
+str
+,
+ 
+float
+]
+]
+ 
+=
+ 
+None
+
+    
+    
+async
+ 
+def
+ 
+analyze_performance
+(
+self
+)
+ 
+-
+>
+ List
+[
+ImprovementOpportunity
+]
+:
+
+        
+"""Analyze system performance for improvement opportunities."""
+
+        opportunities 
+=
+ 
+[
+]
+
+        
+        
+# Analyze goal completion rates
+
+        goal_opportunities 
+=
+ 
+await
+ self
+.
+_analyze_goal_performance
+(
+)
+
+        opportunities
+.
+extend
+(
+goal_opportunities
+)
+
+        
+        
+# Analyze agent performance
+
+        agent_opportunities 
+=
+ 
+await
+ self
+.
+_analyze_agent_performance
+(
+)
+
+        opportunities
+.
+extend
+(
+agent_opportunities
+)
+
+        
+        
+# Analyze code quality trends
+
+        quality_opportunities 
+=
+ 
+await
+ self
+.
+_analyze_quality_trends
+(
+)
+
+        opportunities
+.
+extend
+(
+quality_opportunities
+)
+
+        
+        
+# Analyze cost efficiency
+
+        cost_opportunities 
+=
+ 
+await
+ self
+.
+_analyze_cost_efficiency
+(
+)
+
+        opportunities
+.
+extend
+(
+cost_opportunities
+)
+
+        
+        
+# Analyze planning accuracy
+
+        planning_opportunities 
+=
+ 
+await
+ self
+.
+_analyze_planning_accuracy
+(
+)
+
+        opportunities
+.
+extend
+(
+planning_opportunities
+)
+
+        
+        
+# Filter by confidence and impact
+
+        opportunities 
+=
+ 
+[
+
+            opp 
+for
+ opp 
+in
+ opportunities
+            
+if
+ opp
+.
+confidence 
+>
+ 
+0.6
+ 
+and
+ opp
+.
+impact 
+in
+ 
+[
+"high"
+,
+ 
+"medium"
+]
+
+        
+]
+
+        
+        
+# Sort by impact vs effort ratio
+
+        impact_scores 
+=
+ 
+{
+"high"
+:
+ 
+3
+,
+ 
+"medium"
+:
+ 
+2
+,
+ 
+"low"
+:
+ 
+1
+}
+
+        effort_scores 
+=
+ 
+{
+"high"
+:
+ 
+1
+,
+ 
+"medium"
+:
+ 
+2
+,
+ 
+"low"
+:
+ 
+3
+}
+
+        
+        opportunities
+.
+sort
+(
+
+            key
+=
+lambda
+ o
+:
+ 
+(
+impact_scores
+[
+o
+.
+impact
+]
+ 
+*
+ o
+.
+confidence
+)
+ 
+/
+ effort_scores
+[
+o
+.
+effort
+]
+,
+
+            reverse
+=
+True
+
+        
+)
+
+        
+        
+return
+ opportunities
+    
+    
+async
+ 
+def
+ 
+apply_improvement
+(
+self
+,
+ opportunity
+:
+ ImprovementOpportunity
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Apply a specific improvement."""
+
+        success 
+=
+ 
+False
+
+        
+        
+if
+ opportunity
+.
+area 
+==
+ 
+"planning"
+:
+
+            success 
+=
+ 
+await
+ self
+.
+_improve_planning
+(
+)
+
+        
+elif
+ opportunity
+.
+area 
+==
+ 
+"coding"
+:
+
+            success 
+=
+ 
+await
+ self
+.
+_improve_coding
+(
+)
+
+        
+elif
+ opportunity
+.
+area 
+==
+ 
+"testing"
+:
+
+            success 
+=
+ 
+await
+ self
+.
+_improve_testing
+(
+)
+
+        
+elif
+ opportunity
+.
+area 
+==
+ 
+"architecture"
+:
+
+            success 
+=
+ 
+await
+ self
+.
+_improve_architecture
+(
+)
+
+        
+        
+# Record applied improvement
+
+        self
+.
+improvements_applied
+.
+append
+(
+{
+
+            
+"opportunity"
+:
+ opportunity
+.
+__dict__
+,
+
+            
+"applied_at"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"success"
+:
+ success
+        
+}
+)
+
+        
+        
+# Update baseline if enough improvements applied
+
+        
+if
+ 
+len
+(
+self
+.
+improvements_applied
+)
+ 
+>=
+ 
+5
+:
+
+            
+await
+ self
+.
+_update_baseline_metrics
+(
+)
+
+        
+        
+return
+ success
+    
+    
+async
+ 
+def
+ 
+_analyze_goal_performance
+(
+self
+)
+ 
+-
+>
+ List
+[
+ImprovementOpportunity
+]
+:
+
+        
+"""Analyze goal completion performance."""
+
+        opportunities 
+=
+ 
+[
+]
+
+        
+        
+# Get recent metrics
+
+        recent_metrics 
+=
+ self
+.
+metrics_engine
+.
+goal_metrics
+[
+-
+10
+:
+]
+
+        
+        
+if
+ 
+not
+ recent_metrics
+:
+
+            
+return
+ opportunities
+        
+        
+# Calculate success rate
+
+        success_rate 
+=
+ 
+sum
+(
+1
+ 
+for
+ m 
+in
+ recent_metrics 
+if
+ m
+.
+success
+)
+ 
+/
+ 
+len
+(
+recent_metrics
+)
+
+        
+        
+if
+ success_rate 
+<
+ 
+0.7
+:
+
+            opportunities
+.
+append
+(
+ImprovementOpportunity
+(
+
+                area
+=
+"planning"
+,
+
+                issue
+=
+"Low goal success rate"
+,
+
+                suggestion
+=
+"Break goals into smaller, more manageable tasks"
+,
+
+                impact
+=
+"high"
+,
+
+                effort
+=
+"medium"
+,
+
+                confidence
+=
+0.8
+
+            
+)
+)
+
+        
+        
+# Analyze duration variance
+
+        durations 
+=
+ 
+[
+m
+.
+duration_seconds 
+for
+ m 
+in
+ recent_metrics 
+if
+ m
+.
+duration_seconds
+]
+
+        
+if
+ durations
+:
+
+            avg_duration 
+=
+ 
+sum
+(
+durations
+)
+ 
+/
+ 
+len
+(
+durations
+)
+
+            variance 
+=
+ 
+sum
+(
+(
+d 
+-
+ avg_duration
+)
+ 
+**
+ 
+2
+ 
+for
+ d 
+in
+ durations
+)
+ 
+/
+ 
+len
+(
+durations
+)
+
+            
+            
+if
+ variance 
+>
+ avg_duration 
+**
+ 
+2
+:
+
+                opportunities
+.
+append
+(
+ImprovementOpportunity
+(
+
+                    area
+=
+"planning"
+,
+
+                    issue
+=
+"High variance in goal completion time"
+,
+
+                    suggestion
+=
+"Improve time estimation using historical data"
+,
+
+                    impact
+=
+"medium"
+,
+
+                    effort
+=
+"low"
+,
+
+                    confidence
+=
+0.7
+
+                
+)
+)
+
+        
+        
+return
+ opportunities
+    
+    
+async
+ 
+def
+ 
+_analyze_agent_performance
+(
+self
+)
+ 
+-
+>
+ List
+[
+ImprovementOpportunity
+]
+:
+
+        
+"""Analyze individual agent performance."""
+
+        opportunities 
+=
+ 
+[
+]
+
+        
+        
+# Get agent performance from experience memory
+
+        failure_patterns 
+=
+ self
+.
+experience_memory
+.
+get_failure_patterns
+(
+)
+
+        
+        
+for
+ pattern
+,
+ count 
+in
+ failure_patterns
+.
+items
+(
+)
+:
+
+            
+if
+ count 
+>
+ 
+3
+:
+
+                opportunities
+.
+append
+(
+ImprovementOpportunity
+(
+
+                    area
+=
+"coding"
+,
+
+                    issue
+=
+f"Recurring failure pattern: 
+{
+pattern
+}
+"
+,
+
+                    suggestion
+=
+"Create specialized handler for this pattern"
+,
+
+                    impact
+=
+"high"
+,
+
+                    effort
+=
+"medium"
+,
+
+                    confidence
+=
+0.9
+
+                
+)
+)
+
+        
+        
+return
+ opportunities
+    
+    
+async
+ 
+def
+ 
+_analyze_quality_trends
+(
+self
+)
+ 
+-
+>
+ List
+[
+ImprovementOpportunity
+]
+:
+
+        
+"""Analyze code quality trends."""
+
+        opportunities 
+=
+ 
+[
+]
+
+        
+        
+# Check if quality is degrading
+
+        current_quality 
+=
+ self
+.
+metrics_engine
+.
+get_bug_frequency
+(
+)
+
+        
+        
+if
+ self
+.
+baseline_metrics 
+is
+ 
+None
+:
+
+            self
+.
+baseline_metrics 
+=
+ 
+{
+"bug_frequency"
+:
+ current_quality
+}
+
+        
+        
+if
+ current_quality 
+>
+ self
+.
+baseline_metrics
+.
+get
+(
+"bug_frequency"
+,
+ 
+0
+)
+ 
+*
+ 
+1.5
+:
+
+            opportunities
+.
+append
+(
+ImprovementOpportunity
+(
+
+                area
+=
+"testing"
+,
+
+                issue
+=
+"Bug frequency increasing"
+,
+
+                suggestion
+=
+"Implement stricter code review and add more unit tests"
+,
+
+                impact
+=
+"high"
+,
+
+                effort
+=
+"medium"
+,
+
+                confidence
+=
+0.8
+
+            
+)
+)
+
+        
+        
+return
+ opportunities
+    
+    
+async
+ 
+def
+ 
+_analyze_cost_efficiency
+(
+self
+)
+ 
+-
+>
+ List
+[
+ImprovementOpportunity
+]
+:
+
+        
+"""Analyze cost efficiency."""
+
+        opportunities 
+=
+ 
+[
+]
+
+        
+        
+# Get token usage metrics
+
+        token_usage 
+=
+ self
+.
+metrics_engine
+.
+get_token_usage_stats
+(
+)
+
+        
+        
+if
+ token_usage
+.
+get
+(
+"cost_per_goal"
+,
+ 
+0
+)
+ 
+>
+ 
+1.0
+:
+  
+# $1 per goal
+
+            opportunities
+.
+append
+(
+ImprovementOpportunity
+(
+
+                area
+=
+"planning"
+,
+
+                issue
+=
+"High token usage per goal"
+,
+
+                suggestion
+=
+"Implement better caching and use smaller models for simple tasks"
+,
+
+                impact
+=
+"medium"
+,
+
+                effort
+=
+"low"
+,
+
+                confidence
+=
+0.7
+
+            
+)
+)
+
+        
+        
+return
+ opportunities
+    
+    
+async
+ 
+def
+ 
+_analyze_planning_accuracy
+(
+self
+)
+ 
+-
+>
+ List
+[
+ImprovementOpportunity
+]
+:
+
+        
+"""Analyze planning accuracy."""
+
+        opportunities 
+=
+ 
+[
+]
+
+        
+        
+# Get recent plans and their outcomes
+
+        recent_plans 
+=
+ 
+await
+ self
+.
+experience_memory
+.
+get_recent_plans
+(
+limit
+=
+10
+)
+
+        
+        
+if
+ 
+not
+ recent_plans
+:
+
+            
+return
+ opportunities
+        
+        accuracy_scores 
+=
+ 
+[
+]
+
+        
+        
+for
+ plan 
+in
+ recent_plans
+:
+
+            planned_tasks 
+=
+ 
+len
+(
+plan
+.
+get
+(
+"tasks"
+,
+ 
+[
+]
+)
+)
+
+            completed_tasks 
+=
+ 
+len
+(
+[
+
+                t 
+for
+ t 
+in
+ plan
+.
+get
+(
+"tasks"
+,
+ 
+[
+]
+)
+
+                
+if
+ t
+.
+get
+(
+"status"
+)
+ 
+==
+ 
+"completed"
+
+            
+]
+)
+
+            
+            
+if
+ planned_tasks 
+>
+ 
+0
+:
+
+                accuracy 
+=
+ completed_tasks 
+/
+ planned_tasks
+                accuracy_scores
+.
+append
+(
+accuracy
+)
+
+        
+        
+if
+ accuracy_scores
+:
+
+            avg_accuracy 
+=
+ 
+sum
+(
+accuracy_scores
+)
+ 
+/
+ 
+len
+(
+accuracy_scores
+)
+
+            
+            
+if
+ avg_accuracy 
+<
+ 
+0.6
+:
+
+                opportunities
+.
+append
+(
+ImprovementOpportunity
+(
+
+                    area
+=
+"planning"
+,
+
+                    issue
+=
+"Low plan execution accuracy"
+,
+
+                    suggestion
+=
+"Add dependency validation and task complexity scoring"
+,
+
+                    impact
+=
+"high"
+,
+
+                    effort
+=
+"high"
+,
+
+                    confidence
+=
+0.75
+
+                
+)
+)
+
+        
+        
+return
+ opportunities
+    
+    
+async
+ 
+def
+ 
+_improve_planning
+(
+self
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Improve planning strategies."""
+
+        
+try
+:
+
+            
+# Load current planning module
+
+            
+from
+ core
+.
+planner 
+import
+ Planner
+            
+            
+# Get planner instance
+
+            planner 
+=
+ Planner
+(
+self
+.
+config
+)
+
+            
+            
+# Apply improvement: Add complexity estimation
+
+            planner
+.
+planning_strategies
+.
+append
+(
+"complexity_estimation"
+)
+
+            
+            
+# Store improvement in memory
+
+            
+await
+ self
+.
+long_term_memory
+.
+store
+(
+
+                pattern
+=
+"improved_planning"
+,
+
+                strategy
+=
+"Added complexity estimation to planning"
+,
+
+                context
+=
+{
+"applied"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+}
+
+            
+)
+
+            
+            
+return
+ 
+True
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Failed to improve planning: 
+{
+e
+}
+"
+)
+
+            
+return
+ 
+False
+
+    
+    
+async
+ 
+def
+ 
+_improve_coding
+(
+self
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Improve code generation strategies."""
+
+        
+try
+:
+
+            
+from
+ tools
+.
+code_generator 
+import
+ CodeGenerator
+            
+            
+# Apply improvement: Enable stricter linting
+
+            self
+.
+config
+[
+"code_generation"
+]
+ 
+=
+ 
+{
+
+                
+"lint_before_generate"
+:
+ 
+True
+,
+
+                
+"security_scan"
+:
+ 
+True
+,
+
+                
+"optimize_imports"
+:
+ 
+True
+
+            
+}
+
+            
+            
+await
+ self
+.
+long_term_memory
+.
+store
+(
+
+                pattern
+=
+"improved_coding"
+,
+
+                strategy
+=
+"Enabled stricter linting and security scanning"
+,
+
+                context
+=
+{
+"applied"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+}
+
+            
+)
+
+            
+            
+return
+ 
+True
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Failed to improve coding: 
+{
+e
+}
+"
+)
+
+            
+return
+ 
+False
+
+    
+    
+async
+ 
+def
+ 
+_improve_testing
+(
+self
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Improve testing strategies."""
+
+        
+try
+:
+
+            
+from
+ core
+.
+testing_engine 
+import
+ TestingEngine
+            
+            
+# Increase test coverage threshold
+
+            self
+.
+config
+[
+"testing"
+]
+[
+"coverage_threshold"
+]
+ 
+=
+ 
+85
+
+            self
+.
+config
+[
+"testing"
+]
+[
+"auto_fix"
+]
+ 
+=
+ 
+True
+
+            
+            
+await
+ self
+.
+long_term_memory
+.
+store
+(
+
+                pattern
+=
+"improved_testing"
+,
+
+                strategy
+=
+"Increased coverage threshold and enabled auto-fix"
+,
+
+                context
+=
+{
+"applied"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+}
+
+            
+)
+
+            
+            
+return
+ 
+True
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Failed to improve testing: 
+{
+e
+}
+"
+)
+
+            
+return
+ 
+False
+
+    
+    
+async
+ 
+def
+ 
+_improve_architecture
+(
+self
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Improve architectural decisions."""
+
+        
+try
+:
+
+            
+from
+ agents
+.
+architect_agent 
+import
+ ArchitectAgent
+            
+            
+# Load better architectural patterns
+
+            self
+.
+config
+[
+"architecture"
+]
+[
+"patterns"
+]
+ 
+=
+ 
+[
+
+                
+"microservices"
+,
+
+                
+"event_driven"
+,
+
+                
+"caching_strategies"
+
+            
+]
+
+            
+            
+await
+ self
+.
+long_term_memory
+.
+store
+(
+
+                pattern
+=
+"improved_architecture"
+,
+
+                strategy
+=
+"Enhanced architectural pattern library"
+,
+
+                context
+=
+{
+"applied"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+}
+
+            
+)
+
+            
+            
+return
+ 
+True
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Failed to improve architecture: 
+{
+e
+}
+"
+)
+
+            
+return
+ 
+False
+
+    
+    
+async
+ 
+def
+ 
+_update_baseline_metrics
+(
+self
+)
+:
+
+        
+"""Update baseline metrics after improvements."""
+
+        self
+.
+baseline_metrics 
+=
+ 
+{
+
+            
+"bug_frequency"
+:
+ self
+.
+metrics_engine
+.
+get_bug_frequency
+(
+)
+,
+
+            
+"success_rate"
+:
+ self
+.
+metrics_engine
+.
+get_success_rate
+(
+)
+,
+
+            
+"avg_duration"
+:
+ self
+.
+metrics_engine
+.
+get_average_duration
+(
+)
+,
+
+            
+"token_efficiency"
+:
+ self
+.
+metrics_engine
+.
+get_token_efficiency
+(
+)
+
+        
+}
+
+    
+    
+def
+ 
+get_improvement_stats
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Get improvement statistics."""
+
+        
+if
+ 
+not
+ self
+.
+improvements_applied
+:
+
+            
+return
+ 
+{
+"improvements_applied"
+:
+ 
+0
+}
+
+        
+        successful 
+=
+ 
+sum
+(
+1
+ 
+for
+ i 
+in
+ self
+.
+improvements_applied 
+if
+ i
+[
+"success"
+]
+)
+
+        
+        
+return
+ 
+{
+
+            
+"total_improvements"
+:
+ 
+len
+(
+self
+.
+improvements_applied
+)
+,
+
+            
+"successful_improvements"
+:
+ successful
+,
+
+            
+"success_rate"
+:
+ successful 
+/
+ 
+len
+(
+self
+.
+improvements_applied
+)
+,
+
+            
+"by_area"
+:
+ self
+.
+_group_improvements_by_area
+(
+)
+
+        
+}
+
+    
+    
+def
+ 
+_group_improvements_by_area
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ 
+int
+]
+:
+
+        
+"""Group improvements by area."""
+
+        areas 
+=
+ 
+{
+}
+
+        
+        
+for
+ improvement 
+in
+ self
+.
+improvements_applied
+:
+
+            area 
+=
+ improvement
+[
+"opportunity"
+]
+[
+"area"
+]
+
+            areas
+[
+area
+]
+ 
+=
+ areas
+.
+get
+(
+area
+,
+ 
+0
+)
+ 
++
+ 
+1
+
+        
+        
+return
+ areas
+import
+ re
+
+import
+ hashlib
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+,
+ Set
+
+from
+ datetime 
+import
+ datetime
+
+import
+ secrets
+
+
+import
+ yaml
+
+from
+ bandit
+.
+core 
+import
+ manager 
+as
+ bandit_manager
+
+from
+ bandit
+.
+core 
+import
+ config 
+as
+ bandit_config
+
+
+
+class
+ 
+SecurityEngine
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+secret_patterns 
+=
+ self
+.
+_compile_secret_patterns
+(
+)
+
+        self
+.
+allowed_commands 
+=
+ config
+[
+"tools"
+]
+[
+"command_runner"
+]
+[
+"allowed_commands"
+]
+
+        self
+.
+blocked_patterns 
+=
+ 
+[
+
+            
+r'rm\s+-rf\s+/'
+,
+
+            
+r'dd\s+if='
+,
+
+            
+r':\(\)\{\s*:\|\:&\s*\};:'
+,
+
+            
+r'wget.*\|\s*bash'
+,
+
+            
+r'curl.*\|\s*bash'
+
+        
+]
+
+        
+        
+# Security audit log
+
+        self
+.
+audit_log
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+[
+]
+
+    
+    
+async
+ 
+def
+ 
+scan_code
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Scan code for security vulnerabilities."""
+
+        path 
+=
+ Path
+(
+file_path
+)
+
+        
+        
+if
+ 
+not
+ path
+.
+exists
+(
+)
+:
+
+            
+return
+ 
+{
+"error"
+:
+ 
+"File not found"
+}
+
+        
+        
+# Run bandit security scan
+
+        b_mgr 
+=
+ bandit_manager
+.
+BanditManager
+(
+
+            bandit_config
+.
+BanditConfig
+(
+)
+,
+
+            agg_type
+=
+"file"
+
+        
+)
+
+        
+        b_mgr
+.
+discover_files
+(
+[
+str
+(
+path
+)
+]
+)
+
+        b_mgr
+.
+run_tests
+(
+)
+
+        
+        
+# Extract issues
+
+        issues 
+=
+ 
+[
+]
+
+        
+for
+ issue 
+in
+ b_mgr
+.
+get_issue_list
+(
+)
+:
+
+            issues
+.
+append
+(
+{
+
+                
+"severity"
+:
+ issue
+.
+severity
+,
+
+                
+"confidence"
+:
+ issue
+.
+confidence
+,
+
+                
+"description"
+:
+ issue
+.
+text
+,
+
+                
+"line_number"
+:
+ issue
+.
+lineno
+,
+
+                
+"test_id"
+:
+ issue
+.
+test_id
+,
+
+                
+"file"
+:
+ file_path
+            
+}
+)
+
+        
+        
+# Check for secrets
+
+        secret_issues 
+=
+ self
+.
+_check_for_secrets
+(
+path
+.
+read_text
+(
+)
+)
+
+        issues
+.
+extend
+(
+secret_issues
+)
+
+        
+        
+# Security score (0-100)
+
+        score 
+=
+ self
+.
+_calculate_security_score
+(
+issues
+)
+
+        
+        
+# Log audit
+
+        
+await
+ self
+.
+_log_audit
+(
+"code_scan"
+,
+ 
+{
+
+            
+"file"
+:
+ file_path
+,
+
+            
+"issues"
+:
+ 
+len
+(
+issues
+)
+,
+
+            
+"score"
+:
+ score
+        
+}
+)
+
+        
+        
+return
+ 
+{
+
+            
+"issues"
+:
+ issues
+,
+
+            
+"score"
+:
+ score
+,
+
+            
+"passed"
+:
+ score 
+>=
+ 
+80
+,
+
+            
+"critical_count"
+:
+ 
+len
+(
+[
+i 
+for
+ i 
+in
+ issues 
+if
+ i
+[
+"severity"
+]
+ 
+==
+ 
+"HIGH"
+]
+)
+
+        
+}
+
+    
+    
+async
+ 
+def
+ 
+scan_dependencies
+(
+self
+,
+ project_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Scan project dependencies for vulnerabilities."""
+
+        path 
+=
+ Path
+(
+project_path
+)
+
+        
+        
+# Check for requirements.txt
+
+        req_file 
+=
+ path 
+/
+ 
+"requirements.txt"
+
+        vulnerabilities 
+=
+ 
+[
+]
+
+        
+        
+if
+ req_file
+.
+exists
+(
+)
+:
+
+            content 
+=
+ req_file
+.
+read_text
+(
+)
+
+            lines 
+=
+ content
+.
+splitlines
+(
+)
+
+            
+            
+for
+ line 
+in
+ lines
+:
+
+                
+if
+ line
+.
+strip
+(
+)
+ 
+and
+ 
+not
+ line
+.
+startswith
+(
+"#"
+)
+:
+
+                    
+# Simple check for known vulnerable packages
+
+                    vuln 
+=
+ self
+.
+_check_package_vulnerability
+(
+line
+.
+strip
+(
+)
+)
+
+                    
+if
+ vuln
+:
+
+                        vulnerabilities
+.
+append
+(
+vuln
+)
+
+        
+        
+# Check package.json
+
+        package_file 
+=
+ path 
+/
+ 
+"package.json"
+
+        
+if
+ package_file
+.
+exists
+(
+)
+:
+
+            
+import
+ json
+            
+try
+:
+
+                package_data 
+=
+ json
+.
+loads
+(
+package_file
+.
+read_text
+(
+)
+)
+
+                deps 
+=
+ 
+{
+**
+package_data
+.
+get
+(
+"dependencies"
+,
+ 
+{
+}
+)
+,
+ 
+**
+package_data
+.
+get
+(
+"devDependencies"
+,
+ 
+{
+}
+)
+}
+
+                
+                
+for
+ pkg
+,
+ version 
+in
+ deps
+.
+items
+(
+)
+:
+
+                    vuln 
+=
+ self
+.
+_check_npm_vulnerability
+(
+f"
+{
+pkg
+}
+@
+{
+version
+}
+"
+)
+
+                    
+if
+ vuln
+:
+
+                        vulnerabilities
+.
+append
+(
+vuln
+)
+
+            
+except
+ Exception
+:
+
+                
+pass
+
+        
+        
+await
+ self
+.
+_log_audit
+(
+"dependency_scan"
+,
+ 
+{
+
+            
+"project"
+:
+ project_path
+,
+
+            
+"vulnerabilities"
+:
+ 
+len
+(
+vulnerabilities
+)
+
+        
+}
+)
+
+        
+        
+return
+ 
+{
+
+            
+"vulnerabilities"
+:
+ vulnerabilities
+,
+
+            
+"passed"
+:
+ 
+len
+(
+vulnerabilities
+)
+ 
+==
+ 
+0
+
+        
+}
+
+    
+    
+async
+ 
+def
+ 
+validate_command
+(
+self
+,
+ command
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Validate if a command is safe to run."""
+
+        command_str 
+=
+ 
+" "
+.
+join
+(
+command
+)
+
+        
+        
+# Check against blocked patterns
+
+        
+for
+ pattern 
+in
+ self
+.
+blocked_patterns
+:
+
+            
+if
+ re
+.
+search
+(
+pattern
+,
+ command_str
+,
+ re
+.
+IGNORECASE
+)
+:
+
+                
+await
+ self
+.
+_log_audit
+(
+"blocked_command"
+,
+ 
+{
+
+                    
+"command"
+:
+ command_str
+,
+
+                    
+"pattern"
+:
+ pattern
+                
+}
+)
+
+                
+return
+ 
+{
+
+                    
+"allowed"
+:
+ 
+False
+,
+
+                    
+"reason"
+:
+ 
+f"Command matches blocked pattern: 
+{
+pattern
+}
+"
+
+                
+}
+
+        
+        
+# Check if command is allowed
+
+        
+if
+ command
+[
+0
+]
+ 
+not
+ 
+in
+ self
+.
+allowed_commands
+:
+
+            
+return
+ 
+{
+
+                
+"allowed"
+:
+ 
+False
+,
+
+                
+"reason"
+:
+ 
+f"Command not in allowed list: 
+{
+command
+[
+0
+]
+}
+"
+
+            
+}
+
+        
+        
+# Check for dangerous combinations
+
+        
+if
+ command
+[
+0
+]
+ 
+==
+ 
+"rm"
+ 
+and
+ 
+"-rf"
+ 
+in
+ command
+:
+
+            
+return
+ 
+{
+
+                
+"allowed"
+:
+ 
+False
+,
+
+                
+"reason"
+:
+ 
+"Dangerous rm -rf command not allowed"
+
+            
+}
+
+        
+        
+await
+ self
+.
+_log_audit
+(
+"command_validated"
+,
+ 
+{
+"command"
+:
+ command_str
+}
+)
+
+        
+        
+return
+ 
+{
+"allowed"
+:
+ 
+True
+,
+ 
+"reason"
+:
+ 
+"Command validated"
+}
+
+    
+    
+def
+ 
+generate_security_report
+(
+self
+,
+ project_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Generate comprehensive security report."""
+
+        path 
+=
+ Path
+(
+project_path
+)
+
+        
+        report 
+=
+ 
+{
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"project"
+:
+ project_path
+,
+
+            
+"scans"
+:
+ 
+{
+}
+
+        
+}
+
+        
+        
+# Scan source files
+
+        source_files 
+=
+ 
+list
+(
+path
+.
+glob
+(
+"**/*.py"
+)
+)
+
+        source_files
+.
+extend
+(
+path
+.
+glob
+(
+"**/*.js"
+)
+)
+
+        
+        all_issues 
+=
+ 
+[
+]
+
+        
+for
+ file_path 
+in
+ source_files
+:
+
+            
+if
+ file_path
+.
+stat
+(
+)
+.
+st_size 
+<
+ 
+100000
+:
+  
+# Skip very large files
+
+                scan_result 
+=
+ asyncio
+.
+run
+(
+self
+.
+scan_code
+(
+str
+(
+file_path
+)
+)
+)
+
+                all_issues
+.
+extend
+(
+scan_result
+.
+get
+(
+"issues"
+,
+ 
+[
+]
+)
+)
+
+        
+        report
+[
+"scans"
+]
+[
+"code"
+]
+ 
+=
+ 
+{
+
+            
+"files_scanned"
+:
+ 
+len
+(
+source_files
+)
+,
+
+            
+"total_issues"
+:
+ 
+len
+(
+all_issues
+)
+,
+
+            
+"critical_issues"
+:
+ 
+len
+(
+[
+i 
+for
+ i 
+in
+ all_issues 
+if
+ i
+[
+"severity"
+]
+ 
+==
+ 
+"HIGH"
+]
+)
+,
+
+            
+"score"
+:
+ self
+.
+_calculate_security_score
+(
+all_issues
+)
+
+        
+}
+
+        
+        
+# Scan dependencies
+
+        dep_scan 
+=
+ asyncio
+.
+run
+(
+self
+.
+scan_dependencies
+(
+project_path
+)
+)
+
+        report
+[
+"scans"
+]
+[
+"dependencies"
+]
+ 
+=
+ dep_scan
+        
+        
+# Check file permissions
+
+        report
+[
+"scans"
+]
+[
+"permissions"
+]
+ 
+=
+ self
+.
+_check_permissions
+(
+project_path
+)
+
+        
+        
+# Overall security grade
+
+        code_score 
+=
+ report
+[
+"scans"
+]
+[
+"code"
+]
+[
+"score"
+]
+
+        dep_passed 
+=
+ report
+[
+"scans"
+]
+[
+"dependencies"
+]
+[
+"passed"
+]
+
+        
+        
+if
+ code_score 
+>=
+ 
+90
+ 
+and
+ dep_passed
+:
+
+            grade 
+=
+ 
+"A"
+
+        
+elif
+ code_score 
+>=
+ 
+80
+ 
+and
+ dep_passed
+:
+
+            grade 
+=
+ 
+"B"
+
+        
+elif
+ code_score 
+>=
+ 
+70
+:
+
+            grade 
+=
+ 
+"C"
+
+        
+else
+:
+
+            grade 
+=
+ 
+"F"
+
+        
+        report
+[
+"grade"
+]
+ 
+=
+ grade
+        report
+[
+"passed"
+]
+ 
+=
+ grade 
+in
+ 
+[
+"A"
+,
+ 
+"B"
+]
+
+        
+        
+return
+ report
+    
+    
+def
+ 
+_compile_secret_patterns
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ re
+.
+Pattern
+]
+:
+
+        
+"""Compile regex patterns for secret detection."""
+
+        patterns 
+=
+ 
+{
+
+            
+"api_key"
+:
+ 
+r'(?i)(api[_-]?key|apikey)\s*[:=]\s*[\'"]?[a-z0-9]{20,}[\'"]?'
+,
+
+            
+"secret_key"
+:
+ 
+r'(?i)(secret|private[_-]?key)\s*[:=]\s*[\'"]?[a-z0-9]{32,}[\'"]?'
+,
+
+            
+"password"
+:
+ 
+r'(?i)(password|passwd|pwd)\s*[:=]\s*[\'"][^\'"]{8,}[\'"]'
+,
+
+            
+"token"
+:
+ 
+r'(?i)(token|access[_-]?token)\s*[:=]\s*[\'"]?[a-z0-9]{40,}[\'"]?'
+,
+
+            
+"aws_key"
+:
+ 
+r'(?i)AKIA[0-9A-Z]{16}'
+,
+
+            
+"google_api"
+:
+ 
+r'(?i)AIza[0-9A-Za-z\-_]{35}'
+,
+
+        
+}
+
+        
+        
+return
+ 
+{
+name
+:
+ re
+.
+compile
+(
+pattern
+)
+ 
+for
+ name
+,
+ pattern 
+in
+ patterns
+.
+items
+(
+)
+}
+
+    
+    
+def
+ 
+_check_for_secrets
+(
+self
+,
+ content
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Check content for exposed secrets."""
+
+        issues 
+=
+ 
+[
+]
+
+        
+        
+for
+ secret_type
+,
+ pattern 
+in
+ self
+.
+secret_patterns
+.
+items
+(
+)
+:
+
+            matches 
+=
+ pattern
+.
+finditer
+(
+content
+)
+
+            
+            
+for
+ 
+match
+ 
+in
+ matches
+:
+
+                issues
+.
+append
+(
+{
+
+                    
+"severity"
+:
+ 
+"CRITICAL"
+,
+
+                    
+"confidence"
+:
+ 
+"HIGH"
+,
+
+                    
+"description"
+:
+ 
+f"Potential exposed 
+{
+secret_type
+}
+"
+,
+
+                    
+"line_number"
+:
+ content
+[
+:
+match
+.
+start
+(
+)
+]
+.
+count
+(
+'\n'
+)
+ 
++
+ 
+1
+,
+
+                    
+"test_id"
+:
+ 
+f"B
+{
+hash
+(
+secret_type
+)
+ 
+%
+ 
+1000
+:
+03d
+}
+"
+,
+
+                    
+"file"
+:
+ 
+"content"
+
+                
+}
+)
+
+        
+        
+return
+ issues
+    
+    
+def
+ 
+_check_package_vulnerability
+(
+self
+,
+ package_spec
+:
+ 
+str
+)
+ 
+-
+>
+ Optional
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Check a Python package for known vulnerabilities."""
+
+        
+# This would integrate with vulnerability databases in production
+
+        
+# For now, just check for common outdated packages
+
+        
+        vulnerable_packages 
+=
+ 
+{
+
+            
+"django<4.2"
+:
+ 
+"CVE-2023-XXXX - SQL injection vulnerability"
+,
+
+            
+"requests<2.31"
+:
+ 
+"CVE-2023-32681 - Information disclosure"
+,
+
+            
+"urllib3<2.0"
+:
+ 
+"CVE-2023-45803 - Request body not stripped"
+,
+
+        
+}
+
+        
+        
+for
+ pattern
+,
+ vuln 
+in
+ vulnerable_packages
+.
+items
+(
+)
+:
+
+            pkg_name
+,
+ version_req 
+=
+ pattern
+.
+split
+(
+"<"
+)
+
+            
+if
+ package_spec
+.
+startswith
+(
+pkg_name
+)
+:
+
+                
+import
+ re
+                spec_version 
+=
+ package_spec
+.
+split
+(
+"=="
+)
+[
+-
+1
+]
+.
+split
+(
+">="
+)
+[
+-
+1
+]
+
+                
+if
+ re
+.
+match
+(
+rf"^\d+\.\d+"
+,
+ spec_version
+)
+:
+
+                    major_minor 
+=
+ 
+"."
+.
+join
+(
+spec_version
+.
+split
+(
+"."
+)
+[
+:
+2
+]
+)
+
+                    
+if
+ 
+float
+(
+major_minor
+)
+ 
+<
+ 
+float
+(
+version_req
+)
+:
+
+                        
+return
+ 
+{
+
+                            
+"package"
+:
+ pkg_name
+,
+
+                            
+"spec"
+:
+ package_spec
+,
+
+                            
+"vulnerability"
+:
+ vuln
+,
+
+                            
+"severity"
+:
+ 
+"HIGH"
+
+                        
+}
+
+        
+        
+return
+ 
+None
+
+    
+    
+def
+ 
+_check_npm_vulnerability
+(
+self
+,
+ package_spec
+:
+ 
+str
+)
+ 
+-
+>
+ Optional
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Check an npm package for known vulnerabilities."""
+
+        
+# This would integrate with npm audit or similar
+
+        
+# For now, placeholder
+
+        
+        
+return
+ 
+None
+
+    
+    
+def
+ 
+_calculate_security_score
+(
+self
+,
+ issues
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Calculate overall security score (0-100)."""
+
+        
+if
+ 
+not
+ issues
+:
+
+            
+return
+ 
+100.0
+
+        
+        score 
+=
+ 
+100.0
+
+        
+        severity_weights 
+=
+ 
+{
+
+            
+"CRITICAL"
+:
+ 
+20
+,
+
+            
+"HIGH"
+:
+ 
+10
+,
+
+            
+"MEDIUM"
+:
+ 
+5
+,
+
+            
+"LOW"
+:
+ 
+2
+
+        
+}
+
+        
+        
+for
+ issue 
+in
+ issues
+:
+
+            severity 
+=
+ issue
+.
+get
+(
+"severity"
+,
+ 
+"MEDIUM"
+)
+
+            score 
+-=
+ severity_weights
+.
+get
+(
+severity
+,
+ 
+5
+)
+
+        
+        
+return
+ 
+max
+(
+score
+,
+ 
+0.0
+)
+
+    
+    
+def
+ 
+_check_permissions
+(
+self
+,
+ project_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Check file permissions."""
+
+        path 
+=
+ Path
+(
+project_path
+)
+
+        issues 
+=
+ 
+[
+]
+
+        
+        
+# Check for executable files in source directories
+
+        
+for
+ py_file 
+in
+ path
+.
+glob
+(
+"**/*.py"
+)
+:
+
+            
+if
+ py_file
+.
+stat
+(
+)
+.
+st_mode 
+&
+ 
+0o111
+:
+  
+# Executable
+
+                
+if
+ 
+not
+ 
+str
+(
+py_file
+)
+.
+endswith
+(
+"__main__.py"
+)
+:
+
+                    issues
+.
+append
+(
+f"Unexpected executable: 
+{
+py_file
+}
+"
+)
+
+        
+        
+return
+ 
+{
+
+            
+"passed"
+:
+ 
+len
+(
+issues
+)
+ 
+==
+ 
+0
+,
+
+            
+"issues"
+:
+ issues
+        
+}
+
+    
+    
+async
+ 
+def
+ 
+_log_audit
+(
+self
+,
+ action
+:
+ 
+str
+,
+ details
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Log security audit event."""
+
+        log_entry 
+=
+ 
+{
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"action"
+:
+ action
+,
+
+            
+"details"
+:
+ details
+        
+}
+
+        
+        self
+.
+audit_log
+.
+append
+(
+log_entry
+)
+
+        
+        
+# Keep only last 1000 entries
+
+        
+if
+ 
+len
+(
+self
+.
+audit_log
+)
+ 
+>
+ 
+1000
+:
+
+            self
+.
+audit_log 
+=
+ self
+.
+audit_log
+[
+-
+1000
+:
+]
+
+        
+        
+# Persist to file
+
+        audit_file 
+=
+ Path
+(
+self
+.
+config
+[
+"logs_dir"
+]
+)
+ 
+/
+ 
+"security"
+ 
+/
+ 
+"audit.json"
+
+        audit_file
+.
+parent
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        
+        
+try
+:
+
+            audit_file
+.
+write_text
+(
+json
+.
+dumps
+(
+self
+.
+audit_log
+[
+-
+100
+:
+]
+,
+ indent
+=
+2
+)
+)
+
+        
+except
+ Exception
+:
+
+            
+pass
+
+    
+    
+def
+ 
+generate_security_token
+(
+self
+,
+ length
+:
+ 
+int
+ 
+=
+ 
+32
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Generate a secure token."""
+
+        
+return
+ secrets
+.
+token_urlsafe
+(
+length
+)
+
+    
+    
+def
+ 
+hash_secret
+(
+self
+,
+ secret
+:
+ 
+str
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Hash a secret for storage."""
+
+        
+return
+ hashlib
+.
+sha256
+(
+secret
+.
+encode
+(
+)
+)
+.
+hexdigest
+(
+)
+
+    
+    
+def
+ 
+sanitize_output
+(
+self
+,
+ output
+:
+ 
+str
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Sanitize output to remove potential secrets."""
+
+        sanitized 
+=
+ output
+        
+        
+for
+ pattern 
+in
+ self
+.
+secret_patterns
+.
+values
+(
+)
+:
+
+            sanitized 
+=
+ pattern
+.
+sub
+(
+"[REDACTED]"
+,
+ sanitized
+)
+
+        
+        
+return
+ sanitized
+import
+ asyncio
+
+from
+ datetime 
+import
+ datetime
+,
+ timedelta
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+,
+ Tuple
+
+from
+ dataclasses 
+import
+ dataclass
+
+
+@dataclass
+
+
+class
+ 
+CostStats
+:
+
+    total_tokens
+:
+ 
+int
+
+    total_cost
+:
+ 
+float
+
+    cost_per_token
+:
+ 
+float
+
+    cost_per_goal
+:
+ 
+float
+
+    provider_breakdown
+:
+ Dict
+[
+str
+,
+ 
+float
+]
+
+    model_breakdown
+:
+ Dict
+[
+str
+,
+ 
+float
+]
+
+
+
+class
+ 
+CostOptimizer
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+cost_file 
+=
+ Path
+(
+config
+[
+"logs_dir"
+]
+)
+ 
+/
+ 
+"costs.json"
+
+        self
+.
+cost_file
+.
+parent
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        
+        
+# Cost tracking
+
+        self
+.
+usage_log
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+[
+]
+
+        self
+.
+daily_limits 
+=
+ config
+.
+get
+(
+"cost_limits"
+,
+ 
+{
+}
+)
+.
+get
+(
+"daily"
+,
+ 
+100.0
+)
+
+        self
+.
+monthly_limits 
+=
+ config
+.
+get
+(
+"cost_limits"
+,
+ 
+{
+}
+)
+.
+get
+(
+"monthly"
+,
+ 
+1000.0
+)
+
+        
+        
+# Token costs per 1K tokens
+
+        self
+.
+token_costs 
+=
+ 
+{
+
+            
+"openai/gpt-4-turbo-preview"
+:
+ 
+{
+"input"
+:
+ 
+0.01
+,
+ 
+"output"
+:
+ 
+0.03
+}
+,
+
+            
+"openai/gpt-4"
+:
+ 
+{
+"input"
+:
+ 
+0.03
+,
+ 
+"output"
+:
+ 
+0.06
+}
+,
+
+            
+"openai/gpt-3.5-turbo"
+:
+ 
+{
+"input"
+:
+ 
+0.001
+,
+ 
+"output"
+:
+ 
+0.002
+}
+,
+
+            
+"anthropic/claude-3-opus-20240229"
+:
+ 
+{
+"input"
+:
+ 
+0.015
+,
+ 
+"output"
+:
+ 
+0.075
+}
+,
+
+            
+"anthropic/claude-3-sonnet-20240229"
+:
+ 
+{
+"input"
+:
+ 
+0.003
+,
+ 
+"output"
+:
+ 
+0.015
+}
+
+        
+}
+
+        
+        
+# Load historical usage
+
+        self
+.
+_load_usage_log
+(
+)
+
+    
+    
+async
+ 
+def
+ 
+track_usage
+(
+self
+,
+ provider
+:
+ 
+str
+,
+ model
+:
+ 
+str
+,
+ tokens_input
+:
+ 
+int
+,
+ tokens_output
+:
+ 
+int
+,
+ goal_id
+:
+ 
+str
+)
+:
+
+        
+"""Track token usage and cost."""
+
+        model_key 
+=
+ 
+f"
+{
+provider
+}
+/
+{
+model
+}
+"
+
+        costs 
+=
+ self
+.
+token_costs
+.
+get
+(
+model_key
+,
+ 
+{
+"input"
+:
+ 
+0.01
+,
+ 
+"output"
+:
+ 
+0.03
+}
+)
+
+        
+        cost_input 
+=
+ 
+(
+tokens_input 
+/
+ 
+1000
+)
+ 
+*
+ costs
+[
+"input"
+]
+
+        cost_output 
+=
+ 
+(
+tokens_output 
+/
+ 
+1000
+)
+ 
+*
+ costs
+[
+"output"
+]
+
+        total_cost 
+=
+ cost_input 
++
+ cost_output
+        
+        usage_entry 
+=
+ 
+{
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"goal_id"
+:
+ goal_id
+,
+
+            
+"provider"
+:
+ provider
+,
+
+            
+"model"
+:
+ model
+,
+
+            
+"tokens_input"
+:
+ tokens_input
+,
+
+            
+"tokens_output"
+:
+ tokens_output
+,
+
+            
+"total_tokens"
+:
+ tokens_input 
++
+ tokens_output
+,
+
+            
+"cost_input"
+:
+ cost_input
+,
+
+            
+"cost_output"
+:
+ cost_output
+,
+
+            
+"total_cost"
+:
+ total_cost
+        
+}
+
+        
+        self
+.
+usage_log
+.
+append
+(
+usage_entry
+)
+
+        
+await
+ self
+.
+_save_usage_log
+(
+)
+
+        
+        
+# Check limits
+
+        
+await
+ self
+.
+_check_limits
+(
+)
+
+        
+        
+# Suggest optimization if cost is high
+
+        
+if
+ total_cost 
+>
+ 
+1.0
+:
+  
+# $1 per call
+
+            
+await
+ self
+.
+_suggest_optimization
+(
+goal_id
+,
+ usage_entry
+)
+
+    
+    
+async
+ 
+def
+ 
+get_cost_stats
+(
+self
+,
+ days
+:
+ 
+int
+ 
+=
+ 
+30
+)
+ 
+-
+>
+ CostStats
+:
+
+        
+"""Get cost statistics for a period."""
+
+        cutoff 
+=
+ datetime
+.
+now
+(
+)
+ 
+-
+ timedelta
+(
+days
+=
+days
+)
+
+        
+        relevant_usage 
+=
+ 
+[
+
+            u 
+for
+ u 
+in
+ self
+.
+usage_log
+            
+if
+ datetime
+.
+fromisoformat
+(
+u
+[
+"timestamp"
+]
+)
+ 
+>
+ cutoff
+        
+]
+
+        
+        
+if
+ 
+not
+ relevant_usage
+:
+
+            
+return
+ CostStats
+(
+
+                total_tokens
+=
+0
+,
+
+                total_cost
+=
+0.0
+,
+
+                cost_per_token
+=
+0.0
+,
+
+                cost_per_goal
+=
+0.0
+,
+
+                provider_breakdown
+=
+{
+}
+,
+
+                model_breakdown
+=
+{
+}
+
+            
+)
+
+        
+        total_tokens 
+=
+ 
+sum
+(
+u
+[
+"total_tokens"
+]
+ 
+for
+ u 
+in
+ relevant_usage
+)
+
+        total_cost 
+=
+ 
+sum
+(
+u
+[
+"total_cost"
+]
+ 
+for
+ u 
+in
+ relevant_usage
+)
+
+        
+        
+# Provider breakdown
+
+        provider_breakdown 
+=
+ 
+{
+}
+
+        
+for
+ usage 
+in
+ relevant_usage
+:
+
+            provider 
+=
+ usage
+[
+"provider"
+]
+
+            provider_breakdown
+[
+provider
+]
+ 
+=
+ provider_breakdown
+.
+get
+(
+provider
+,
+ 
+0
+)
+ 
++
+ usage
+[
+"total_cost"
+]
+
+        
+        
+# Model breakdown
+
+        model_breakdown 
+=
+ 
+{
+}
+
+        
+for
+ usage 
+in
+ relevant_usage
+:
+
+            model 
+=
+ 
+f"
+{
+usage
+[
+'provider'
+]
+}
+/
+{
+usage
+[
+'model'
+]
+}
+"
+
+            model_breakdown
+[
+model
+]
+ 
+=
+ model_breakdown
+.
+get
+(
+model
+,
+ 
+0
+)
+ 
++
+ usage
+[
+"total_cost"
+]
+
+        
+        
+# Goals
+
+        unique_goals 
+=
+ 
+len
+(
+set
+(
+u
+[
+"goal_id"
+]
+ 
+for
+ u 
+in
+ relevant_usage
+)
+)
+
+        cost_per_goal 
+=
+ total_cost 
+/
+ unique_goals 
+if
+ unique_goals 
+>
+ 
+0
+ 
+else
+ 
+0.0
+
+        
+        
+return
+ CostStats
+(
+
+            total_tokens
+=
+total_tokens
+,
+
+            total_cost
+=
+total_cost
+,
+
+            cost_per_token
+=
+total_cost 
+/
+ total_tokens 
+if
+ total_tokens 
+>
+ 
+0
+ 
+else
+ 
+0.0
+,
+
+            cost_per_goal
+=
+cost_per_goal
+,
+
+            provider_breakdown
+=
+provider_breakdown
+,
+
+            model_breakdown
+=
+model_breakdown
+        
+)
+
+    
+    
+async
+ 
+def
+ 
+suggest_cost_optimization
+(
+self
+,
+ goal_id
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Suggest cost optimizations for a goal."""
+
+        suggestions 
+=
+ 
+[
+]
+
+        
+        
+# Get goal usage
+
+        goal_usage 
+=
+ 
+[
+u 
+for
+ u 
+in
+ self
+.
+usage_log 
+if
+ u
+[
+"goal_id"
+]
+ 
+==
+ goal_id
+]
+
+        
+        
+if
+ 
+not
+ goal_usage
+:
+
+            
+return
+ suggestions
+        
+        total_cost 
+=
+ 
+sum
+(
+u
+[
+"total_cost"
+]
+ 
+for
+ u 
+in
+ goal_usage
+)
+
+        
+        
+if
+ total_cost 
+>
+ 
+2.0
+:
+  
+# $2 per goal
+
+            suggestions
+.
+append
+(
+{
+
+                
+"type"
+:
+ 
+"model_downgrade"
+,
+
+                
+"description"
+:
+ 
+"Use smaller models for simpler sub-tasks"
+,
+
+                
+"potential_savings"
+:
+ total_cost 
+*
+ 
+0.3
+
+            
+}
+)
+
+        
+        
+# Check for repeated patterns
+
+        model_usage 
+=
+ 
+{
+}
+
+        
+for
+ usage 
+in
+ goal_usage
+:
+
+            model 
+=
+ 
+f"
+{
+usage
+[
+'provider'
+]
+}
+/
+{
+usage
+[
+'model'
+]
+}
+"
+
+            model_usage
+[
+model
+]
+ 
+=
+ model_usage
+.
+get
+(
+model
+,
+ 
+0
+)
+ 
++
+ usage
+[
+"total_cost"
+]
+
+        
+        
+if
+ 
+len
+(
+model_usage
+)
+ 
+>
+ 
+3
+:
+
+            suggestions
+.
+append
+(
+{
+
+                
+"type"
+:
+ 
+"model_consolidation"
+,
+
+                
+"description"
+:
+ 
+"Reduce model switching to improve caching"
+,
+
+                
+"potential_savings"
+:
+ total_cost 
+*
+ 
+0.15
+
+            
+}
+)
+
+        
+        
+# Suggest caching for repeated queries
+
+        repeated_patterns 
+=
+ 
+await
+ self
+.
+_identify_repeated_patterns
+(
+goal_id
+)
+
+        
+if
+ repeated_patterns
+:
+
+            suggestions
+.
+append
+(
+{
+
+                
+"type"
+:
+ 
+"response_caching"
+,
+
+                
+"description"
+:
+ 
+f"Cache 
+{
+len
+(
+repeated_patterns
+)
+}
+ repeated patterns"
+,
+
+                
+"potential_savings"
+:
+ total_cost 
+*
+ 
+0.2
+
+            
+}
+)
+
+        
+        
+return
+ suggestions
+    
+    
+async
+ 
+def
+ 
+optimize_model_selection
+(
+
+        self
+,
+
+        task_complexity
+:
+ 
+str
+,
+
+        max_tokens
+:
+ 
+int
+,
+
+        budget
+:
+ 
+float
+ 
+=
+ 
+1.0
+
+    
+)
+ 
+-
+>
+ Tuple
+[
+str
+,
+ 
+str
+]
+:
+
+        
+"""Select most cost-effective model for task."""
+
+        candidates 
+=
+ 
+[
+]
+
+        
+        
+for
+ model_key
+,
+ costs 
+in
+ self
+.
+token_costs
+.
+items
+(
+)
+:
+
+            provider
+,
+ model 
+=
+ model_key
+.
+split
+(
+"/"
+,
+ 
+1
+)
+
+            
+            
+# Calculate estimated cost
+
+            estimated_cost 
+=
+ 
+(
+max_tokens 
+/
+ 
+1000
+)
+ 
+*
+ 
+(
+costs
+[
+"input"
+]
+ 
++
+ costs
+[
+"output"
+]
+)
+ 
+/
+ 
+2
+
+            
+            
+# Skip if over budget
+
+            
+if
+ estimated_cost 
+>
+ budget
+:
+
+                
+continue
+
+            
+            
+# Score based on cost and capability
+
+            cost_score 
+=
+ 
+1.0
+ 
+/
+ estimated_cost 
+if
+ estimated_cost 
+>
+ 
+0
+ 
+else
+ 
+10.0
+
+            
+            complexity_match 
+=
+ self
+.
+_match_complexity
+(
+model
+,
+ task_complexity
+)
+
+            
+            total_score 
+=
+ cost_score 
+*
+ 
+0.4
+ 
++
+ complexity_match 
+*
+ 
+0.6
+
+            
+            candidates
+.
+append
+(
+(
+provider
+,
+ model
+,
+ estimated_cost
+,
+ total_score
+)
+)
+
+        
+        
+if
+ 
+not
+ candidates
+:
+
+            
+# Fallback to cheapest option
+
+            
+return
+ 
+"openai"
+,
+ 
+"gpt-3.5-turbo"
+
+        
+        
+# Choose best candidate
+
+        candidates
+.
+sort
+(
+key
+=
+lambda
+ x
+:
+ x
+[
+3
+]
+,
+ reverse
+=
+True
+)
+
+        provider
+,
+ model
+,
+ cost
+,
+ score 
+=
+ candidates
+[
+0
+]
+
+        
+        
+return
+ provider
+,
+ model
+    
+    
+def
+ 
+_match_complexity
+(
+self
+,
+ model
+:
+ 
+str
+,
+ complexity
+:
+ 
+str
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Match model to task complexity."""
+
+        model_tiers 
+=
+ 
+{
+
+            
+"simple"
+:
+ 
+[
+"gpt-3.5-turbo"
+,
+ 
+"claude-3-sonnet-20240229"
+]
+,
+
+            
+"moderate"
+:
+ 
+[
+"gpt-4-turbo-preview"
+,
+ 
+"claude-3-sonnet-20240229"
+]
+,
+
+            
+"complex"
+:
+ 
+[
+"gpt-4"
+,
+ 
+"claude-3-opus-20240229"
+]
+
+        
+}
+
+        
+        
+if
+ model 
+in
+ model_tiers
+.
+get
+(
+complexity
+,
+ 
+[
+]
+)
+:
+
+            
+return
+ 
+1.0
+
+        
+elif
+ 
+any
+(
+model 
+in
+ tiers 
+for
+ tiers 
+in
+ model_tiers
+.
+values
+(
+)
+)
+:
+
+            
+return
+ 
+0.5
+
+        
+else
+:
+
+            
+return
+ 
+0.1
+
+    
+    
+async
+ 
+def
+ 
+_check_limits
+(
+self
+)
+:
+
+        
+"""Check if cost limits are exceeded."""
+
+        today 
+=
+ datetime
+.
+now
+(
+)
+.
+date
+(
+)
+
+        this_month 
+=
+ today
+.
+replace
+(
+day
+=
+1
+)
+
+        
+        today_usage 
+=
+ 
+sum
+(
+
+            u
+[
+"total_cost"
+]
+ 
+for
+ u 
+in
+ self
+.
+usage_log
+            
+if
+ datetime
+.
+fromisoformat
+(
+u
+[
+"timestamp"
+]
+)
+.
+date
+(
+)
+ 
+==
+ today
+        
+)
+
+        
+        month_usage 
+=
+ 
+sum
+(
+
+            u
+[
+"total_cost"
+]
+ 
+for
+ u 
+in
+ self
+.
+usage_log
+            
+if
+ datetime
+.
+fromisoformat
+(
+u
+[
+"timestamp"
+]
+)
+.
+date
+(
+)
+ 
+>=
+ this_month
+        
+)
+
+        
+        
+if
+ today_usage 
+>
+ self
+.
+daily_limits
+:
+
+            
+raise
+ RuntimeError
+(
+f"Daily cost limit exceeded: $
+{
+today_usage
+:
+.2f
+}
+ > $
+{
+self
+.
+daily_limits
+:
+.2f
+}
+"
+)
+
+        
+        
+if
+ month_usage 
+>
+ self
+.
+monthly_limits
+:
+
+            
+raise
+ RuntimeError
+(
+f"Monthly cost limit exceeded: $
+{
+month_usage
+:
+.2f
+}
+ > $
+{
+self
+.
+monthly_limits
+:
+.2f
+}
+"
+)
+
+    
+    
+async
+ 
+def
+ 
+_suggest_optimization
+(
+self
+,
+ goal_id
+:
+ 
+str
+,
+ usage_entry
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Suggest optimization for high-cost usage."""
+
+        suggestions 
+=
+ 
+await
+ self
+.
+suggest_cost_optimization
+(
+goal_id
+)
+
+        
+        
+# Log suggestions
+
+        opt_file 
+=
+ Path
+(
+self
+.
+config
+[
+"logs_dir"
+]
+)
+ 
+/
+ 
+"optimization_suggestions.json"
+
+        
+        
+if
+ 
+not
+ opt_file
+.
+exists
+(
+)
+:
+
+            opt_file
+.
+write_text
+(
+"[]"
+)
+
+        
+        
+try
+:
+
+            existing 
+=
+ json
+.
+loads
+(
+opt_file
+.
+read_text
+(
+)
+)
+
+        
+except
+:
+
+            existing 
+=
+ 
+[
+]
+
+        
+        existing
+.
+append
+(
+{
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+,
+
+            
+"goal_id"
+:
+ goal_id
+,
+
+            
+"usage"
+:
+ usage_entry
+,
+
+            
+"suggestions"
+:
+ suggestions
+        
+}
+)
+
+        
+        opt_file
+.
+write_text
+(
+json
+.
+dumps
+(
+existing
+[
+-
+100
+:
+]
+,
+ indent
+=
+2
+)
+)
+
+    
+    
+async
+ 
+def
+ 
+_identify_repeated_patterns
+(
+self
+,
+ goal_id
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""Identify repeated query patterns for caching."""
+
+        
+# This would analyze query patterns in practice
+
+        
+return
+ 
+[
+]
+
+    
+    
+def
+ 
+_load_usage_log
+(
+self
+)
+:
+
+        
+"""Load historical usage from disk."""
+
+        
+if
+ self
+.
+cost_file
+.
+exists
+(
+)
+:
+
+            
+try
+:
+
+                data 
+=
+ json
+.
+loads
+(
+self
+.
+cost_file
+.
+read_text
+(
+)
+)
+
+                self
+.
+usage_log 
+=
+ data
+.
+get
+(
+"usage_log"
+,
+ 
+[
+]
+)
+
+            
+except
+:
+
+                self
+.
+usage_log 
+=
+ 
+[
+]
+
+        
+else
+:
+
+            self
+.
+usage_log 
+=
+ 
+[
+]
+
+    
+    
+async
+ 
+def
+ 
+_save_usage_log
+(
+self
+)
+:
+
+        
+"""Save usage log to disk."""
+
+        data 
+=
+ 
+{
+
+            
+"usage_log"
+:
+ self
+.
+usage_log
+,
+
+            
+"last_updated"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        
+try
+:
+
+            self
+.
+cost_file
+.
+write_text
+(
+json
+.
+dumps
+(
+data
+,
+ indent
+=
+2
+)
+)
+
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Failed to save cost log: 
+{
+e
+}
+"
+)
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+from
+ pathlib 
+import
+ Path
+
+import
+ asyncio
+
+
+class
+ 
+AIEngineerAgent
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+name 
+=
+ 
+"ai_engineer"
+
+        self
+.
+skills 
+=
+ 
+[
+"full_stack_development"
+,
+ 
+"debugging"
+,
+ 
+"optimization"
+,
+ 
+"refactoring"
+]
+
+    
+    
+async
+ 
+def
+ 
+execute
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Execute AI engineering tasks."""
+
+        logs 
+=
+ 
+[
+]
+
+        files_generated 
+=
+ 
+[
+]
+
+        
+        
+try
+:
+
+            
+if
+ 
+"optimize"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_optimize_code
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Optimized code for performance"
+)
+
+            
+            
+elif
+ 
+"refactor"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_refactor_code
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Refactored code for maintainability"
+)
+
+            
+            
+elif
+ 
+"debug"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_debug_issue
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+elif
+ 
+"implement feature"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_implement_feature
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Implemented advanced feature"
+)
+
+            
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"completed"
+,
+
+                
+"files_generated"
+:
+ files_generated
+,
+
+                
+"logs"
+:
+ logs
+            
+}
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"failed"
+,
+
+                
+"files_generated"
+:
+ files_generated
+,
+
+                
+"logs"
+:
+ logs
+,
+
+                
+"error"
+:
+ 
+str
+(
+e
+)
+
+            
+}
+
+    
+    
+async
+ 
+def
+ 
+_optimize_code
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Perform advanced code optimization."""
+
+        
+# Would implement performance profiling, algorithm optimization, etc.
+
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_refactor_code
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Perform code refactoring."""
+
+        
+# Would implement design pattern application, code structure improvement
+
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_debug_issue
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Debug complex issues."""
+
+        
+# Would implement intelligent debugging with log analysis
+
+        
+return
+ 
+{
+"logs"
+:
+ 
+[
+"Debug analysis completed"
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_implement_feature
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Implement complex features requiring AI engineering."""
+
+        
+# Would implement advanced feature development
+
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+]
+}
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+from
+ core
+.
+security_engine 
+import
+ SecurityEngine
+
+
+class
+ 
+SecurityAgent
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+security_engine 
+=
+ SecurityEngine
+(
+config
+)
+
+        self
+.
+skills 
+=
+ 
+[
+"security_scanning"
+,
+ 
+"vulnerability_assessment"
+,
+ 
+"secure_coding"
+]
+
+    
+    
+async
+ 
+def
+ 
+execute
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Execute security-focused tasks."""
+
+        logs 
+=
+ 
+[
+]
+
+        
+        
+try
+:
+
+            
+if
+ 
+"scan"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_security_scan
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+elif
+ 
+"audit"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_security_audit
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+elif
+ 
+"secure"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_apply_security_fixes
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"completed"
+,
+
+                
+"files_generated"
+:
+ 
+[
+]
+,
+
+                
+"logs"
+:
+ logs
+            
+}
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"failed"
+,
+
+                
+"files_generated"
+:
+ 
+[
+]
+,
+
+                
+"logs"
+:
+ logs
+,
+
+                
+"error"
+:
+ 
+str
+(
+e
+)
+
+            
+}
+
+    
+    
+async
+ 
+def
+ 
+_security_scan
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Perform security scan."""
+
+        project_name 
+=
+ goal
+.
+context
+.
+get
+(
+"project_name"
+,
+ 
+"app"
+)
+
+        project_path 
+=
+ 
+f"./projects/
+{
+project_name
+}
+"
+
+        
+        report 
+=
+ self
+.
+security_engine
+.
+generate_security_report
+(
+project_path
+)
+
+        
+        logs 
+=
+ 
+[
+
+            
+f"Security scan completed: Grade 
+{
+report
+[
+'grade'
+]
+}
+"
+,
+
+            
+f"Critical issues: 
+{
+report
+[
+'scans'
+]
+[
+'code'
+]
+[
+'critical_issues'
+]
+}
+"
+
+        
+]
+
+        
+        
+return
+ 
+{
+"logs"
+:
+ logs
+}
+
+    
+    
+async
+ 
+def
+ 
+_security_audit
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Perform security audit."""
+
+        
+# Would implement comprehensive audit
+
+        logs 
+=
+ 
+[
+"Security audit completed"
+]
+
+        
+return
+ 
+{
+"logs"
+:
+ logs
+}
+
+    
+    
+async
+ 
+def
+ 
+_apply_security_fixes
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Apply automated security fixes."""
+
+        
+# Would implement auto-fix for common security issues
+
+        logs 
+=
+ 
+[
+"Applied security best practices"
+]
+
+        
+return
+ 
+{
+"logs"
+:
+ logs
+}
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+from
+ core
+.
+requirement_engine 
+import
+ RequirementEngine
+
+
+class
+ 
+ProductOwnerAgent
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+requirement_engine 
+=
+ RequirementEngine
+(
+config
+)
+
+        self
+.
+skills 
+=
+ 
+[
+"requirement_analysis"
+,
+ 
+"user_story_creation"
+,
+ 
+"acceptance_criteria"
+]
+
+    
+    
+async
+ 
+def
+ 
+execute
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Execute product owner tasks."""
+
+        logs 
+=
+ 
+[
+]
+
+        files_generated 
+=
+ 
+[
+]
+
+        
+        
+try
+:
+
+            
+if
+ 
+"requirement"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_analyze_requirements
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Analyzed business requirements"
+)
+
+            
+            
+elif
+ 
+"user story"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_create_user_stories
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Created user stories"
+)
+
+            
+            
+elif
+ 
+"acceptance"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_define_acceptance_criteria
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Defined acceptance criteria"
+)
+
+            
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"completed"
+,
+
+                
+"files_generated"
+:
+ files_generated
+,
+
+                
+"logs"
+:
+ logs
+            
+}
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"failed"
+,
+
+                
+"files_generated"
+:
+ files_generated
+,
+
+                
+"logs"
+:
+ logs
+,
+
+                
+"error"
+:
+ 
+str
+(
+e
+)
+
+            
+}
+
+    
+    
+async
+ 
+def
+ 
+_analyze_requirements
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Analyze business requirements."""
+
+        analysis 
+=
+ 
+await
+ self
+.
+requirement_engine
+.
+analyze
+(
+
+            goal
+.
+description
+,
+
+            goal
+.
+context
+        
+)
+
+        
+        
+# Save requirement analysis
+
+        project_name 
+=
+ goal
+.
+context
+.
+get
+(
+"project_name"
+,
+ 
+"app"
+)
+
+        req_file 
+=
+ 
+f"./projects/
+{
+project_name
+}
+/docs/requirements.md"
+
+        
+        content 
+=
+ 
+f"""# Requirements Analysis
+
+## Features
+
+{
+json
+.
+dumps
+(
+analysis
+.
+technical_specs
+.
+get
+(
+'features'
+,
+ 
+[
+]
+)
+,
+ indent
+=
+2
+)
+}
+
+
+## User Flows
+
+{
+json
+.
+dumps
+(
+analysis
+.
+technical_specs
+.
+get
+(
+'user_flows'
+,
+ 
+[
+]
+)
+,
+ indent
+=
+2
+)
+}
+
+
+## Confidence: 
+{
+analysis
+.
+confidence
+}
+
+"""
+
+        
+        Path
+(
+req_file
+)
+.
+parent
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        Path
+(
+req_file
+)
+.
+write_text
+(
+content
+)
+
+        
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+req_file
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_create_user_stories
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Create user stories."""
+
+        project_name 
+=
+ goal
+.
+context
+.
+get
+(
+"project_name"
+,
+ 
+"app"
+)
+
+        stories_file 
+=
+ 
+f"./projects/
+{
+project_name
+}
+/docs/user_stories.md"
+
+        
+        
+# Simple user story generation
+
+        features 
+=
+ goal
+.
+analyzed_requirements
+.
+get
+(
+"features"
+,
+ 
+[
+]
+)
+
+        stories 
+=
+ 
+[
+]
+
+        
+        
+for
+ feature 
+in
+ features
+:
+
+            stories
+.
+append
+(
+{
+
+                
+"as_a"
+:
+ 
+"user"
+,
+
+                
+"i_want_to"
+:
+ feature
+[
+"name"
+]
+.
+replace
+(
+"_"
+,
+ 
+" "
+)
+,
+
+                
+"so_that"
+:
+ 
+"I can achieve my goals efficiently"
+,
+
+                
+"acceptance_criteria"
+:
+ 
+[
+
+                    
+"Feature works as expected"
+,
+
+                    
+"All tests pass"
+,
+
+                    
+"Code is reviewed"
+
+                
+]
+
+            
+}
+)
+
+        
+        content 
+=
+ 
+f"""# User Stories
+
+
+{
+json
+.
+dumps
+(
+stories
+,
+ indent
+=
+2
+)
+}
+
+"""
+
+        
+        Path
+(
+stories_file
+)
+.
+parent
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        Path
+(
+stories_file
+)
+.
+write_text
+(
+content
+)
+
+        
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+stories_file
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_define_acceptance_criteria
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Define acceptance criteria."""
+
+        project_name 
+=
+ goal
+.
+context
+.
+get
+(
+"project_name"
+,
+ 
+"app"
+)
+
+        criteria_file 
+=
+ 
+f"./projects/
+{
+project_name
+}
+/docs/acceptance_criteria.md"
+
+        
+        criteria 
+=
+ 
+{
+
+            
+"functional_requirements"
+:
+ 
+[
+
+                
+"All features implemented as specified"
+,
+
+                
+"API endpoints return correct responses"
+,
+
+                
+"UI is responsive and accessible"
+
+            
+]
+,
+
+            
+"non_functional_requirements"
+:
+ 
+[
+
+                
+"Page load time under 2 seconds"
+,
+
+                
+"Security scan passes with grade A or B"
+,
+
+                
+"Test coverage above 80%"
+
+            
+]
+
+        
+}
+
+        
+        content 
+=
+ 
+f"""# Acceptance Criteria
+
+## Functional Requirements
+
+{
+chr
+(
+10
+)
+.
+join
+(
+f"- 
+{
+req
+}
+"
+ 
+for
+ req 
+in
+ criteria
+[
+"functional_requirements"
+]
+)
+}
+
+
+## Non-Functional Requirements
+
+{
+chr
+(
+10
+)
+.
+join
+(
+f"- 
+{
+req
+}
+"
+ 
+for
+ req 
+in
+ criteria
+[
+"non_functional_requirements"
+]
+)
+}
+
+"""
+
+        
+        Path
+(
+criteria_file
+)
+.
+parent
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        Path
+(
+criteria_file
+)
+.
+write_text
+(
+content
+)
+
+        
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+criteria_file
+]
+}
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+from
+ tools
+.
+prompt_builder 
+import
+ PromptBuilder
+
+
+class
+ 
+PromptEngineerAgent
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+prompt_builder 
+=
+ PromptBuilder
+(
+config
+)
+
+        self
+.
+skills 
+=
+ 
+[
+"prompt_optimization"
+,
+ 
+"few_shot_generation"
+,
+ 
+"chain_of_thought"
+]
+
+    
+    
+async
+ 
+def
+ 
+execute
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Execute prompt engineering tasks."""
+
+        logs 
+=
+ 
+[
+]
+
+        files_generated 
+=
+ 
+[
+]
+
+        
+        
+try
+:
+
+            
+if
+ 
+"optimize prompt"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_optimize_prompt
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Optimized prompt for better results"
+)
+
+            
+            
+elif
+ 
+"few-shot"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_generate_few_shot_examples
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Generated few-shot examples"
+)
+
+            
+            
+elif
+ 
+"chain"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_generate_chain_of_thought
+(
+task
+,
+ goal
+)
+
+                files_generated
+.
+extend
+(
+result
+[
+"files"
+]
+)
+
+                logs
+.
+append
+(
+"Created chain-of-thought reasoning"
+)
+
+            
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"completed"
+,
+
+                
+"files_generated"
+:
+ files_generated
+,
+
+                
+"logs"
+:
+ logs
+            
+}
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"failed"
+,
+
+                
+"files_generated"
+:
+ files_generated
+,
+
+                
+"logs"
+:
+ logs
+,
+
+                
+"error"
+:
+ 
+str
+(
+e
+)
+
+            
+}
+
+    
+    
+async
+ 
+def
+ 
+_optimize_prompt
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Optimize prompts for accuracy."""
+
+        
+# Would implement prompt A/B testing and optimization
+
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_generate_few_shot_examples
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Generate few-shot learning examples."""
+
+        project_name 
+=
+ goal
+.
+context
+.
+get
+(
+"project_name"
+,
+ 
+"app"
+)
+
+        examples_file 
+=
+ 
+f"./projects/
+{
+project_name
+}
+/docs/prompt_examples.json"
+
+        
+        examples 
+=
+ 
+{
+
+            
+"examples"
+:
+ 
+[
+
+                
+{
+
+                    
+"input"
+:
+ 
+"Build a user authentication system"
+,
+
+                    
+"output"
+:
+ 
+"Implemented JWT-based auth with login/register endpoints"
+
+                
+}
+
+            
+]
+
+        
+}
+
+        
+        Path
+(
+examples_file
+)
+.
+parent
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        Path
+(
+examples_file
+)
+.
+write_text
+(
+json
+.
+dumps
+(
+examples
+,
+ indent
+=
+2
+)
+)
+
+        
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+examples_file
+]
+}
+
+    
+    
+async
+ 
+def
+ 
+_generate_chain_of_thought
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Generate chain-of-thought reasoning."""
+
+        
+# Would implement CoT generation
+
+        
+return
+ 
+{
+"files"
+:
+ 
+[
+]
+}
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+from
+ core
+.
+state_manager 
+import
+ StateManager
+
+
+class
+ 
+OrchestratorAgent
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+state_manager 
+=
+ StateManager
+(
+config
+)
+
+        self
+.
+skills 
+=
+ 
+[
+"agent_coordination"
+,
+ 
+"workflow_optimization"
+,
+ 
+"conflict_resolution"
+]
+
+    
+    
+async
+ 
+def
+ 
+execute
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Execute orchestration tasks."""
+
+        logs 
+=
+ 
+[
+]
+
+        
+        
+try
+:
+
+            
+if
+ 
+"coordinate"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_coordinate_agents
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+elif
+ 
+"optimize workflow"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_optimize_workflow
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+elif
+ 
+"resolve"
+ 
+in
+ task
+.
+title
+.
+lower
+(
+)
+:
+
+                result 
+=
+ 
+await
+ self
+.
+_resolve_conflicts
+(
+task
+,
+ goal
+)
+
+                logs
+.
+extend
+(
+result
+[
+"logs"
+]
+)
+
+            
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"completed"
+,
+
+                
+"files_generated"
+:
+ 
+[
+]
+,
+
+                
+"logs"
+:
+ logs
+            
+}
+
+        
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+return
+ 
+{
+
+                
+"status"
+:
+ 
+"failed"
+,
+
+                
+"files_generated"
+:
+ 
+[
+]
+,
+
+                
+"logs"
+:
+ logs
+,
+
+                
+"error"
+:
+ 
+str
+(
+e
+)
+
+            
+}
+
+    
+    
+async
+ 
+def
+ 
+_coordinate_agents
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Coordinate multi-agent workflows."""
+
+        
+# Would implement sophisticated agent coordination
+
+        logs 
+=
+ 
+[
+"Coordinated agent workflow"
+]
+
+        
+return
+ 
+{
+"logs"
+:
+ logs
+}
+
+    
+    
+async
+ 
+def
+ 
+_optimize_workflow
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Optimize execution workflow."""
+
+        
+# Would implement workflow analysis and optimization
+
+        logs 
+=
+ 
+[
+"Optimized execution workflow"
+]
+
+        
+return
+ 
+{
+"logs"
+:
+ logs
+}
+
+    
+    
+async
+ 
+def
+ 
+_resolve_conflicts
+(
+self
+,
+ task
+:
+ Any
+,
+ goal
+:
+ Any
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Resolve agent conflicts."""
+
+        
+# Would implement conflict resolution
+
+        logs 
+=
+ 
+[
+"Resolved agent conflicts"
+]
+
+        
+return
+ 
+{
+"logs"
+:
+ logs
+}
+import
+ json
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+,
+ Tuple
+
+import
+ hashlib
+
+
+class
+ 
+VectorStore
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+persist_dir 
+=
+ Path
+(
+config
+[
+"memory"
+]
+[
+"vector_store"
+]
+)
+
+        self
+.
+persist_dir
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        
+        
+# Simple in-memory vector store for now
+
+        
+# In production, use ChromaDB or similar
+
+        self
+.
+vectors
+:
+ Dict
+[
+str
+,
+ Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+{
+}
+
+        self
+.
+load
+(
+)
+
+    
+    
+def
+ 
+add
+(
+self
+,
+ documents
+:
+ List
+[
+str
+]
+,
+ metadatas
+:
+ List
+[
+Dict
+]
+,
+ ids
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Add documents to vector store."""
+
+        
+try
+:
+
+            
+for
+ doc
+,
+ meta
+,
+ doc_id 
+in
+ 
+zip
+(
+documents
+,
+ metadatas
+,
+ ids
+)
+:
+
+                embedding 
+=
+ self
+.
+_generate_embedding
+(
+doc
+)
+
+                
+                self
+.
+vectors
+[
+doc_id
+]
+ 
+=
+ 
+{
+
+                    
+"embedding"
+:
+ embedding
+,
+
+                    
+"metadata"
+:
+ meta
+,
+
+                    
+"document"
+:
+ doc
+                
+}
+
+            
+            self
+.
+save
+(
+)
+
+            
+return
+ 
+True
+
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Vector store add error: 
+{
+e
+}
+"
+)
+
+            
+return
+ 
+False
+
+    
+    
+def
+ 
+search_similar
+(
+
+        self
+,
+
+        query
+:
+ 
+str
+,
+
+        limit
+:
+ 
+int
+ 
+=
+ 
+5
+,
+
+        
+filter
+:
+ Optional
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+None
+
+    
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Search for similar documents."""
+
+        query_embedding 
+=
+ self
+.
+_generate_embedding
+(
+query
+)
+
+        
+        results 
+=
+ 
+[
+]
+
+        
+        
+for
+ doc_id
+,
+ data 
+in
+ self
+.
+vectors
+.
+items
+(
+)
+:
+
+            
+# Apply filter if provided
+
+            
+if
+ 
+filter
+:
+
+                meta 
+=
+ data
+[
+"metadata"
+]
+
+                skip 
+=
+ 
+False
+
+                
+for
+ key
+,
+ value 
+in
+ 
+filter
+.
+items
+(
+)
+:
+
+                    
+if
+ meta
+.
+get
+(
+key
+)
+ 
+!=
+ value
+:
+
+                        skip 
+=
+ 
+True
+
+                        
+break
+
+                
+if
+ skip
+:
+
+                    
+continue
+
+            
+            
+# Calculate similarity (cosine)
+
+            similarity 
+=
+ self
+.
+_cosine_similarity
+(
+query_embedding
+,
+ data
+[
+"embedding"
+]
+)
+
+            
+            results
+.
+append
+(
+{
+
+                
+"id"
+:
+ doc_id
+,
+
+                
+"score"
+:
+ similarity
+,
+
+                
+"payload"
+:
+ data
+[
+"metadata"
+]
+,
+
+                
+"document"
+:
+ data
+[
+"document"
+]
+
+            
+}
+)
+
+        
+        
+# Sort by similarity
+
+        results
+.
+sort
+(
+key
+=
+lambda
+ x
+:
+ x
+[
+"score"
+]
+,
+ reverse
+=
+True
+)
+
+        
+        
+return
+ results
+[
+:
+limit
+]
+
+    
+    
+def
+ 
+delete
+(
+self
+,
+ ids
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Delete documents from vector store."""
+
+        
+for
+ doc_id 
+in
+ ids
+:
+
+            self
+.
+vectors
+.
+pop
+(
+doc_id
+,
+ 
+None
+)
+
+        
+        self
+.
+save
+(
+)
+
+        
+return
+ 
+True
+
+    
+    
+def
+ 
+update
+(
+self
+,
+ ids
+:
+ List
+[
+str
+]
+,
+ documents
+:
+ List
+[
+str
+]
+,
+ metadatas
+:
+ List
+[
+Dict
+]
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Update documents in vector store."""
+
+        
+for
+ doc_id
+,
+ doc
+,
+ meta 
+in
+ 
+zip
+(
+ids
+,
+ documents
+,
+ metadatas
+)
+:
+
+            
+if
+ doc_id 
+in
+ self
+.
+vectors
+:
+
+                embedding 
+=
+ self
+.
+_generate_embedding
+(
+doc
+)
+
+                self
+.
+vectors
+[
+doc_id
+]
+ 
+=
+ 
+{
+
+                    
+"embedding"
+:
+ embedding
+,
+
+                    
+"metadata"
+:
+ meta
+,
+
+                    
+"document"
+:
+ doc
+                
+}
+
+        
+        self
+.
+save
+(
+)
+
+        
+return
+ 
+True
+
+    
+    
+def
+ 
+_generate_embedding
+(
+self
+,
+ text
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+float
+]
+:
+
+        
+"""Generate simple embedding for text."""
+
+        
+# In production: use sentence-transformers or similar
+
+        
+# For now: use simple hash-based embedding
+
+        
+import
+ hashlib
+        
+        
+# Create a simple vector based on character n-grams
+
+        vector 
+=
+ 
+[
+0.0
+]
+ 
+*
+ 
+128
+  
+# 128-dimensional vector
+
+        
+        
+for
+ i 
+in
+ 
+range
+(
+len
+(
+text
+)
+ 
+-
+ 
+2
+)
+:
+
+            ngram 
+=
+ text
+[
+i
+:
+i
++
+3
+]
+
+            hash_val 
+=
+ 
+int
+(
+hashlib
+.
+md5
+(
+ngram
+.
+encode
+(
+)
+)
+.
+hexdigest
+(
+)
+[
+:
+8
+]
+,
+ 
+16
+)
+
+            idx 
+=
+ hash_val 
+%
+ 
+128
+
+            vector
+[
+idx
+]
+ 
++=
+ 
+1.0
+
+        
+        
+# Normalize vector
+
+        magnitude 
+=
+ 
+sum
+(
+x
+**
+2
+ 
+for
+ x 
+in
+ vector
+)
+ 
+**
+ 
+0.5
+
+        
+if
+ magnitude 
+>
+ 
+0
+:
+
+            vector 
+=
+ 
+[
+x 
+/
+ magnitude 
+for
+ x 
+in
+ vector
+]
+
+        
+        
+return
+ vector
+    
+    
+def
+ 
+_cosine_similarity
+(
+self
+,
+ vec1
+:
+ List
+[
+float
+]
+,
+ vec2
+:
+ List
+[
+float
+]
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Calculate cosine similarity between vectors."""
+
+        dot_product 
+=
+ 
+sum
+(
+a 
+*
+ b 
+for
+ a
+,
+ b 
+in
+ 
+zip
+(
+vec1
+,
+ vec2
+)
+)
+
+        magnitude1 
+=
+ 
+sum
+(
+a
+**
+2
+ 
+for
+ a 
+in
+ vec1
+)
+ 
+**
+ 
+0.5
+
+        magnitude2 
+=
+ 
+sum
+(
+b
+**
+2
+ 
+for
+ b 
+in
+ vec2
+)
+ 
+**
+ 
+0.5
+
+        
+        
+if
+ magnitude1 
+==
+ 
+0
+ 
+or
+ magnitude2 
+==
+ 
+0
+:
+
+            
+return
+ 
+0.0
+
+        
+        
+return
+ dot_product 
+/
+ 
+(
+magnitude1 
+*
+ magnitude2
+)
+
+    
+    
+def
+ 
+save
+(
+self
+)
+:
+
+        
+"""Save vector store to disk."""
+
+        data 
+=
+ 
+{
+
+            vectors"
+:
+ self
+.
+vectors
+,
+
+            
+"last_updated"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        
+(
+self
+.
+persist_dir 
+/
+ 
+"vectors.json"
+)
+.
+write_text
+(
+json
+.
+dumps
+(
+data
+,
+ indent
+=
+2
+)
+)
+
+    
+    
+def
+ 
+load
+(
+self
+)
+:
+
+        
+"""Load vector store from disk."""
+
+        
+try
+:
+
+            data_file 
+=
+ self
+.
+persist_dir 
+/
+ 
+"vectors.json"
+
+            
+if
+ data_file
+.
+exists
+(
+)
+:
+
+                data 
+=
+ json
+.
+loads
+(
+data_file
+.
+read_text
+(
+)
+)
+
+                self
+.
+vectors 
+=
+ data
+.
+get
+(
+"vectors"
+,
+ 
+{
+}
+)
+
+        
+except
+ Exception 
+as
+ e
+:
+
+            
+print
+(
+f"Vector store load error: 
+{
+e
+}
+"
+)
+
+            self
+.
+vectors 
+=
+ 
+{
+}
+from
+ typing 
+import
+ List
+,
+ Any
+,
+ Optional
+
+import
+ asyncio
+
+
+class
+ 
+EmbeddingManager
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+model_name 
+=
+ config
+[
+"memory"
+]
+.
+get
+(
+"embedding_model"
+,
+ 
+"sentence-transformers/all-mpnet-base-v2"
+)
+
+        self
+.
+model 
+=
+ 
+None
+
+        self
+.
+load_model
+(
+)
+
+    
+    
+def
+ 
+load_model
+(
+self
+)
+:
+
+        
+"""Load embedding model."""
+
+        
+try
+:
+
+            
+from
+ sentence_transformers 
+import
+ SentenceTransformer
+            self
+.
+model 
+=
+ SentenceTransformer
+(
+self
+.
+model_name
+)
+
+        
+except
+ ImportError
+:
+
+            
+print
+(
+"sentence-transformers not installed. Using fallback."
+)
+
+            self
+.
+model 
+=
+ 
+None
+
+    
+    
+async
+ 
+def
+ 
+generate_embeddings
+(
+self
+,
+ texts
+:
+ List
+[
+str
+]
+)
+ 
+-
+>
+ List
+[
+List
+[
+float
+]
+]
+:
+
+        
+"""Generate embeddings for texts."""
+
+        
+if
+ self
+.
+model 
+is
+ 
+None
+:
+
+            
+# Fallback to simple embedding
+
+            
+return
+ 
+[
+self
+.
+_simple_embedding
+(
+text
+)
+ 
+for
+ text 
+in
+ texts
+]
+
+        
+        
+# Use proper embedding model
+
+        embeddings 
+=
+ self
+.
+model
+.
+encode
+(
+texts
+,
+ convert_to_tensor
+=
+False
+)
+
+        
+return
+ embeddings
+.
+tolist
+(
+)
+
+    
+    
+async
+ 
+def
+ 
+generate_embedding
+(
+self
+,
+ text
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+float
+]
+:
+
+        
+"""Generate embedding for single text."""
+
+        
+return
+ 
+(
+await
+ self
+.
+generate_embeddings
+(
+[
+text
+]
+)
+)
+[
+0
+]
+
+    
+    
+def
+ 
+_simple_embedding
+(
+self
+,
+ text
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+float
+]
+:
+
+        
+"""Simple fallback embedding."""
+
+        
+# Simple character n-gram embedding
+
+        vector 
+=
+ 
+[
+0.0
+]
+ 
+*
+ 
+128
+
+        
+        
+for
+ i 
+in
+ 
+range
+(
+len
+(
+text
+)
+ 
+-
+ 
+2
+)
+:
+
+            ngram 
+=
+ text
+[
+i
+:
+i
++
+3
+]
+
+            idx 
+=
+ 
+hash
+(
+ngram
+)
+ 
+%
+ 
+128
+
+            vector
+[
+idx
+]
+ 
++=
+ 
+1.0
+
+        
+        
+# Normalize
+
+        magnitude 
+=
+ 
+sum
+(
+x
+**
+2
+ 
+for
+ x 
+in
+ vector
+)
+ 
+**
+ 
+0.5
+
+        
+if
+ magnitude 
+>
+ 
+0
+:
+
+            vector 
+=
+ 
+[
+x 
+/
+ magnitude 
+for
+ x 
+in
+ vector
+]
+
+        
+        
+return
+ vector
+    
+    
+async
+ 
+def
+ 
+similarity
+(
+self
+,
+ vec1
+:
+ List
+[
+float
+]
+,
+ vec2
+:
+ List
+[
+float
+]
+)
+ 
+-
+>
+ 
+float
+:
+
+        
+"""Calculate cosine similarity."""
+
+        dot_product 
+=
+ 
+sum
+(
+a 
+*
+ b 
+for
+ a
+,
+ b 
+in
+ 
+zip
+(
+vec1
+,
+ vec2
+)
+)
+
+        magnitude1 
+=
+ 
+sum
+(
+a
+**
+2
+ 
+for
+ a 
+in
+ vec1
+)
+ 
+**
+ 
+0.5
+
+        magnitude2 
+=
+ 
+sum
+(
+b
+**
+2
+ 
+for
+ b 
+in
+ vec2
+)
+ 
+**
+ 
+0.5
+
+        
+        
+if
+ magnitude1 
+==
+ 
+0
+ 
+or
+ magnitude2 
+==
+ 
+0
+:
+
+            
+return
+ 
+0.0
+
+        
+        
+return
+ dot_product 
+/
+ 
+(
+magnitude1 
+*
+ magnitude2
+)
+
+
+
+### memory/memory_indexer.py
+
+```python
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Set
+
+from
+ pathlib 
+import
+ Path
+
+import
+ json
+
+
+class
+ 
+MemoryIndexer
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+index_path 
+=
+ Path
+(
+config
+[
+"memory"
+]
+[
+"vector_store"
+]
+)
+ 
+/
+ 
+"index.json"
+
+        self
+.
+index
+:
+ Dict
+[
+str
+,
+ Set
+[
+str
+]
+]
+ 
+=
+ 
+{
+}
+
+        self
+.
+load
+(
+)
+
+    
+    
+def
+ 
+add_to_index
+(
+self
+,
+ key
+:
+ 
+str
+,
+ doc_id
+:
+ 
+str
+)
+:
+
+        
+"""Add document to index."""
+
+        
+if
+ key 
+not
+ 
+in
+ self
+.
+index
+:
+
+            self
+.
+index
+[
+key
+]
+ 
+=
+ 
+set
+(
+)
+
+        self
+.
+index
+[
+key
+]
+.
+add
+(
+doc_id
+)
+
+        self
+.
+save
+(
+)
+
+    
+    
+def
+ 
+remove_from_index
+(
+self
+,
+ key
+:
+ 
+str
+,
+ doc_id
+:
+ 
+str
+)
+:
+
+        
+"""Remove document from index."""
+
+        
+if
+ key 
+in
+ self
+.
+index
+:
+
+            self
+.
+index
+[
+key
+]
+.
+discard
+(
+doc_id
+)
+
+            
+if
+ 
+not
+ self
+.
+index
+[
+key
+]
+:
+
+                
+del
+ self
+.
+index
+[
+key
+]
+
+        self
+.
+save
+(
+)
+
+    
+    
+def
+ 
+search_index
+(
+self
+,
+ key
+:
+ 
+str
+)
+ 
+-
+>
+ Set
+[
+str
+]
+:
+
+        
+"""Search index for key."""
+
+        
+return
+ self
+.
+index
+.
+get
+(
+key
+,
+ 
+set
+(
+)
+)
+
+    
+    
+def
+ 
+get_all_keys
+(
+self
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""Get all indexed keys."""
+
+        
+return
+ 
+list
+(
+self
+.
+index
+.
+keys
+(
+)
+)
+
+    
+    
+def
+ 
+save
+(
+self
+)
+:
+
+        
+"""Save index to disk."""
+
+        
+# Convert sets to lists for JSON serialization
+
+        serializable_index 
+=
+ 
+{
+k
+:
+ 
+list
+(
+v
+)
+ 
+for
+ k
+,
+ v 
+in
+ self
+.
+index
+.
+items
+(
+)
+}
+
+        self
+.
+index_path
+.
+write_text
+(
+json
+.
+dumps
+(
+serializable_index
+,
+ indent
+=
+2
+)
+)
+
+    
+    
+def
+ 
+load
+(
+self
+)
+:
+
+        
+"""Load index from disk."""
+
+        
+if
+ self
+.
+index_path
+.
+exists
+(
+)
+:
+
+            
+try
+:
+
+                data 
+=
+ json
+.
+loads
+(
+self
+.
+index_path
+.
+read_text
+(
+)
+)
+
+                self
+.
+index 
+=
+ 
+{
+k
+:
+ 
+set
+(
+v
+)
+ 
+for
+ k
+,
+ v 
+in
+ data
+.
+items
+(
+)
+}
+
+            
+except
+:
+
+                self
+.
+index 
+=
+ 
+{
+}
+
+        
+else
+:
+
+            self
+.
+index 
+=
+ 
+{
+}
+
+
+
+### memory/context_window.py
+
+```python
+
+from
+ typing 
+import
+ List
+,
+ Dict
+,
+ Any
+,
+ Optional
+
+from
+ datetime 
+import
+ datetime
+,
+ timedelta
+
+
+class
+ 
+ContextWindow
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+max_tokens 
+=
+ config
+[
+"memory"
+]
+.
+get
+(
+"context_window_tokens"
+,
+ 
+8000
+)
+
+        self
+.
+max_messages 
+=
+ config
+[
+"memory"
+]
+.
+get
+(
+"context_window_messages"
+,
+ 
+50
+)
+
+        
+        self
+.
+messages
+:
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+[
+]
+
+        self
+.
+token_count 
+=
+ 
+0
+
+    
+    
+def
+ 
+add_message
+(
+self
+,
+ role
+:
+ 
+str
+,
+ content
+:
+ 
+str
+,
+ tokens
+:
+ Optional
+[
+int
+]
+ 
+=
+ 
+None
+)
+:
+
+        
+"""Add message to context window."""
+
+        
+if
+ tokens 
+is
+ 
+None
+:
+
+            tokens 
+=
+ 
+len
+(
+content
+.
+split
+(
+)
+)
+ 
+*
+ 
+1.3
+  
+# Rough estimate
+
+        
+        message 
+=
+ 
+{
+
+            
+"role"
+:
+ role
+,
+
+            
+"content"
+:
+ content
+,
+
+            
+"tokens"
+:
+ tokens
+,
+
+            
+"timestamp"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        self
+.
+messages
+.
+append
+(
+message
+)
+
+        self
+.
+token_count 
++=
+ tokens
+        
+        
+# Trim if over limits
+
+        self
+.
+_trim_window
+(
+)
+
+    
+    
+def
+ 
+get_messages
+(
+self
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Get all messages in window."""
+
+        
+return
+ self
+.
+messages
+.
+copy
+(
+)
+
+    
+    
+def
+ 
+get_formatted_messages
+(
+self
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ 
+str
+]
+]
+:
+
+        
+"""Get messages formatted for LLM API."""
+
+        
+return
+ 
+[
+
+            
+{
+"role"
+:
+ msg
+[
+"role"
+]
+,
+ 
+"content"
+:
+ msg
+[
+"content"
+]
+}
+
+            
+for
+ msg 
+in
+ self
+.
+messages
+        
+]
+
+    
+    
+def
+ 
+clear
+(
+self
+)
+:
+
+        
+"""Clear context window."""
+
+        self
+.
+messages
+.
+clear
+(
+)
+
+        self
+.
+token_count 
+=
+ 
+0
+
+    
+    
+def
+ 
+_trim_window
+(
+self
+)
+:
+
+        
+"""Trim window to fit within limits."""
+
+        
+# Trim by token count
+
+        
+while
+ self
+.
+token_count 
+>
+ self
+.
+max_tokens 
+and
+ 
+len
+(
+self
+.
+messages
+)
+ 
+>
+ 
+2
+:
+
+            removed 
+=
+ self
+.
+messages
+.
+pop
+(
+0
+)
+
+            self
+.
+token_count 
+-=
+ removed
+[
+"tokens"
+]
+
+        
+        
+# Trim by message count
+
+        
+while
+ 
+len
+(
+self
+.
+messages
+)
+ 
+>
+ self
+.
+max_messages
+:
+
+            removed 
+=
+ self
+.
+messages
+.
+pop
+(
+0
+)
+
+            self
+.
+token_count 
+-=
+ removed
+[
+"tokens"
+]
+
+    
+    
+def
+ 
+get_summary
+(
+self
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Get summary of context window."""
+
+        
+return
+ 
+f"Context: 
+{
+len
+(
+self
+.
+messages
+)
+}
+ messages, 
+{
+self
+.
+token_count
+:
+.0f
+}
+ tokens"
+
+
+
+### tools/prompt_builder.py
+
+```python
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+
+from
+ jinja2 
+import
+ Template
+
+
+class
+ 
+PromptBuilder
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+templates 
+=
+ self
+.
+_load_templates
+(
+)
+
+    
+    
+def
+ 
+build_prompt
+(
+
+        self
+,
+
+        template_name
+:
+ 
+str
+,
+
+        context
+:
+ Dict
+[
+str
+,
+ Any
+]
+
+    
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Build prompt from template and context."""
+
+        
+if
+ template_name 
+not
+ 
+in
+ self
+.
+templates
+:
+
+            
+raise
+ ValueError
+(
+f"Template 
+{
+template_name
+}
+ not found"
+)
+
+        
+        template 
+=
+ Template
+(
+self
+.
+templates
+[
+template_name
+]
+)
+
+        
+return
+ template
+.
+render
+(
+**
+context
+)
+
+    
+    
+def
+ 
+build_few_shot_prompt
+(
+
+        self
+,
+
+        examples
+:
+ List
+[
+Dict
+[
+str
+,
+ 
+str
+]
+]
+,
+
+        instruction
+:
+ 
+str
+,
+
+        target
+:
+ 
+str
+
+    
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Build few-shot learning prompt."""
+
+        prompt_parts 
+=
+ 
+[
+instruction
+]
+
+        
+        
+for
+ i
+,
+ example 
+in
+ 
+enumerate
+(
+examples
+,
+ 
+1
+)
+:
+
+            prompt_parts
+.
+append
+(
+f"\nExample 
+{
+i
+}
+:"
+)
+
+            prompt_parts
+.
+append
+(
+f"Input: 
+{
+example
+[
+'input'
+]
+}
+"
+)
+
+            prompt_parts
+.
+append
+(
+f"Output: 
+{
+example
+[
+'output'
+]
+}
+"
+)
+
+        
+        prompt_parts
+.
+append
+(
+f"\nNow complete:"
+)
+
+        prompt_parts
+.
+append
+(
+f"Input: 
+{
+target
+}
+"
+)
+
+        prompt_parts
+.
+append
+(
+"Output:"
+)
+
+        
+        
+return
+ 
+"\n"
+.
+join
+(
+prompt_parts
+)
+
+    
+    
+def
+ 
+build_chain_of_thought_prompt
+(
+
+        self
+,
+
+        problem
+:
+ 
+str
+,
+
+        steps
+:
+ List
+[
+str
+]
+
+    
+)
+ 
+-
+>
+ 
+str
+:
+
+        
+"""Build chain-of-thought prompt."""
+
+        prompt_parts 
+=
+ 
+[
+f"Problem: 
+{
+problem
+}
+"
+,
+ 
+"\nLet's think step by step:"
+]
+
+        
+        
+for
+ i
+,
+ step 
+in
+ 
+enumerate
+(
+steps
+,
+ 
+1
+)
+:
+
+            prompt_parts
+.
+append
+(
+f"
+{
+i
+}
+. 
+{
+step
+}
+"
+)
+
+        
+        prompt_parts
+.
+append
+(
+"\nSolution:"
+)
+
+        
+        
+return
+ 
+"\n"
+.
+join
+(
+prompt_parts
+)
+
+    
+    
+def
+ 
+_load_templates
+(
+self
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ 
+str
+]
+:
+
+        
+"""Load prompt templates."""
+
+        
+return
+ 
+{
+
+            
+"code_review"
+:
+ 
+""
+"
+Review the following code 
+for
+ security vulnerabilities 
+and
+ code quality issues
+:
+
+
+```python
+
+{
+{
+ code 
+}
+}
+import
+ json
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+
+
+class
+ 
+TemplateManager
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+        self
+.
+templates_dir 
+=
+ Path
+(
+config
+[
+"templates_dir"
+]
+)
+
+        self
+.
+templates_dir
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        
+        self
+.
+cache
+:
+ Dict
+[
+str
+,
+ Dict
+[
+str
+,
+ Any
+]
+]
+ 
+=
+ 
+{
+}
+
+        self
+.
+load_all
+(
+)
+
+    
+    
+def
+ 
+load_all
+(
+self
+)
+:
+
+        
+"""Load all templates from disk."""
+
+        
+if
+ 
+not
+ self
+.
+templates_dir
+.
+exists
+(
+)
+:
+
+            
+return
+
+        
+        
+for
+ template_file 
+in
+ self
+.
+templates_dir
+.
+glob
+(
+"*.json"
+)
+:
+
+            
+try
+:
+
+                template_data 
+=
+ json
+.
+loads
+(
+template_file
+.
+read_text
+(
+)
+)
+
+                self
+.
+cache
+[
+template_file
+.
+stem
+]
+ 
+=
+ template_data
+            
+except
+ Exception 
+as
+ e
+:
+
+                
+print
+(
+f"Error loading template 
+{
+template_file
+}
+: 
+{
+e
+}
+"
+)
+
+    
+    
+def
+ 
+get_template
+(
+self
+,
+ name
+:
+ 
+str
+)
+ 
+-
+>
+ Optional
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Get template by name."""
+
+        
+return
+ self
+.
+cache
+.
+get
+(
+name
+)
+
+    
+    
+def
+ 
+save_template
+(
+self
+,
+ name
+:
+ 
+str
+,
+ template
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Save template to disk."""
+
+        self
+.
+cache
+[
+name
+]
+ 
+=
+ template
+        
+        template_file 
+=
+ self
+.
+templates_dir 
+/
+ 
+f"
+{
+name
+}
+.json"
+
+        template_file
+.
+write_text
+(
+json
+.
+dumps
+(
+template
+,
+ indent
+=
+2
+)
+)
+
+    
+    
+def
+ 
+list_templates
+(
+self
+)
+ 
+-
+>
+ List
+[
+str
+]
+:
+
+        
+"""List available templates."""
+
+        
+return
+ 
+list
+(
+self
+.
+cache
+.
+keys
+(
+)
+)
+
+    
+    
+def
+ 
+create_project_template
+(
+self
+,
+ name
+:
+ 
+str
+,
+ structure
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        
+"""Create a new project template."""
+
+        template 
+=
+ 
+{
+
+            
+"name"
+:
+ name
+,
+
+            
+"structure"
+:
+ structure
+,
+
+            
+"created_at"
+:
+ datetime
+.
+now
+(
+)
+.
+isoformat
+(
+)
+
+        
+}
+
+        
+        self
+.
+save_template
+(
+f"project_
+{
+name
+}
+"
+,
+ template
+)
+
+
+
+### tools/dependency_manager.py
+
+```python
+
+import
+ json
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+,
+ Optional
+
+import
+ subprocess
+
+
+class
+ 
+DependencyManager
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+    
+    
+async
+ 
+def
+ 
+install_dependencies
+(
+self
+,
+ project_path
+:
+ 
+str
+,
+ dependencies
+:
+ Dict
+[
+str
+,
+ List
+[
+str
+]
+]
+)
+:
+
+        
+"""Install project dependencies."""
+
+        logs 
+=
+ 
+[
+]
+
+        
+        
+# Python dependencies
+
+        
+if
+ 
+"python"
+ 
+in
+ dependencies
+:
+
+            req_file 
+=
+ Path
+(
+project_path
+)
+ 
+/
+ 
+"requirements.txt"
+
+            req_file
+.
+write_text
+(
+"\n"
+.
+join
+(
+dependencies
+[
+"python"
+]
+)
+)
+
+            
+            result 
+=
+ subprocess
+.
+run
+(
+
+                
+[
+sys
+.
+executable
+,
+ 
+"-m"
+,
+ 
+"pip"
+,
+ 
+"install"
+,
+ 
+"-r"
+,
+ 
+"requirements.txt"
+]
+,
+
+                cwd
+=
+project_path
+,
+
+                capture_output
+=
+True
+,
+
+                text
+=
+True
+
+            
+)
+
+            
+            
+if
+ result
+.
+returncode 
+==
+ 
+0
+:
+
+                logs
+.
+append
+(
+"Python dependencies installed"
+)
+
+            
+else
+:
+
+                logs
+.
+append
+(
+f"Python install failed: 
+{
+result
+.
+stderr
+}
+"
+)
+
+        
+        
+# Node.js dependencies
+
+        
+if
+ 
+"node"
+ 
+in
+ dependencies
+:
+
+            package_json 
+=
+ 
+{
+
+                
+"dependencies"
+:
+ 
+{
+}
+,
+
+                
+"devDependencies"
+:
+ 
+{
+}
+
+            
+}
+
+            
+            
+for
+ dep 
+in
+ dependencies
+[
+"node"
+]
+:
+
+                
+if
+ 
+"eslint"
+ 
+in
+ dep 
+or
+ 
+"prettier"
+ 
+in
+ dep
+:
+
+                    package_json
+[
+"devDependencies"
+]
+[
+dep
+.
+split
+(
+"@"
+)
+[
+0
+]
+]
+ 
+=
+ dep
+.
+split
+(
+"@"
+)
+[
+-
+1
+]
+
+                
+else
+:
+
+                    name 
+=
+ dep
+.
+split
+(
+"@"
+)
+[
+0
+]
+ 
+if
+ 
+"@"
+ 
+in
+ dep 
+else
+ dep
+                    version 
+=
+ dep
+.
+split
+(
+"@"
+)
+[
+-
+1
+]
+ 
+if
+ 
+"@"
+ 
+in
+ dep 
+else
+ 
+"latest"
+
+                    package_json
+[
+"dependencies"
+]
+[
+name
+]
+ 
+=
+ version
+            
+            Path
+(
+project_path
+,
+ 
+"package.json"
+)
+.
+write_text
+(
+
+                json
+.
+dumps
+(
+package_json
+,
+ indent
+=
+2
+)
+
+            
+)
+
+            
+            result 
+=
+ subprocess
+.
+run
+(
+
+                
+[
+"npm"
+,
+ 
+"install"
+]
+,
+
+                cwd
+=
+project_path
+,
+
+                capture_output
+=
+True
+,
+
+                text
+=
+True
+
+            
+)
+
+            
+            
+if
+ result
+.
+returncode 
+==
+ 
+0
+:
+
+                logs
+.
+append
+(
+"Node dependencies installed"
+)
+
+            
+else
+:
+
+                logs
+.
+append
+(
+f"Node install failed: 
+{
+result
+.
+stderr
+}
+"
+)
+
+        
+        
+return
+ logs
+    
+    
+async
+ 
+def
+ 
+check_vulnerabilities
+(
+self
+,
+ project_path
+:
+ 
+str
+)
+ 
+-
+>
+ List
+[
+Dict
+[
+str
+,
+ Any
+]
+]
+:
+
+        
+"""Check for vulnerable dependencies."""
+
+        vulnerabilities 
+=
+ 
+[
+]
+
+        
+        
+# Check Python dependencies
+
+        
+if
+ Path
+(
+project_path
+,
+ 
+"requirements.txt"
+)
+.
+exists
+(
+)
+:
+
+            
+# This would use safety or similar in production
+
+            
+pass
+
+        
+        
+# Check Node dependencies
+
+        
+if
+ Path
+(
+project_path
+,
+ 
+"package.json"
+)
+.
+exists
+(
+)
+:
+
+            result 
+=
+ subprocess
+.
+run
+(
+
+                
+[
+"npm"
+,
+ 
+"audit"
+,
+ 
+"--json"
+]
+,
+
+                cwd
+=
+project_path
+,
+
+                capture_output
+=
+True
+,
+
+                text
+=
+True
+
+            
+)
+
+            
+            
+if
+ result
+.
+returncode 
+!=
+ 
+0
+:
+
+                
+try
+:
+
+                    audit_data 
+=
+ json
+.
+loads
+(
+result
+.
+stdout
+)
+
+                    vulnerabilities
+.
+extend
+(
+audit_data
+.
+get
+(
+"vulnerabilities"
+,
+ 
+[
+]
+)
+)
+
+                
+except
+:
+
+                    
+pass
+
+        
+        
+return
+ vulnerabilities
+
+
+### tools/lint_runner.py
+
+```python
+
+import
+ subprocess
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+
+class
+ 
+LintRunner
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+    
+    
+async
+ 
+def
+ 
+run_linter
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Run linter on file."""
+
+        path 
+=
+ Path
+(
+file_path
+)
+
+        
+        
+if
+ path
+.
+suffix 
+==
+ 
+".py"
+:
+
+            
+return
+ 
+await
+ self
+.
+_run_pylint
+(
+file_path
+)
+
+        
+elif
+ path
+.
+suffix 
+in
+ 
+[
+".js"
+,
+ 
+".jsx"
+,
+ 
+".ts"
+,
+ 
+".tsx"
+]
+:
+
+            
+return
+ 
+await
+ self
+.
+_run_eslint
+(
+file_path
+)
+
+        
+else
+:
+
+            
+return
+ 
+{
+"issues"
+:
+ 
+[
+]
+,
+ 
+"passed"
+:
+ 
+True
+}
+
+    
+    
+async
+ 
+def
+ 
+_run_pylint
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Run pylint on Python file."""
+
+        result 
+=
+ subprocess
+.
+run
+(
+
+            
+[
+"pylint"
+,
+ 
+"--output-format=json"
+,
+ file_path
+]
+,
+
+            capture_output
+=
+True
+,
+
+            text
+=
+True
+
+        
+)
+
+        
+        
+if
+ result
+.
+returncode 
+not
+ 
+in
+ 
+[
+0
+,
+ 
+4
+,
+ 
+8
+,
+ 
+16
+,
+ 
+32
+]
+:
+
+            
+# Parse JSON output
+
+            
+try
+:
+
+                issues 
+=
+ json
+.
+loads
+(
+result
+.
+stdout
+)
+
+                
+return
+ 
+{
+
+                    
+"issues"
+:
+ issues
+,
+
+                    
+"passed"
+:
+ 
+len
+(
+[
+i 
+for
+ i 
+in
+ issues 
+if
+ i
+[
+"type"
+]
+ 
+in
+ 
+[
+"error"
+,
+ 
+"fatal"
+]
+]
+)
+ 
+==
+ 
+0
+
+                
+}
+
+            
+except
+:
+
+                
+return
+ 
+{
+
+                    
+"issues"
+:
+ 
+[
+{
+"error"
+:
+ 
+"Failed to parse pylint output"
+}
+]
+,
+
+                    
+"passed"
+:
+ 
+False
+
+                
+}
+
+        
+        
+return
+ 
+{
+"issues"
+:
+ 
+[
+]
+,
+ 
+"passed"
+:
+ 
+True
+}
+
+    
+    
+async
+ 
+def
+ 
+_run_eslint
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ Dict
+[
+str
+,
+ Any
+]
+:
+
+        
+"""Run ESLint on JavaScript/TypeScript file."""
+
+        result 
+=
+ subprocess
+.
+run
+(
+
+            
+[
+"npx"
+,
+ 
+"eslint"
+,
+ 
+"--format=json"
+,
+ file_path
+]
+,
+
+            capture_output
+=
+True
+,
+
+            text
+=
+True
+
+        
+)
+
+        
+        
+try
+:
+
+            issues 
+=
+ json
+.
+loads
+(
+result
+.
+stdout
+)
+
+            
+return
+ 
+{
+
+                
+"issues"
+:
+ issues
+,
+
+                
+"passed"
+:
+ 
+len
+(
+issues
+)
+ 
+==
+ 
+0
+
+            
+}
+
+        
+except
+:
+
+            
+return
+ 
+{
+
+                
+"issues"
+:
+ 
+[
+{
+"error"
+:
+ 
+"Failed to parse eslint output"
+}
+]
+,
+
+                
+"passed"
+:
+ 
+False
+
+            
+}
+
+
+
+### tools/formatter.py
+
+```python
+
+import
+ subprocess
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+
+class
+ 
+Formatter
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+    
+    
+async
+ 
+def
+ 
+format_file
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Format a file."""
+
+        path 
+=
+ Path
+(
+file_path
+)
+
+        
+        
+if
+ path
+.
+suffix 
+==
+ 
+".py"
+:
+
+            
+return
+ 
+await
+ self
+.
+_format_python
+(
+file_path
+)
+
+        
+elif
+ path
+.
+suffix 
+in
+ 
+[
+".js"
+,
+ 
+".jsx"
+,
+ 
+".ts"
+,
+ 
+".tsx"
+]
+:
+
+            
+return
+ 
+await
+ self
+.
+_format_javascript
+(
+file_path
+)
+
+        
+else
+:
+
+            
+return
+ 
+False
+
+    
+    
+async
+ 
+def
+ 
+_format_python
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Format Python file with Black."""
+
+        result 
+=
+ subprocess
+.
+run
+(
+
+            
+[
+"black"
+,
+ 
+"--quiet"
+,
+ file_path
+]
+,
+
+            capture_output
+=
+True
+
+        
+)
+
+        
+        
+return
+ result
+.
+returncode 
+==
+ 
+0
+
+    
+    
+async
+ 
+def
+ 
+_format_javascript
+(
+self
+,
+ file_path
+:
+ 
+str
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Format JavaScript/TypeScript with Prettier."""
+
+        result 
+=
+ subprocess
+.
+run
+(
+
+            
+[
+"npx"
+,
+ 
+"prettier"
+,
+ 
+"--write"
+,
+ file_path
+]
+,
+
+            capture_output
+=
+True
+
+        
+)
+
+        
+        
+return
+ result
+.
+returncode 
+==
+ 
+0
+
+
+
+### tools/doc_generator.py
+
+```python
+
+import
+ json
+
+from
+ pathlib 
+import
+ Path
+
+from
+ typing 
+import
+ Dict
+,
+ List
+,
+ Any
+
+
+class
+ 
+DocGenerator
+:
+
+    
+def
+ 
+__init__
+(
+self
+,
+ config
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+:
+
+        self
+.
+config 
+=
+ config
+    
+    
+def
+ 
+generate_api_docs
+(
+self
+,
+ project_path
+:
+ 
+str
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Generate API documentation."""
+
+        
+# Would use Sphinx or similar for Python
+
+        
+# Would use JSDoc or similar for JavaScript
+
+        
+        docs_path 
+=
+ Path
+(
+project_path
+)
+ 
+/
+ 
+"docs"
+
+        docs_path
+.
+mkdir
+(
+parents
+=
+True
+,
+ exist_ok
+=
+True
+)
+
+        
+        
+# Generate OpenAPI spec if FastAPI
+
+        
+if
+ Path
+(
+project_path
+,
+ 
+"app"
+,
+ 
+"main.py"
+)
+.
+exists
+(
+)
+:
+
+            
+# Generate OpenAPI docs
+
+            
+pass
+
+        
+        
+return
+ 
+True
+
+    
+    
+def
+ 
+generate_readme
+(
+self
+,
+ project_path
+:
+ 
+str
+,
+ project_info
+:
+ Dict
+[
+str
+,
+ Any
+]
+)
+ 
+-
+>
+ 
+bool
+:
+
+        
+"""Generate README.md."""
+
+        readme_content 
+=
+ 
+f""
+"
+# {project_info.get('name', 'Project')}
+
+
+
+{
+project_info
+.
+get
+(
+'description'
+,
+ 
+'AI-generated web application'
+)
+}
+
+
+
+## Getting Started
+
+
+```bash
+
+# Install dependencies
+
+pip install 
+-
+r requirements
+.
+txt  
+# or npm install
+
+
+
+# Run development server
+
+python main
+.
+py  
+# or npm start
