@@ -1,0 +1,7 @@
+{
+    "name": "Flutter",
+    "install": "flutter pub get",
+    "run": "flutter run",
+    "build": "flutter build apk",
+    "test": "flutter test"
+}

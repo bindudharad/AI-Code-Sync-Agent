@@ -1,0 +1,7 @@
+{
+    "name": "Python",
+    "install": "pip install -r requirements.txt",
+    "run": "python main.py",
+    "build": "",
+    "test": "pytest"
+}

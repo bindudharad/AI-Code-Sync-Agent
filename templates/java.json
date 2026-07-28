@@ -1,0 +1,7 @@
+{
+    "name": "Java",
+    "install": "mvn install",
+    "run": "mvn spring-boot:run",
+    "build": "mvn clean install",
+    "test": "mvn test"
+}
