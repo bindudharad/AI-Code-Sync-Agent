@@ -1,0 +1,125 @@
+    gitignore_content = self._get_gitignore_template()
+    gitignore_file = base_path / ".gitignore"
+    await self.file_tool.write_file(str(gitignore_file), gitignore_content)
+    
+    # Initialize git repo
+    await self.command_runner.run_command(
+        ["git", "init"],
+        cwd=str(base_path)
+    )
+    
+    return {
+        "files": [str(readme_file), str(gitignore_file)]
+    }
+
+async def _setup_docker(self, goal) -> Dict[str, Any]:
+    """Setup Docker configuration."""
+    project_name = goal.context.get("project_name", "app")
+    base_path = Path(self.config["paths"]["projects_root"]) / project_name
+    
+    tech_stack = goal.analyzed_requirements.get("tech_stack", {})
+    
+    files = []
+    
+    # Dockerfile
+    if tech_stack.get("backend") == "fastapi":
+        dockerfile_content = self._get_fastapi_dockerfile()
+    else:
+        dockerfile_content = self._get_generic_dockerfile()
+    
+    dockerfile = base_path / "Dockerfile"
+    await self.file_tool.write_file(str(dockerfile), dockerfile_content)
+    files.append(str(dockerfile))
+    
+    # docker-compose.yml
+    compose_content = self._get_docker_compose_template(tech_stack)
+    compose_file = base_path / "docker-compose.yml"
+    await self.file_tool.write_file(str(compose_file), compose_content)
+    files.append(str(compose_file))
+    
+    return {"files": files}
+
+async def _setup_git(self, goal) -> Dict[str, Any]:
+    """Setup Git and create initial commit."""
+    project_name = goal.context.get("project_name", "app")
+    base_path = Path(self.config["paths"]["projects_root"]) / project_name
+    
+    # Add all files
+    await self.command_runner.run_command(
+        ["git", "add", "."],
+        cwd=str(base_path)
+    )
+    
+    # Initial commit
+    result = await self.command_runner.run_command(
+        ["git", "commit", "-m", "Initial commit by AutonomousAI"],
+        cwd=str(base_path)
+    )
+    
+    return {
+        "logs": [f"Git initial commit: {'success' if result.returncode == 0 else 'failed'}"]
+    }
+
+async def _setup_deployment(self, goal) -> Dict[str, Any]:
+    """Setup deployment configuration."""
+    project_name = goal.context.get("project_name", "app")
+    base_path = Path(self.config["paths"]["projects_root"]) / project_name
+    
+    # GitHub Actions workflow
+    workflow_content = self._get_github_workflow()
+    workflow_file = base_path / ".github" / "workflows" / "deploy.yml"
+    workflow_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    await self.file_tool.write_file(str(workflow_file), workflow_content)
+    
+    return {"files": [str(workflow_file)]}
+
+async def _install_dependencies(self, goal) -> Dict[str, Any]:
+    """Install project dependencies."""
+    project_name = goal.context.get("project_name", "app")
+    base_path = Path(self.config["paths"]["projects_root"]) / project_name
+    
+    tech_stack = goal.analyzed_requirements.get("tech_stack", {})
+    
+    logs = []
+    
+    # Install backend dependencies
+    if (base_path / "backend" / "requirements.txt").exists():
+        result = await self.command_runner.run_command(
+            ["pip", "install", "-r", "requirements.txt"],
+            cwd=str(base_path / "backend")
+        )
+        logs.append(f"Backend dependencies: {'installed' if result.returncode == 0 else 'failed'}")
+    
+    # Install frontend dependencies
+    if (base_path / "frontend" / "package.json").exists():
+        result = await self.command_runner.run_command(
+            ["npm", "install"],
+            cwd=str(base_path / "frontend")
+        )
+        logs.append(f"Frontend dependencies: {'installed' if result.returncode == 0 else 'failed'}")
+    
+    return {"logs": logs}
+
+async def _run_generic_devops(self, task, goal) -> Dict[str, Any]:
+    """Run generic DevOps commands."""
+    # Parse command from task description
+    import re
+    
+    command_match = re.search(r'run\s+(.+)', task.description.lower())
+    if command_match:
+        command = command_match.group(1).split()
+        
+        project_name = goal.context.get("project_name", "app")
+        base_path = Path(self.config["paths"]["projects_root"]) / project_name
+        
+        result = await self.command_runner.run_command(command, cwd=str(base_path))
+        
+        return {
+            "logs": [f"Command '{' '.join(command)}': {'success' if result.returncode == 0 else 'failed'}"]
+        }
+    
+    return {"logs": ["No command specified"]}
+
+def _get_gitignore_template(self) -> str:
+    return '''# Dependencies

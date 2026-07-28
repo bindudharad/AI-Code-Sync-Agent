@@ -1,0 +1,12 @@
+      requirements.get("features", []),
+      requirements.get("user_flows", [])
+  )
+  
+  # Save API contracts
+  project_name = goal.context.get("project_name", "app")
+  api_file = Path(self.config["paths"]["projects_root"]) / project_name / "docs" / "api.json"
+  
+  api_file.parent.mkdir(parents=True, exist_ok=True)
+  await self.file_tool.write_file(str(api_file), json.dumps(api_contracts, indent=2))
+  
+  return {"files": [str(api_file)]}
