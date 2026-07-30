@@ -1,0 +1,5 @@
+ 
+ return {
+     "files": [str(template_file)],
+     "logs": ["✅ Created reusable prompt templates"]
+ }
